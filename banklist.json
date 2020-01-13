@@ -1,0 +1,1102 @@
+[
+    {
+        "model": "directapp.BankReference",
+        "pk": 1,
+        "fields": {
+            "name": "招商银行  (China Merchants Bank)",
+            "country": "CN"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 2,
+        "fields": {
+            "name": "中国农业银行 (Agricultural Bank of China)",
+            "country": "CN"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 3,
+        "fields": {
+            "name": "中国银行 (Bank of China)",
+            "country": "CN"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 4,
+        "fields": {
+            "name": "交通银行 (Bank of Communications)",
+            "country": "CN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 5,
+        "fields": {
+            "name": "中信银行 (China CITIC Bank)",
+            "country": "CN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 6,
+        "fields": {
+            "name": "中国建设银行 (China Construction Bank)",
+            "country": "CN"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 7,
+        "fields": {
+            "name": "中国工商银行/工行 (Industrial and Commercial Bank of China)",
+            "country": "CN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 8,
+        "fields": {
+            "name": "中国邮政储蓄银行 (Postal Savings Bank of China)",
+            "country": "CN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 9,
+        "fields": {
+            "name": "Bank Central Asia",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 10,
+        "fields": {
+            "name": "Bank Rakyat Indonesia",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 11,
+        "fields": {
+            "name": "Bank Mandiri",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 12,
+        "fields": {
+            "name": "Bank Negara Indonesia",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 13,
+        "fields": {
+            "name": "Bank Tabungan Negara",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 14,
+        "fields": {
+            "name": "Bank Syariah Mandiri",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 15,
+        "fields": {
+            "name": "Bank CIMB Niaga",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 16,
+        "fields": {
+            "name": "Bank Permata",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 17,
+        "fields": {
+            "name": "Bank DBS Indonesia",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 18,
+        "fields": {
+            "name": "Bank KEB Hana Indonesia",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 19,
+        "fields": {
+            "name": "Bank Rabobank International Indonesia",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 20,
+        "fields": {
+            "name": "Bank HSBC Indonesia",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 21,
+        "fields": {
+            "name": "Bank Bukopin",
+            "country": "ID"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 22,
+        "fields": {
+            "name": "UOB",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 23,
+        "fields": {
+            "name": "Affin Bank",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 24,
+        "fields": {
+            "name": "Standard Chartered",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 25,
+        "fields": {
+            "name": "HSBC",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 26,
+        "fields": {
+            "name": "Bank Islam",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 27,
+        "fields": {
+            "name": "BSN",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 28,
+        "fields": {
+            "name": "Maybank",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 29,
+        "fields": {
+            "name": "CIMB",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 30,
+        "fields": {
+            "name": "Public Bank Berhad",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 31,
+        "fields": {
+            "name": "RHB Bank",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 32,
+        "fields": {
+            "name": "Hong Leong Bank",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 33,
+        "fields": {
+            "name": "Alliance Bank",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 34,
+        "fields": {
+            "name": "Ambank",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 35,
+        "fields": {
+            "name": "Bank Rakyat",
+            "country": "MY"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 36,
+        "fields": {
+            "name": "National Australia Bank Limited (NAB)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 37,
+        "fields": {
+            "name": "Australia and New Zealand Banking Group Limited (ANZ)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 38,
+        "fields": {
+            "name": "Westpac Banking Corporation (WBC)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 39,
+        "fields": {
+            "name": "Commonwealth Bank of Australia (CBA)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 40,
+        "fields": {
+            "name": "Macquarie Bank Limited (MBL)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 41,
+        "fields": {
+            "name": "Bank of Queensland Limited (BOQ)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 42,
+        "fields": {
+            "name": "Bankwest (A Division of Commonwealth Bank of Australia)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 43,
+        "fields": {
+            "name": "St George Bank (A Division of Westpac Banking Corporation)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 44,
+        "fields": {
+            "name": "Suncorp-Metway Ltd (Suncorp)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 45,
+        "fields": {
+            "name": "Bendigo Bank (A Division of Bendigo and Adelaide Bank Limited)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 46,
+        "fields": {
+            "name": "Adelaide Bank (A Division of Bendigo and Adelaide Bank Limited)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 47,
+        "fields": {
+            "name": "Bank of Melbourne (A Division of Westpac Banking Corporation)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 48,
+        "fields": {
+            "name": "Bank of South Australia (A Division of Westpac Banking Corporation)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 49,
+        "fields": {
+            "name": "Rural Bank (A Division of Bendigo and Adelaide Bank Limited)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 50,
+        "fields": {
+            "name": "HSBC Bank Australia Limited (HSBC)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 51,
+        "fields": {
+            "name": "Citigroup Pty Limited",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 52,
+        "fields": {
+            "name": "Bank of China (Australia)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 53,
+        "fields": {
+            "name": "Cooperatieve Rabobank U.A. (Australia)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 54,
+        "fields": {
+            "name": "U Bank (A division of National Australia Bank Limited)",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 55,
+        "fields": {
+            "name": "ING Bank (Australia) Limited",
+            "country": "AU"
+        } 
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 56,
+        "fields": {
+            "name": "OCBC",
+            "country": "MY"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 57,
+        "fields": {
+            "name": "Vietinbank",
+            "country": "VN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 58,
+        "fields": {
+            "name": "Vietcombank",
+            "country": "VN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 59,
+        "fields": {
+            "name": "Sacombank",
+            "country": "VN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 60,
+        "fields": {
+            "name": "Citibank",
+            "country": "VN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 61,
+        "fields": {
+            "name": "HSBC Bank",
+            "country": "VN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 62,
+        "fields": {
+            "name": "VP Bank",
+            "country": "VN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 63,
+        "fields": {
+            "name": "BIDV",
+            "country": "VN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 64,
+        "fields": {
+            "name": "Eximbank",
+            "country": "VN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 65,
+        "fields": {
+            "name": "Agribank",
+            "country": "VN"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 66,
+        "fields": {
+            "name": "Access Bank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 67,
+        "fields": {
+            "name": "Citibank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 68,
+        "fields": {
+            "name": "Diamond Bank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 69,
+        "fields": {
+            "name": "Eco Bank",
+            "country": "NG"
+        }
+    },    
+    {
+
+        "model": "directapp.BankReference",
+        "pk": 70,
+        "fields": {
+            "name": "Fidelity Bank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 71,
+        "fields": {
+            "name": "First Bank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 72,
+        "fields": {
+            "name": "First City Monument Bank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 73,
+        "fields": {
+            "name": "Guarantee Trust Bank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 74,
+        "fields": {
+            "name": "Heritage Bank PLC",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 75,
+        "fields": {
+            "name": "Keystone Bank Limited",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 76,
+        "fields": {
+            "name": "Polaris Bank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 77,
+        "fields": {
+            "name": "Stanbic IBTC Bank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 78,
+        "fields": {
+            "name": "Sterling Bank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 79,
+        "fields": {
+            "name": "Union Bank of Nigerian",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 80,
+        "fields": {
+            "name": "United Bank for Africa",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 81,
+        "fields": {
+            "name": "Wema Bank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 82,
+        "fields": {
+            "name": "Zenith Bank",
+            "country": "NG"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 83,
+        "fields": {
+            "name": "Zenith Bank Ghana",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 84,
+        "fields": {
+            "name": "GT Bank",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 85,
+        "fields": {
+            "name": "Stanchart Bank",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 86,
+        "fields": {
+            "name": "Stanbic Bank",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 87,
+        "fields": {
+            "name": "Barclays Bank",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 88,
+        "fields": {
+            "name": "Ecobank Ghana",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 89,
+        "fields": {
+            "name": "Consolidated Bank",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 90,
+        "fields": {
+            "name": "United Bank for Africa (UBA Ghana)",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 91,
+        "fields": {
+            "name": "Societe Générale Ghana",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 92,
+        "fields": {
+            "name": "Fidelity Bank",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 93,
+        "fields": {
+            "name": "MTN Mobile Money",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 94,
+        "fields": {
+            "name": "Vodafone Cash",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 95,
+        "fields": {
+            "name": "Airtel-Money",
+            "country": "GH"
+        }
+    },    
+    {
+        "model": "directapp.BankReference",
+        "pk": 97,
+        "fields": {
+            "name": "Standard Bank",
+            "country": "ZA"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 98,
+        "fields": {
+            "name": "Absa Barclay's",
+            "country": "ZA"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 99,
+        "fields": {
+            "name": "First National Bank (FNB)",
+            "country": "ZA"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 100,
+        "fields": {
+            "name": "Capitec Bank",
+            "country": "ZA"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 101,
+        "fields": {
+            "name": "Investec",
+            "country": "ZA"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 102,
+        "fields": {
+            "name": "Nedbank",
+            "country": "ZA"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 103,
+        "fields": {
+            "name": "M-pesa",
+            "country": "TZ"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 104,
+        "fields": {
+            "name": "Tigo Pesa",
+            "country": "TZ"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 105,
+        "fields": {
+            "name": "Airtel Money",
+            "country": "TZ"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 106,
+        "fields": {
+            "name": "Halopesa",
+            "country": "TZ"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 107,
+        "fields": {
+            "name": "T-pesa",
+            "country": "TZ"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 108,
+        "fields": {
+            "name": "CRDB Bank",
+            "country": "TZ"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 109,
+        "fields": {
+            "name": "NMB Bank",
+            "country": "TZ"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 110,
+        "fields": {
+            "name": "Equity Bank",
+            "country": "TZ"
+        }
+    },
+    {
+        "model": "directapp.BankReference",
+        "pk": 111,
+        "fields": {
+            "name": "PT Bank Maybank Indonesia",
+            "country": "ID"
+        }
+    },
+    
+    {
+        "model": "directapp.BankReference",
+        "pk": 112,
+        "fields": {
+            "name": "Orange Money",
+            "country": "BW"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 113,
+        "fields": {
+            "name": "My Zaka",
+            "country": "BW"
+        }
+    },
+    
+    {
+        "model": "directapp.BankReference",
+        "pk": 114,
+        "fields": {
+            "name": "First National Bank",
+            "country": "BW"
+        }
+    },
+   
+    {
+        "model": "directapp.BankReference",
+        "pk": 115,
+        "fields": {
+            "name": "Standard Chartered Bank",
+            "country": "BW"
+        }
+    },
+ 
+    {
+        "model": "directapp.BankReference",
+        "pk": 116,
+        "fields": {
+            "name": "Barclays",
+            "country": "BW"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 117,
+        "fields": {
+            "name": "First Capital Bank",
+            "country": "BW"
+        }
+    },
+     
+    {
+        "model": "directapp.BankReference",
+        "pk": 118,
+        "fields": {
+            "name": "Stanbic Bank",
+            "country": "BW"
+        }
+    },  
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 119,
+        "fields": {
+            "name": "Bank of Baroda",
+            "country": "BW"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 120,
+        "fields": {
+            "name": "Bank Gaborone",
+            "country": "BW"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 121,
+        "fields": {
+            "name": "Bank ABC",
+            "country": "BW"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 122,
+        "fields": {
+            "name": "Bank of India",
+            "country": "BW"
+        }
+    },      
+
+    { 
+        "model": "directapp.BankReference",
+        "pk": 123,
+        "fields": {
+            "name": "BTN Syariah",
+            "country": "ID"
+        }
+    },
+    
+     {
+        "model": "directapp.BankReference",
+        "pk": 124,
+        "fields": {
+            "name": "Coinsph",
+            "country": "PH"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 125,
+        "fields": {
+            "name": "Abra",
+            "country": "PH"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 126,
+        "fields": {
+            "name": "Gcash",
+            "country": "PH"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 127,
+        "fields": {
+            "name": "Smart Money",
+            "country": "PH"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 128,
+        "fields": {
+            "name": "Paymaya",
+            "country": "PH"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 129,
+        "fields": {
+            "name": "Metrobank",
+            "country": "PH"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 130,
+        "fields": {
+            "name": "BDO",
+            "country": "PH"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 131,
+        "fields": {
+            "name": "LandBank",
+            "country": "PH"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 132,
+        "fields": {
+            "name": "BPI",
+            "country": "PH"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 133,
+        "fields": {
+            "name": "RCBC",
+            "country": "PH"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 134,
+        "fields": {
+            "name": "ChinaBank",
+            "country": "PH"
+        }
+    },
+
+    {
+        "model": "directapp.BankReference",
+        "pk": 135,
+        "fields": {
+            "name": "PNB",
+            "country": "PH"
+        }
+    } 
+       
+]
