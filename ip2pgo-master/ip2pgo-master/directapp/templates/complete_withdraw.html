@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load i18n %}
+{% if address %}
+<h6><strong>{% trans "Completed!" %}</strong></h6>
+<p>
+{{ complete_message }}
+</p>
+
+{% elif not address %}
+<h6><strong>{% trans "Completed!" %}</strong></h6>
+<p>
+{{ complete_message }}
+</p>
+<p>
+  <input type="text" class="text-warning form-control" id="myInput" style="background-color:#000000; font-size:11px; border:none" value={{ tx_hash }}>
+</p>
+<p>
+  <input onclick="CopyPaste()" class="btn btn-success btn-sm" style="width:300px; border-radius: 15px;" type="submit" name="copy" value={% trans "Copy" %}>
+</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "adminbase.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+{% if not done %}
+<script>
+window.scroll(0, document.documentElement.scrollHeight);
+
+var source = new EventSource("/app/{{ country }}/chat_message/None/{{ admin_name }}/{{ offer_id }}");
+var last_message = '';
+source.onmessage = function(event) {
+    if(last_message != event.data){
+        last_message = event.data;
+        document.getElementById("chatbox").innerHTML += event.data + "<br>";
+        window.scroll(0, document.documentElement.scrollHeight);
+    }
+};
+</script>
+
+{% endif %}
+<nav class="navbar navbar-dark fixed-top" style="background-color:#000000; margin-top:50px">
+<a class="navbar-brand" href="#">
+{% if 'help' not in offer_id %}
+  <span class="text-warning">{% trans "Dispute Chat Offer ID" %} #{{ offer_id }}</span>
+  {% trans "Buyer:" %} {{ buyer }}
+  {% if buyer == taker %}
+    (Taker)
+  {% endif %}
+  |
+  {% trans "Seller:" %} {{ seller }}
+  {% if seller == taker %}
+    (Taker)
+  {% endif %}
+  |
+  {% trans "Trade Amount:" %} {{ amount }}{{ token }}
+  |
+  {% trans "Trade Value:" %} {{ currency }}{{ fiat }}
+{% else %}
+  <span class="text-warning">{% trans "Support Chat" %}</span>
+
+{% endif %}
+</a>
+</nav>
+
+<div id="chatbox" style="margin-top: 120px; margin-bottom: 60px;" class="text-white text-left">
+{% for chat in chats %}
+  {% if admin_name == chat.talker %}
+    <strong class="text-warning">{{ chat.talker }}</strong>:
+  {% elif chat.talker == 'System' %}
+    <em>{{ chat.talker }}:</em> 
+  {% else %}
+    <strong class="text-secondary">{{ chat.talker }}</strong>: 
+  {% endif %}
+  {% if chat.talker == 'System' %}
+    <em>{{ chat.message }}</em><br>
+  {% else %}
+    {{ chat.message }}<br>
+  {% endif %}
+{% endfor %}
+</div>
+
+<nav class="navbar navbar-dark fixed-bottom justify-content-center" style="background-color:#000000; border-top:3px solid green">
+<form id= "disputeform" class="form-inline" method="post">
+{% csrf_token %}
+{% render_field form.message class="form-control form-control-sm" style="margin-left:15px; width:300px" id="message" %}
+<input type="submit" class="btn btn-sm bg-warning text-body font-weight-bold" style="border-radius:15px" name="send" value={% trans "Send" %}>
+{% if 'help' not in offer_id %}
+<a href="{% url "chat_admin" country admin_name offer_id %}">
+  <img src="{% static "logo/refreshingsm.png" %}" width="30px" style="margin-left:10px; margin-right:15px">
+</a>
+
+{% if maker_doc_approve %}
+  <a href="{% url 'verify' country admin_name offer_id maker %}" class="btn btn-success btn-sm" style="border-radius:15px">{% trans "Maker Screenshot" %}</a>
+  <button class="btn btn-success btn-sm" style="border-radius:15px">✔</button>
+{% elif maker_doc %}
+  <a href="{% url 'verify' country admin_name offer_id maker %}" class="btn btn-info btn-sm" style="border-radius:15px">{% trans "Maker Screenshot" %}</a>
+  <button class="btn btn-danger btn-sm" style="border-radius:15px">✘</button>
+{% else %}
+  <button class="btn btn-secondary btn-sm" style="border-radius:15px" disabled>{% trans "No Screenshot" %}</button>
+  <button class="btn btn-danger btn-sm" style="border-radius:15px">✘</button>
+{% endif %}
+|
+{% if taker_doc_approve %}
+  <a href="{% url 'verify' country admin_name offer_id taker %}" class="btn btn-success btn-sm" style="border-radius:15px">{% trans "Taker Screenshot" %}</a>
+  <button class="btn btn-success btn-sm" style="border-radius:15px">✔</button>
+{% elif taker_doc %}
+  <a href="{% url 'verify' country admin_name offer_id taker %}" class="btn btn-info btn-sm" style="border-radius:15px">{% trans "Taker Screenshot" %}</a>
+  <button class="btn btn-danger btn-sm" style="border-radius:15px">✘</button>
+{% else %}
+  <button class="btn btn-secondary btn-sm" style="border-radius:15px" disabled>{% trans "No Screenshot" %}</button>
+  <button class="btn btn-danger btn-sm" style="border-radius:15px">✘</button>
+{% endif %}
+
+<a href="{% url 'dispute' country admin_name %}" class="btn btn-sm bg-success text-body font-weight-bold" style="border-radius:15px; size:50px; background-color:green; margin-left:25px;">{% trans "Exit Chat" %}</a> 
+
+{% if done %}
+  <input type="submit" class="btn btn-sm btn-primary text-white font-weight-bold" style="margin-left:25px;" name="release" value="{% trans "Release "|add:token %}" disabled>
+  <input type="submit" class="btn btn-sm btn-danger text-white font-weight-bold" style="margin-left:25px;" name="cancel" value="{% trans "Cancel Trade" %}" disabled>
+{% else %}
+  <input type="submit" class="btn btn-sm btn-primary text-white font-weight-bold" style="margin-left:25px;" name="release" value="{% trans "Release "|add:token %}">
+  <input type="submit" class="btn btn-sm btn-danger text-white font-weight-bold" style="margin-left:25px;" name="cancel" value="{% trans "Cancel Trade" %}">
+{% endif %}
+
+{% endif %}
+</form>
+</nav>
+
+{% endblock %}

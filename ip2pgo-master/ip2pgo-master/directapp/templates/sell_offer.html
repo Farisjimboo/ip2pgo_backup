@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container" align="center">
+  {% if edit %}
+  <h6><strong>{% trans "Edit Sell Offer "|add:offer_id %}</strong></h6><br>
+  {% else %}
+  <h6><strong>{% trans "Create Sell Offer" %}</strong></h6><br>
+  {% endif %}
+    <form method ="post" align="center">
+    {% csrf_token %}
+
+         <span style="color:#FFFFFF">1{{ token }}{% trans "/USD Spot Ask Price " %}:{{ ask_offer }}</span><br>
+         {% if crypto == 'FIAT' %}
+         <span style="color:#FFFFFF">1{{ token }}/{{ currency }} {% trans "Spot Ask Price :" %}{{ price }} </span><br><br>
+         {% else %}
+          <span style="color:#FFFFFF">1{{ token }}/{{ crypto }} {% trans "Spot Ask Price :" %}{{ price }} </span><br><br>
+        {% endif %} 
+         <span class="lbl3">{% trans "1. Set your offer spread below or above market Ask Price" %}</span><br><br>
+         <input type="hidden" id="bill" value="{{ price }}" step="0.01" required/>
+            {% if country == 'id' %}
+            <input onchange="PriceSliderSellID(this.value,'bill')" type="range" class="custom-range" min="-100" max="100" value="0" step="1" name="rangesell" required/>
+            {% elif country == 'vn' %}
+            <input onchange="PriceSliderSellVN(this.value,'bill')" type="range" class="custom-range" min="-100" max="100" value="0" step="1" name="rangesell" required/>
+            {% elif country == 'ng' %}
+            <input onchange="PriceSliderSellNG(this.value,'bill')" type="range" class="custom-range" min="-100" max="100" value="0" step="1" name="rangesell" required/>
+            {% else %}
+            <input onchange="PriceSliderSell(this.value,'bill')" type="range" class="custom-range" min="-100" max="100" value="0" step="1" name="rangesell" required/>
+            {% endif %}
+
+            <br>
+            <span name="rangesell"  id="slideval">0%</span><br>
+            
+            {% if crypto == 'FIAT' and token != 'GO' %}
+            <label>{% trans "Your Offer Price:" %} <span id="tip"> </span></label>
+            {% else %}
+            <span id="tip" style="color:black"> </span>
+            <label>{% trans "Your Offer Price:" %} <span id="tipotc"> </span></label>
+            {% endif %}
+            
+        <br>
+  <p>
+    {% if crypto == 'FIAT' %}
+    <span class="lbl3">{% blocktrans %}2. Set your floor price ({{ currency }})<br>(You can leave this empty if you want to):
+<br>*Floor price is the lowest price you are willing to sell
+{% endblocktrans %}</span><br><br>
+    {% else %}
+     <span class="lbl3">{% blocktrans %}2. Set your floor price ({{ crypto }})<br>(You can leave this empty if you want to):
+<br>*Floor price is the lowest price you are willing to sell
+{% endblocktrans %}</span><br><br>
+     {% endif %}
+    {% if crypto == 'FIAT' %}
+    {{ form.floor.label }} ({{ currency }})
+    {% else %}
+   {{ form.floor.label }} ({{ crypto }})
+   {% endif %}
+    {% render_field form.floor class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom:1px solid green; color:#FFFF00" %}<br>
+  </p>
+  <br>
+  <p>
+    <span class="lbl3">{% blocktrans %}3. Set the maximum amount of {{ token }} you want to sell {% endblocktrans %}</span><br><br>
+    {{ form.maximum.label }}
+    {% render_field form.maximum class="form-control form-control-sm" onkeypress="validate(event)"  style="background-color:#000000; border:none; border-bottom:1px solid green; color:#FFFF00" %}<br>
+    </p>
+    <br>
+    <p>
+    <span class="lbl3">{% blocktrans %}4. Set the minimum amount of {{ token }} you want to sell<br>*You can set the same amount as the maximum {% endblocktrans %}</span><br><br>
+    {{ form.minimum.label }}
+    {% render_field form.minimum class="form-control form-control-sm" onkeypress="validate(event)" style="background-color:#000000; border:none; border-bottom:1px solid green; color:#FFFF00" %}
+  </p>
+   <br>
+{% if crypto == 'FIAT' %}
+  <p> 
+   <span class="lbl3">{% trans "5. Set your payment window" %}</span><br><br>
+   {{ form.payment_window.label }}
+    {% render_field form.payment_window class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom:1px solid green; color:#FFFF00" %}
+   </p>
+   <br>
+{% endif %}
+ {% if not edit %}
+  {% if user.verified == True %}
+   <p>
+   {{ form.verified.label }}
+    {% render_field form.verified  style="list-style:none; color:#FFFF00"%}
+   </p>
+  {% endif %}
+   <br>
+{% endif %}
+   
+  {% if edit %}
+  <p><input class="btn btn-success btn-sm" style="color:#000000; width:300px; font-weight:bold" type="submit" name="edit" value={% trans "Update" %}></p>
+  <p><input class="btn btn-sm btn-danger" style="width:300px; font-weight:bold" type="submit" name="cancel" value={% trans "Remove" %}></p>
+  {% else %}
+  <p><input class="btn btn-success btn-sm" style="color:#000000; width:300px;font-weight:bold" type="submit" name="create" value={% trans "Create" %}></p>
+  {% endif %}
+</form>
+</div>
+
+{% endblock %}

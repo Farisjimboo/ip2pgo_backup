@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load i18n %}
+<h6><strong>{% trans "Ooops!" %}</strong></h6>
+<p>
+{{ process_message }}
+</p>
+<p>
+{% if no_wallet %}
+<a href="{% url 'create_wallet' country token security_code crypto %}" class="btn btn-success btn-sm" style="width:300px; border-radius:15px; font-weight:bold">{% trans "Create Wallet" %}</a>
+{% endif %}
+</p>
+{% endblock %}

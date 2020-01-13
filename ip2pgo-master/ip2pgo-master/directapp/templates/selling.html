@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="row">
+  <div class="col text-left">
+    <h6><strong>{% trans "Buy Offer" %} #{{ offer_id }}</strong></h6>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <p>{{ seller }}</p>
+  </div>
+  <div class="col">
+    <p>{% trans "Offer Price/ 1" %}{{ token }}</p>
+   </div>
+  <div class="col">
+    {% if crypto == 'FIAT' %}
+    <p style="color:#FFFFFF">{{ offer_price }} {{ currency }}</p>
+    {% else %}
+    <p style="color:#FFFFFF">{{ offer_price }} {{ crypto }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <p>{{ rating }}</p>
+  </div>
+  <div class="col">
+    <p>{% trans "Offer Amount" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ minimum.normalize }} - {{ maximum.normalize }}</p>
+  </div>
+</div>
+
+{% if crypto == 'FIAT' %}
+<div class="row">
+  <div class="col-4 text-left">
+    <p>{% trans "Bank" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ bank_name }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4 text-left">
+    <p>{% trans "Bank Account Number" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ bank_account }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4 text-left">
+    <p>{% trans "Bank Account Holder Name" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ holder_name }}</p>
+  </div>
+</div>
+
+{% if country == 'au' %}
+
+<div class="row">
+  <div class="col-4 text-left">
+    <p>BSB</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ bsb }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4 text-left">
+    <p>Pay ID / Osko</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ payid }}</p>
+  </div>
+</div>
+{% endif %}
+
+<div class="row">
+  <div class="col-4 text-left">
+    <p>{% trans "Payment Window" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ payment_window }} {% trans "minutes" %}</p>
+  </div>
+</div>
+{% endif %}
+<div class="row">
+  <div class="col">
+    <form method="post">
+    {% csrf_token %}
+      <input type="hidden" value="{{ offer_price }}" id="offer">
+      <input type="hidden" value="{{ fees }}" id="fees">
+      {{ form.amount.label }}<span class="text-warning">({{ token }})</span>
+      {% if country == 'id' %}
+      {% render_field form.amount class="form-control form-control-sm" onkeypress="validate(event)"  onkeyup="GetSellPricesID()" style="background-color:#000000; border:none; border-bottom:1px solid green; color:#FFFF00" id="amount" %}
+      {% elif country == 'vn' %}
+      {% render_field form.amount class="form-control form-control-sm" onkeypress="validate(event)"  onkeyup="GetSellPricesID()" style="background-color:#000000; border:none; border-bottom:1px solid green; color:#FFFF00" id="amount" %}
+      {% else %}
+      {% render_field form.amount class="form-control form-control-sm" onkeypress="validate(event)"  onkeyup="GetSellPrices()" style="background-color:#000000; border:none; border-bottom:1px solid green; color:#FFFF00" id="amount" %}
+      {% endif %}
+      <br>
+      <p>
+        {% trans "Amount to be received:" %} 
+        <span class="text-warning">
+        {% if crypto == 'FIAT' %}
+        {{ currency }}<input type="text" id="fiat" name="fiat" class="text-warning" style="background-color:#000000; border:none">
+        {% else %}
+        <input type="text" id="fiat" name="fiat" class="text-warning" style="background-color:#000000; border:none"> {{ crypto }}
+        {% endif %}
+        </span>
+      </p>
+     
+
+      <p>
+        {% trans "Minimum amount you should have in your iP2PGO wallet before this trade:" %} 
+        <span class="text-warning">
+        {% if crypto == 'FIAT' %}
+        {% if token != 'GO' %}
+        <input type="text" id="token" name="token" class="text-warning" style="background-color:#000000; border:none">{{ token }}
+        {% else %}
+         <input type="hidden" id="token" name="token" class="text-warning" style="background-color:#000000; border:none" >
+        <input type="text" id="tokengo" name="tokengo" class="text-warning" style="background-color:#000000; border:none" >{{ token }}
+        {% endif %}
+        {% elif crypto == 'GO' %}
+        <input type="hidden" id="token" name="token" class="text-warning" style="background-color:#000000; border:none" >
+        <input type="text" id="tokengo" name="tokengo" class="text-warning" style="background-color:#000000; border:none" >{{ token }}
+        {% elif crypto == 'TUSD' or crypto == 'ETH' %}
+        <input type="hidden" id="token" name="token" class="text-warning" style="background-color:#000000; border:none" >
+        <input type="hidden" id="tokengo" name="tokengo" class="text-warning" style="background-color:#000000; border:none" >
+        <input type="text" id="tokentusd" name="tokentusd" class="text-warning" style="background-color:#000000; border:none" >{{ token }}
+        {% endif %}
+        </span><br>
+        <span style="color:#FFFFFF; font-size:10px">
+         {% trans " * Please note that this is a safe estimation. The actual cost will be deducted during the trade, which may vary slightly from this estimation." %}
+        </span>
+      </p>
+      <p>
+        <input type="submit" class="btn btn-sm bg-danger" style="width:300px;color:#FFFFFF; font-weight:bold" value={% trans "SELL" %}> 
+      </p>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+

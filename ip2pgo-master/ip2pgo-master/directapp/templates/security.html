@@ -1,0 +1,29 @@
+{% extends 'loginbase.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+
+
+
+
+
+<br><br><br>
+<div class = "container" align="center">
+<form method ="post" align="center">
+<img src="{% static "img/email_logo.png" %}"  width="180" height="150"><br>
+ <label style="color: #FFFF00">{% trans "Please check your email mailbox for the login security code in a few minutes. If you waited for too long, please check your spam inbox folder." %}</label><br><br>
+ {% csrf_token %}
+ {% for form_item in security_form %}
+            {{ form_item.label }}
+            {% render_field form_item class="form-control text-success" style="background-color:#000000; border:none; border-bottom: 1px solid green;" %}
+
+        {% endfor %}
+       <br>
+         <p><input class="btn-success" style="border-radius: 30px; border: none; height:50px;width:150px; font-weight:bold" type="submit" name="login" value="{% trans "Login" %}"></p>
+   </form>
+</div>
+
+
+
+{% endblock %}

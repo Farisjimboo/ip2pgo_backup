@@ -1,0 +1,65 @@
+{% extends 'loginbase.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+<script>
+window.scroll(0, document.documentElement.scrollHeight);
+
+var source = new EventSource("{% url 'chat_message' country token security_code offer_id crypto %}");
+var last_message = '';
+source.onmessage = function(event) {
+    if(last_message != event.data){
+        last_message = event.data;
+        document.getElementById("chatbox").innerHTML += event.data + "<br>";
+        window.scroll(0, document.documentElement.scrollHeight);
+    }
+};
+</script>
+
+<nav class="navbar navbar-dark fixed-top" style="background-color:#000000; margin-top:-10px">
+  <a class="navbar-brand" href="#">
+  {% if 'help' in offer_id %}
+    <span class="text-warning" >{% trans "Public Support Channel" %}</span>
+  {% else %}
+    <span class="text-warning" >{% trans "Dispute Chat Offer" %} #{{ offer_id }}</span>
+  {% endif %}
+  </a>
+</nav>
+
+<div class="text-left mt-5" style="margin-bottom:100px" id="chatbox">
+{% for chat in chats %}
+  {% if username == chat.talker %}
+    <strong class="text-warning">{{ chat.talker }}</strong>:
+  {% elif chat.talker == 'System' %}
+    <em>{{ chat.talker }}:</em> 
+  {% else %}
+    <strong class="text-secondary">{{ chat.talker }}</strong>: 
+  {% endif %}
+  {% if chat.talker == 'System' %}
+    <em>{{ chat.message }}</em><br>
+  {% else %}
+    {{ chat.message }}<br>
+  {% endif %}
+{% endfor %}
+</div>
+
+<nav class="navbar navbar-dark fixed-bottom justify-content-center" style="background-color:#000000; border-top:3px solid green">
+<form class="form-inline" method="post">
+{% csrf_token %}
+{% render_field form.message class="form-control form-control-sm mb-1" id="message" width="300px" %}<br>
+<input type="submit" class="btn btn-sm bg-warning text-body font-weight-bold" style="width:180px" name="send" value={% trans "Send" %}>
+{% if 'help' not in offer_id %}
+<a class="text-warning ml-4" style="font-size:9px" href={% url 'dispute' country token security_code offer_id crypto %}>
+<img class="img_logo2" src="{% static 'logo/upload-interface-symbol.png' %}"><br>
+<span class="txt_wallet">{% trans "Upload" %}</span>
+</a>
+{% endif %}
+<a class="text-warning ml-4" style="font-size:9px" href={% url 'mainpage' country token security_code crypto %}>
+<img class="img_logo2" src="{% static 'logo/logout.png' %}" ><br>
+<span class="txt_wallet">{% trans "Exit" %}</span>
+</a>
+</form>
+</nav>
+
+{% endblock %}

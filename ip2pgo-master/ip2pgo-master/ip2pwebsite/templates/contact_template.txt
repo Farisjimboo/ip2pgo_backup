@@ -1,0 +1,8 @@
+Name:
+{{ name }}
+
+Email:
+{{ from_email }}
+
+Message:
+{{ form_message|safe|striptags }}

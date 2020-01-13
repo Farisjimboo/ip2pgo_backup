@@ -1,0 +1,133 @@
+{% extends "base2.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<section id="services">
+
+   	<div class="overlay"></div>
+   	<div class="gradient-overlay"></div>
+   	
+   	<div class="row narrow section-intro with-bottom-sep animate-this">
+   		<div class="col-full">
+   			
+   				<h2 style="font-size:30px; letter-spacing: 6px;  word-spacing: 5px;" >{% trans "MARKET PLACE FEATURES" %}</h2>
+   			
+   	   </div> <!-- end col-full -->
+   	</div> <!-- end row -->
+
+   	<div class="row services-content">
+
+   		<div class="services-list block-1-1 block-tab-full group">
+
+	      	<div class="bgrid service-item animate-this">	
+
+	      		    <img width="100px" height="100px" src="{% static "images/marketplace/Transaction.png"%}" >	        
+
+	            <div class="services-content">
+	            	<h2 class="h05">{% trans "Transactions Fees" %}</h2>
+
+		            <p style="text-align:center;font-size:17px;word-spacing:2px; letter-spacing: 2px;line-height: normal;"> {% trans "For crypto/fiat pairing, takers are charged a fee of 0.80% on the value of the transaction + Gas. Makers are not charged any fee. Fees will be deducted from the ETH or the ERC20 tokens which are the subject of the transaction. For crypto/crypto pairing, taker fee is 0.20% and maker fee is 0.1% on the value of the transaction + Gas.  Withdrawal fee is 0.005 ETH for verified users and 0.01 ETH for unverified users, there is no deposit fee. " %}</p>	         		
+	         	</div> 	         	 
+
+			</div> <!-- end bgrid -->
+
+				<div class="bgrid service-item animate-this">	
+
+					<img width="100px" height="100px" src="{% static "images/marketplace/trading.png"%}" >	                            
+
+	            <div class="services-content">	
+	            	<h2 class="h05"> {% trans "Trading Times" %}</h2>  
+
+		            <p style="text-align:center;font-size:17px;word-spacing:2px; letter-spacing: 2px;line-height: normal;">{% trans "Trading on the marketplace is opened 24/7, however support and arbitration desk will only be available from 8 am to 6 pm (Beijing/Kuala Lumpur time). Any support or arbitration request after 6 pm will be processed on the following day." %} </p>	         		
+	            </div>	                          
+
+			   </div> <!-- end bgrid -->
+
+			   <div class="bgrid service-item animate-this">
+                                    
+			   	<img width="100px" height="100px" src="{% static "images/marketplace/arbi.png"%}" >	   		            
+
+	            <div class="services-content">
+	            	<h2 class="h05">{% trans "Arbitration" %}</h2>
+
+		            <p style="text-align:center;font-size:17px;word-spacing:2px; letter-spacing: 2px;line-height: normal;"> {% trans "In the case of trade dispute, the escrow smart contract will lock the crypto which is the subject of the trade. The administrator will then start the arbitration process between the buyer and seller. "%}
+	        			</p>
+	            </div> 	            	               
+
+			   </div> <!-- end bgrid -->
+
+				<div class="bgrid service-item animate-this">
+                                     
+					<img width="100px" height="100px" src="{% static "images/marketplace/aml.png"%}" >	   	              
+
+	            <div class="services-content">
+	            	<h2 class="h05">{% trans "AML/KYC" %}</h2>
+
+		            <p style="text-align:center;font-size:18px;word-spacing:2px; letter-spacing: 2px;line-height: normal;">{% trans "Verified Users will have to complete a simple yet comprehensive AML & KYC process before creating a wallet." %}
+	         		</p>	         		
+	            </div>                
+
+				</div> <!-- end bgrid -->		
+
+                 <div class="bgrid service-item animate-this">
+                                            
+					<img width="100px" height="100px" src="{% static "images/marketplace/minimum.png"%}" >	   	                                           
+
+	            <div class="services-content">
+	            	<h2 class="h05">{% trans "Minimum Transaction" %}</h2>
+
+		            <p style="text-align:center;font-size:18px;word-spacing:2px; letter-spacing: 2px;line-height: normal;">{% trans "Minimum transaction amount is 0.1 ETH or equivalent in ERC20 tokens value." %}
+	         		</p>	         		
+	            </div>                
+
+				</div>
+
+                <div class="bgrid service-item animate-this">
+                                             
+					<img width="100px" height="100px" src="{% static "images/marketplace/timing.png"%}" >	   	                                         
+
+	            <div class="services-content">
+	            	<h2 class="h05">{% trans "Transaction Timing" %}</h2>
+
+		            <p style="text-align:center;font-size:18px;word-spacing:2px; letter-spacing: 2px;line-height: normal;">{% trans "Makers can choose 15 minutes or 30 minutes where transactions must be concluded by Takers." %}
+	         		</p>	         		
+	            </div>                
+
+				</div> 
+
+                <div class="bgrid service-item animate-this">
+
+					<img width="100px" height="100px" src="{% static "images/marketplace/referral.png"%}" >	   	              
+
+	            <div class="services-content">
+	            	<h2 class="h05">{% trans "Referral Program" %}</h2>
+
+		            <p style="text-align:center;font-size:18px;word-spacing:2px; letter-spacing: 2px;line-height: normal;">{% trans "The referral program is opened to any users, The referral program offers a 9 level commissions of 10% (1st level), 6% (2nd level) and 2% (3rd - 9th level) on the transaction fee that iP2PGO earns on every successful transaction." %}
+	         		</p>	         		
+	            </div> 
+             
+                <br><br>
+{% if request.path == '/en-us/' %}
+            <button style="background-color:#00FF00; width:240px;text-align:left; padding-left:9px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+            {% elif request.path == '/id/' %}
+           <button style="background-color:#00FF00; width:225px;text-align:left; padding-left:23px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style
+="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+          {% elif request.path == '/zh-hans/' %}
+            <button style="background-color:#00FF00; width:150px;text-align:left; padding-left:20px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; width:150px;text-align:left; padding-left:20px;font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+           {% elif request.path == '/vi/' %}
+           <button style="background-color:#00FF00; width:250px;text-align:left; padding-left:9px; font-size:12px; font-weight:bold" type="submit" name="register" value
+={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style=
+"height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; width:250px; text-align:left; padding-left:6px; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+            {% endif %}
+		</div> <!-- end bgrid -->					
+
+	      </div> <!-- end services-list -->
+   		
+   	</div> <!-- end services-content -->   			
+
+</section> 
+{% endblock %}

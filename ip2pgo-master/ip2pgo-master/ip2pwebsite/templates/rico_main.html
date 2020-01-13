@@ -1,0 +1,104 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+<script>
+var countDownDate = new Date("June 1, 2019 00:00:00").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+    
+  var distance = countDownDate - now;
+    
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  document.getElementById("countdown").innerHTML = days + "Days " + hours + "Hours "
+  + minutes + "Mins " + seconds + "Secs";
+    
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "!";
+  }
+}, 1000);
+</script>
+
+  <div class="overlay"></div>
+  <div c<img style="margin-right:30px" width="300px" height="300px" src={% static "img/tree.PNG" %} >lass="gradient-overlay"></div>
+  <div class="row narrow section-intro with-bottom-sep animate-this">
+    <div class="col-full">
+      <h3 style="color:#00FF00;font-size:30px; letter-spacing: 6px;  word-spacing: 5px;margin-top:150px" >{% trans "IP2PGO REVERSE ICO" %}</h3><br><br>
+       <img style="margin-right:30px" width="300px" height="300px" src={% static "img/tree.PNG" %} >
+       <h5 style="color:#00FF00;font-size:30px; letter-spacing: 6px;  word-spacing: 5px;margin-top:40px" >{% trans "REVERSE ICO STARTS NOW, 50% Bonus ends in:" %}</h5>
+        <span id="countdown" style="color:#FFFFFF;font-size:20px; letter-spacing: 6px;  word-spacing: 5px;margin-top:80px" >
+    </div>
+  </div> <!-- end services-content -->
+        <div align="center">
+        <a href="{% url "ricologin" %}" class="btn" style="background-color:#00FF00; color:black; width:700px; height:40px; font-size:18px; font-weight: bold" role="button">{%trans "SUBSCRIBE NOW / JOIN REFERRAL PROGRAM" %}</a>
+           <br> <br><br>
+        <h3>
+          <a href="{% static "IP2PGO_token_whitepaper_V1.5.pdf" %}" class="text-white">DOWNLOAD WHITEPAPER</a>
+        </h3><br><br>
+        <a style="color:#00FF00" href="{% url 'rico_termsheet' %}">Reverse ICO Terms & Conditions</a><br><br>
+  <div class="row">
+  <div class="col-12">
+  <div class="table-responsive-lg">
+
+ <a style="color:#FFFFFF;font-size:20px; letter-spacing: 1px;  word-spacing: 5px;margin-top:150px" >BONUS PROGRAM</a><br>
+<table class="table table-dark table-striped" style="border:none">
+
+<tr>
+<th style="border:1px solid white">1st May 2019 - 31st May 2019</th>
+<th style="border:1px solid white">1st June 2019 - 30th June 2019</th>
+<th style="border:1px solid white">1st July 2019 - 31st July 2019</th>
+<tr>
+<td style="border:1px solid white">50%</td>
+<td style="border:1px solid white">20%</td>
+<td style="border:1px solid white">10%</td>
+</tr>
+</table> 
+</div></div>
+<div class="col-12">
+<br>
+  <div class="table-responsive-lg">
+   <a style="color:#FFFFFF;font-size:20px; letter-spacing: 1px;  word-spacing: 5px;margin-top:150px" >{% trans "REFERRAL PROGRAM" %}</a><br>
+   <a style="color:#FFFFFF;font-size:18px; letter-spacing: 1px;  word-spacing: 5px;margin-top:150px" >{% trans "10% bonus GO Token for every successful referral" %}</a>
+<br><br><br></div></div>
+</div>   
+        <a style="color:#FFFF00;font-size:15px; letter-spacing: 1px;  word-spacing: 5px;margin-top:150px" >{% trans "As featured in:" %}</a><br>
+      <a href="https://www.initialcoinlist.com/ico/ip2pgo-token/"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/initial.jpeg" %} ></a>
+         <a href="https://icolink.com/ico-ip2pgo.html"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/link.png" %} ></a>
+         <a href="https://www.trackico.io/ico/ip2pgo-token/"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/track.jpeg" %} ></a>
+         <a href="https://icopicker.io/ip-2-pgo-token-ico-review"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/picker.jpg" %} ></a>
+       <a href="https://www.coinhills.com/ico/view/ip2pgo/"><img style="margin-right:30px" width="70px" height="70px" src={% static "img/coinhills.jpeg" %} ></a>
+
+      <a href="https://icobazaar.com/v2/ip2pgo-token"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/baazar.jpg" %} ></a>
+         <a href="https://icoholder.com/en/ip2pgo-token-29111"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/icoholder.jpg" %} ></a>
+         <a href="https://www.icochamps.com/ico/IP2PGO%20Token"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/champs.png" %} ></a>
+         <a href="https://baserank.io/profile/ip2pgo-token-go"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/rank.jpg" %} ></a>
+         <a href="https://cryptototem.com/ip2pgo-go-ico/"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/cryptotem.png" %} ></a>
+         <a href="https://www.prlog.org/12766809-ip2pgo-an-escrow-p2p-marketplace-is-launching-its-reverse-ico-on-1st-may-2019.html"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/prlog.jpg" %} ></a>
+       <a href="https://coinworldstory.com/ip2pgo-token-ico-review-ip2pgo-app-is-an-escrow-p2p-marketplace/"><img style="margin-right:30px" width="70px" height="70px" src={% static "img/worldstory.jpg" %} ></a>
+    <a href="https://www.icoonboard.com/icodetail/IP2PGO%20token"><img style="margin-right:30px" width="70px" height="70px" src={% static "img/ico_onboard.jpg" %} ></a>
+        <a href="https://awesomeicos.com/icos/5220"><img style="margin-right:30px" width="70px" height="70px" src={% static "img/awesome_ico.jpg" %} ></a>
+        <a href="https://investfuture.ru/ico/ip2pgo-token"><img style="margin-right:30px" width="70px" height="70px" src={% static "img/investfuture.jpg" %} ></a>
+       
+</br><br><br><br>
+
+
+
+
+        <a style="color:#FFFF00;font-size:15px; letter-spacing: 1px;  word-spacing: 5px;margin-top:150px" >{% trans "IP2PGO Token is listed on:" %}</a><br>
+       <a href="https://www.coinchangex.com/#!/trade/GO-ETH"> <img style="margin-right:30px" width="140px" height="100px" src={% static "img/changex.png" %} ></a>
+        <a href="{% url 'register_country' %}"> <img style="margin-right:30px" width="60px" height="60px" src={% static "images/logo.png" %} ></a>
+        <a href="{% url 'country' %}"> <img style="margin-right:30px" width="80px" height="80px" src={% static "icon/logo_web.PNG" %} ></a>
+        <a href="https://tokenmom.com/exchange/GO-WETH"> <img style="margin-right:30px" width="140px" height="100px" src={% static "img/tokenmom.png" %} ></a>
+        </div>
+      
+
+{% include "footer.html" %}
+{% endblock %}

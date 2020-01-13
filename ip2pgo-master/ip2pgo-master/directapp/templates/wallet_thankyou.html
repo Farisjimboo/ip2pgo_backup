@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+<p>
+<h6><strong>{% trans "Thank You." %}</strong></h6>
+</p>
+<br>
+<p>
+{% trans "Please wait for verification by our admin." %}<br>
+{% trans "You will be notified via e-mail once your wallet is created." %}
+</p>
+
+{% endblock %}

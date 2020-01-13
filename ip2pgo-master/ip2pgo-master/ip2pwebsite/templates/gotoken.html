@@ -1,0 +1,19 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+    {% include "header.html" %}
+
+   <section id="services">
+
+
+                <h3 style="text-align:center; margin-top:200px;padding-bottom:50px; font-size:30px; color:#00FF00;">{% trans "IP2PGO TOKEN SLIDE DECK" %}</h3>
+                       <h2 style=" text-align:center; color:#FFFFFF; font-size:20px;" >{% trans "Please click this icon below to download the IP2PGO Token Guideline." %}</h2>
+                           <br>
+                         <a href="{% static "IP2PGO_token_SlideDeck_V2.pdf" %}" download>
+                         <img style="margin-left: auto;margin-right: auto;display: block;" width="100px" height="100px" src="{% static "icon/download_yellow.png" %}">
+                         </a>
+
+   </section> <!-- end home -->
+{% include "footer.html" %}
+{% endblock %}

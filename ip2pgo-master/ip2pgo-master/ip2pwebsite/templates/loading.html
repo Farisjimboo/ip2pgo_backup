@@ -1,0 +1,34 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+<section id="services">
+        <div class="overlay"></div>
+        <div class="gradient-overlay"></div>
+
+        <div class="row narrow section-intro with-bottom-sep animate-this">
+                <div class="col-full">
+
+                <br><br><br><br><br><br>
+<span style="color:#ffffff">
+{% trans "Thank you for registering on to iP2PGO. The download link for the APK is as follows:" %}
+</span>
+<p>
+<a href="http://{{ dlurl }}" style="color:#FFFF00">
+{{ dlurl }}
+</a>
+</p>
+                <br><br>
+
+               <h2 style="font-size:23px; color:#FFFFFF; " >{% trans "The download link is also sent to your email for future reference. Please check your inbox." %}</h2>
+
+
+            </div>
+        </div> <!-- end services-content -->
+
+
+</section>
+{% include "footer.html" %}
+{% endblock %}
+

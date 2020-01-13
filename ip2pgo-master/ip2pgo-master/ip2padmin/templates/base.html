@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html lang="EN">
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP2PGO</title>
+
+  <link rel="stylesheet" href="{% static 'bootstrap/css/4.1.3/bootstrap.min.css' %}">
+
+  <script type="text/javascript" src="{% static 'js/jquery/3.3.1/jquery.min.js' %}"></script>
+
+  <script src="{% static 'cloudflare/ajax/libs/popper.js/1.14.3/umd/popper.min.js' %}"></script>
+
+  <script src="{% static 'bootstrap/4.1.3/js/bootstrap.min.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'cloudflare/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+
+
+ <body style="color:#91DC5B; background-color:white">
+ <center>
+      <div class="container">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col-md-6" id="content">
+            {{ message }}
+            {% block content %}
+            {% endblock %}
+          </div>
+          <div class="col"></div>
+        </div>
+      </div>
+    </center>
+</body>
+</html>

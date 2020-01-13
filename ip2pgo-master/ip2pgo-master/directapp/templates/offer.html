@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+                   
+                  <div class="container">
+                      <br><br>
+                      <h3>{% trans "Offer" %}</h3><br>
+                      <div id="card">
+                      <table>
+
+                      <thead>
+                        <tr>
+                            <th>{% trans "Type" %} </th>
+                            <th>{%trans  "Price" %} </th>
+                            <th> {% trans "Min Amount" %} </th>
+                            <th>{% trans "Max Amount" %}  </th>
+                            <th>{% trans  "Payment Method" %} </th>
+                            <th>{% trans  "Location" %} </th>
+                            <th>{% trans "Payment Window" %} </th>
+
+
+                        </tr>
+                       </thead>
+                       <tbody>
+                        <tr>
+                       <td data-label="Type">{% trans "Buy" %}</td>
+                        <td data-label="Price">2742/ETH</td>
+                        <td data-label="Min Amount">0.1000000 ETH</td>
+                        <td data-label="Max Amount">1.1000000 ETH</td>
+                        <td data-label="Payment Method">{% trans "Bank Transfer" %}</td>
+                        <td data-label="Location">{% trans "Malaysia" %}</td>
+                        <td data-label="Payment Window">{% trans "15m" %}</td>
+                        </tr>
+
+                       </tbody>
+                    </table>
+                    </div>
+                    </div>
+
+                    <a href="#" class="btn btn-default">{% trans "Edit" %}</a>
+                    <a href="#" class="btn btn-primary">{% trans "Disable" %}</a>
+                    <a href="#" class="btn btn-danger">{% trans "Delete" %}</a>
+                    </div>
+               
+                             
+
+
+
+{% endblock %}

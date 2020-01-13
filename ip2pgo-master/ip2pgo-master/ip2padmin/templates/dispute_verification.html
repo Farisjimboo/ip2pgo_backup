@@ -1,0 +1,31 @@
+{% extends "adminbase.html" %}
+{% load widget_tweaks %}
+{% load i18n %}
+{% block content %}
+{% if approved %}
+<br><br><br>
+<h3>{% trans "Approved" %}</h3>
+{% endif %}
+<br><br>
+<p>
+{% trans "Bank Name:" %} {{ user.bank_name }}<br>
+{% trans "Bank Account:" %} {{ user.bank_account }}<br>
+{% trans "Bank Holder Name:" %} {{ user.bank_holder }}<br>
+</p>
+<p>
+<img class="img-fluid" width="50%" src="/media/{{ screenshot }}">
+</p>
+{{ screenshot }}
+<form method="POST">
+{% csrf_token %}
+{% if approved %}
+<input type="submit" name="approve" class="btn btn-success" value={% trans "Approve" %} disabled>
+<input type="submit" name="deny" class="btn btn-danger" value={% trans "Deny" %} disabled>
+{% else %}
+<input type="submit" name="approve" class="btn btn-success" value={% trans "Approve" %}>
+<input type="submit" name="deny" class="btn btn-danger" value={% trans "Deny" %}>
+{% endif %}
+</form>
+<br><br>
+<a href="{% url 'chat_admin' country admin_name offer_id %}" class="btn btn-sm btn-block btn-success">{% trans "BACK" %}</a>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+<div class="home-content-table">
+    <div class="home-content-tablecell">
+      <div class="row">          
+ <h3 style="margin-top:40px;padding-bottom:50px; color:#00FF00;">{% trans "Reverse ICO Termsheet" %}</h3>
+	  <table style="border: 1px solid black; width: 100%; word-wrap:break-word;table-layout: fixed;">
+          <tr>
+          <td style="font-weight:bold">{% trans "Item" %}</td>
+          <td style="font-weight:bold">{% trans "Description" %}</td>
+          </tr>
+          <tr>
+          <td style="width:30%">{% trans "Issuer" %}</td>
+          <td style="width:70%">{% trans "iP2PGO" %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Name of Token" %}</td>
+          <td>{% trans "iP2PGO Token" %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Token Code" %}</td>
+          <td>{% trans "GO" %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Token Address" %}</td>
+          <td>{% trans "https://etherscan.io/token/0x8a5f4d2ef1b51c35c25a29723481661011d94912" %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Token Description" %}</td>
+          <td>{% trans "IP2PGO or GO token is a community token for members of iP2PGO platform." %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Amount of GO token available for sale" %}</td>
+          <td>{% trans "200,000,000 GO" %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Reverse ICO Price" %}</td>
+          <td>{% trans "1 ETH = 15,000 GO " %}<p>{% trans "1GO = 0.0000666667 ETH " %}</p></td>
+          </tr>
+          <tr>
+          <td>{% trans "Soft-cap/Hard-cap" %}</td>
+          <td>{% trans " 1,333.33 ETH / 13,333.33 ETH " %}</td>
+          </tr>
+           <tr>
+          <td>{% trans "Start Date of Reverse ICO" %}</td>
+          <td>{% trans " 1st May 2019 " %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "End Date of Reverse ICO " %}</td>
+          <td>{% trans " 31st July 2019 " %}</td>
+          </tr>
+          <tr>
+          <tr>
+          <td>{% trans "Bonus Program" %}</td>
+          <td> {% blocktrans %}<p>  i) 50% bonus token for subscription during 1st May 2019 - 31st May 2019, subject to a maximum subscription of 100,000,000 GO for that month </p><p>ii) 20% bonus token for subscription during 1st June 2019 - 30th June 2019, subject to a maximum subscription of 50,000,000 GO for that month. 
+ii  </p><p> ii) 10% bonus token for subscription during 1st July 2019 - 31st July 2019, subject to a maximum subscription of 50,000,000 GO for that month. </p><p> If the maximum subscription number is achieved during the stated month, the next bonus level will starts. If the maximum subscription number is not achieved during the stated month, the bonus level will ends there and won’t be carry over to the following month.</p><p>* Bonus token will be distributed not later than 14 days from the end of the Reverse ICO. </p>{% endblocktrans %}</td>
+</tr>
+          <tr>
+       </table>
+</div>
+</div>
+</div>
+
+{% include "footer.html" %}
+{% endblock %}

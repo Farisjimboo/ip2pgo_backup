@@ -1,0 +1,17 @@
+{% extends 'loginbase.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+
+<br><br><br>
+<p>
+  <img src="{% static "images/logo.png" %}"  width="200" height="200">
+</p>
+<p>
+<label style="color: #FFFF00">{% trans "The page you looking for is not found at server, please go back to previous page. If still have the problem please contact support" %}</label>
+</p>
+
+
+{% endblock %}
+~                 

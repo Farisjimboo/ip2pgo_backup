@@ -1,0 +1,26 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+    {% include "header.html" %}
+
+   <section id="services">
+
+                <h2 style="text-align:center; margin-top:200px;padding-bottom:50px; color:#00FF00;">{% trans "IP2PGO USER GUIDE OTC TRADES " %}</h2>
+                       <h2 style=" text-align:center; color:#FFFFFF; font-size:20px;" >{% trans "Please click this icon below to download the IP2PGO User Guide OTC Trades. " %}</h2>
+                           <br>
+                        {% if request.path == '/en-us/otc_userguide' %}
+                         <a href="{% static "userguide/IP2PGO_User_Guide_OTC_Trades.pptx" %}" download>
+                         {% elif request.path == '/id/otc_userguide' %}
+                         <a href="{% static "userguide/IP2PGO_User_Guide_OTC_Trades-Indonesia.pdf" %}" download>
+                         {% elif request.path == '/vi/otc_userguide' %}
+                         <a href="{% static "userguide/IP2PGO_User_Guide_OTC_Trades.pptx" %}" download>
+                         {% elif request.path == '/zh-hans/otc_userguide' %}
+                         <a href="{% static "userguide/IP2PGO_User_Guide_OTC_Trades.pptx" %}" download>
+                         {% endif %}
+                         <img style="margin-left: auto;margin-right: auto;display: block;" width="100px" height="100px" src="{% static "userguide.ico" %}">
+                         </a>
+
+   </section> <!-- end home -->
+{% include "footer.html" %}
+{% endblock %}

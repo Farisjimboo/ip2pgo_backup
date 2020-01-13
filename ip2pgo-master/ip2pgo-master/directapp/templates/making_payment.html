@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<br>
+<div class="container">
+<i>Time left to Pay</i>
+<h2 style="color:red">15:00</h2>
+<br>
+   <a href="#" class="btn btn-primary">I Have Paid</a>
+   <a href="#" class="btn btn-danger">Cancel Trade</a>
+   <a href="#" class="btn btn-warning">Dispute</a>
+
+
+
+
+</div>
+
+
+<div class="container">
+<br><br>
+   <div > 
+    <div class="table-responsive">
+    <label>Sellers Bank Account Details</label>
+    <div id="card">
+    <table>
+    
+          <thead>
+                        <tr>
+                            <th> Bank Name </th>
+                            <th> Bank Account Number </th>
+                            <th> Bank Account Holder Name </th>
+                            <th> Transaction Reference </th>
+                       
+                         </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                       <td data-label="Bank Name">Maybank</td>
+                        <td data-label="Bank Account Number">514600235612</td>
+                        <td data-label="Bank Account Holder Name">Wen Wenjing</td>
+                        <td data-label="Transaction Reference">SM312567899</td>
+                        </tr>
+
+
+
+
+
+        </tbody>
+</table>
+</div>
+</div>
+
+
+<br><br>
+    <div class="table-responsive"> 
+           <label>Transacion Details</label> 
+      <div id="card">  
+        <table>
+             <thead>
+                        <tr>
+                            <th> MYR Need To Pay </th>
+                            <th> Transaction Amount </th>
+                            <th> Transaction Fee </th>
+                            <th> Transaction Time  </th>
+                            <th> Fx Rate</th>
+                            <th> Offer Rate </th>
+                            <th> Offer ID </th>
+
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                       <td data-label="MYR Need To Pay">MYR 2850 </td>
+                        <td data-label="Transaction Amount">1.0000000 ETH</td>
+                        <td data-label="Transaction Fee">0.003 ETH</td>
+                        <td data-label="Transaction Time">SM3125674899</td>
+                        <td data-label="FX Rate">3.9782</td>
+                        <td data-label="Offer Rate">716.40</td>
+                        <td data-label="Offer ID">123456789</td>
+                        </tr>
+
+
+
+
+
+
+        </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}
+

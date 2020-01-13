@@ -1,0 +1,12 @@
+{% load widget_tweaks %}
+{% load i18n %}
+<form action="/" method="post">
+  {% csrf_token %}
+    {% for register in registration_form %}
+    <div class="form-group">
+      {{ register.label }}
+      {% render_field register class="form-control" %}
+    </div>
+    {% endfor %}
+    <p><input type="submit" class="btn btn-success col" name="register" value={% trans "Register" %} /></p>
+</form>

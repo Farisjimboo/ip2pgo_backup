@@ -1,0 +1,21 @@
+{% load static %}
+{% load i18n %}
+<nav class="navbar navbar-dark fixed-top justify-content-center" style="background-color:#000000; margin-top:50px; margin-bottom:0px; border-bottom:2px solid yellow">
+  <ul class="nav">
+    <li class="nav-item">
+      {% if 'list' in request.path %}
+      <span class="nav-link" style="color:#FFFFFF"><strong>{% trans "Wallet Creation" %}</strong></span>
+      {% else %}
+      <a class="nav-link" href="{% url 'list' country admin_name %}" style="color:#91DC5B"><strong>{% trans "Wallet Creation" %}</strong></a>
+      {% endif %}
+    </li>
+    <li class="nav-item">
+      {% if 'dispute' in request.path %}
+      <span class="nav-link" style="color:#FFFFFF"><strong>{% trans "Dispute" %}</strong></span>
+      {% else %}
+      <a class="nav-link" href="{% url 'dispute' country admin_name %}" style="color:#91DC5B"><strong>{% trans "Dispute" %}</strong></a>
+      {% endif %}
+    </li>
+    </li>
+  </ul>
+</nav>

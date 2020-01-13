@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html lang="EN">
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP2PGO</title>
+
+  <link rel="stylesheet" href="{% static 'bootstrap/css/4.1.3/bootstrap.min.css' %}">
+
+  <script type="text/javascript" src="{% static 'js/jquery/3.3.1/jquery.min.js' %}"></script>
+
+  <script src="{% static 'cloudflare/ajax/libs/popper.js/1.14.3/umd/popper.min.js' %}"></script>
+
+  <script src="{% static 'bootstrap/4.1.3/js/bootstrap.min.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'cloudflare/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+   <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+<script>
+
+{% if chat %}
+
+
+//var auto_refresh = setInterval(
+//function () {;
+  //  $('#divload').html(newcontent);
+//}, 3000)
+
+// setInterval("my_function();",6000); 
+  //  function my_function(){
+    //  $('#divload').load('{% url 'chat' country token security_code offer_id crypto %}');
+    
+//}
+
+
+function Reload() {
+       $('#divload').load('{% url 'chat' country token security_code offer_id crypto %}');
+}
+
+function ReloadPage() {
+       $('#divload').load('{% url 'chat' country token security_code offer_id crypto %}');
+} 
+
+
+{% endif %}
+
+function validate(evt) {
+  var theEvent = evt || window.event;
+
+  // Handle paste
+  if (theEvent.type === 'paste') {
+      key = event.clipboardData.getData('text/plain');
+  } else {
+  // Handle key press
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode(key);
+  }
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+  }
+</script>
+
+
+ <body style="color:#FFFFFF; background-color:black">   
+ <center>
+      <div class="container">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col-md-6" id="content">
+            {% if message %} 
+              {{ message }}
+            {% endif %}
+            {% block content %}
+            {% endblock %}
+          </div>
+          <div class="col">
+        </div>
+        </div>
+      </div>
+    </center>
+</body>
+
+</html>

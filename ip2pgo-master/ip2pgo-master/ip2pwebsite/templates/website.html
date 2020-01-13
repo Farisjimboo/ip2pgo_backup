@@ -1,0 +1,69 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+<br><br>
+<!-- include notice here -->
+<div style="padding-top:110px;">
+<section id="services">
+<script>
+    var i =0;
+    var images = [];
+    var time = 3000;
+
+     {% if request.path == '/en-us/' %}
+    images[0] = '{% static "images/carouselImage/gotokenposter.jpg" %}';
+   // images[1] = '{% static "images/carouselImage/swap_market-en.jpg" %}';
+    //images[2] = '{% static "images/carouselImage/web-en.jpg" %}';
+    {% elif request.path == '/id/' %}
+    images[0] = '{% static "images/carouselImage/carousel_iso.jpg" %}';
+    //images[1] = '{% static "images/carouselImage/swap_market-en.jpg" %}';
+    //images[2] = '{% static "images/carouselImage/web-id.jpg" %}';
+    {% elif request.path == '/zh-hans/' %}
+    images[0] = '{% static "images/carouselImage/carousel_iso.jpg" %}';
+    //images[1] = '{% static "images/carouselImage/swap_market-cn.jpg" %}';
+    //images[2] = '{% static "images/carouselImage/web-cn.jpg" %}';
+    {% elif request.path == '/vi/' %}
+    images[0] = '{% static "images/carouselImage/carousel_iso.jpg" %}';
+    //images[1] = '{% static "images/carouselImage/swap_market-vi.jpg" %}';
+    //images[2] = '{% static "images/carouselImage/web-vi.jpg" %}';
+    {% endif %}
+
+    function changeImg(){
+      document.slide.src = images[i];
+
+      if(i < images.length - 1){
+        i++;
+
+
+      } else {
+       i = 0;
+     }
+
+   setTimeout("changeImg()", time);
+
+}
+
+  window.onload = changeImg;
+</script>
+<!--
+<a href="{% url 'rico_main' %}" class="btn " style="background-color:#FFFF00; color:black; width:180px; height:50px; font-size:14px; font-weight: bold" role="button">{% trans "Reverse ICO Page <br> (CLICK HERE)" %}</a>
+-->
+<img style="width:70%;display: block;margin-left: auto;margin-right: auto;margin-bottom:-50px" name = "slide" >
+</section>
+</div>
+    {% include "intro.html" %}
+
+    {% include "ip2pgo.html" %}
+
+    {% include "marketplace.html" %}
+
+     {% include "securityfeatures.html" %}
+
+    {% include "features.html" %}
+
+    {% include "about.html" %}
+
+    {% include "footer.html" %}                
+{% endblock %}

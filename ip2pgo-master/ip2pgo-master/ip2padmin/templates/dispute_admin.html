@@ -1,0 +1,83 @@
+{% extends "adminbase.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+
+<br><br><br>
+</div><br>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color : grey;
+    color :  black;
+    font-size : 12pt;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 2px solid black;
+}
+
+tr:nth-child(even){background-color: grey}
+
+th {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+
+</style>
+<div class="container">
+<h3 align="center" style="color:grey">{% trans "Dispute" %}</h3><br><br>
+</div>
+<br>
+<div class = "container">
+<label style="font-size:15pt">{{ message }}</label>
+<table id="customers">
+<form method = "POST">
+{% csrf_token %}
+  <tr>
+    <th style="width:150px">{% trans "Offer ID" %}</th>
+    <th style="width:150px">{% trans "Start Dispute" %}</th> 
+    <th style="width:150px">{% trans "End Dispute" %}</th>
+    <th style="width:150px">{% trans "Taker Payment Screenshot" %}</th>
+    <th style="width:150px" >{% trans "Taker Verification" %}</th>
+    <th style="width:180px">{% trans "Maker Transaction History" %} </th>
+    <th style="width:150px" >{% trans "Maker Verification" %}</th>
+    <th style="width:150px">{% trans "Status" %}</th>
+    <th style="width:150px">{% trans "Verdict" %}</th>
+    <th style="width:150px">{% trans "Country" %}</th>
+    <th style="width:150px">{% trans "Admin Incharge" %}</th>
+
+  </tr>
+<form method="post">
+{% csrf_token %}
+{% for dispute in dispute_list %}
+  <tr>
+    <td>{{ dispute.offer_id }}</td>
+    <td>{{ dispute.start_dispute }} </td>
+    <td>{{ dispute.end_dispute }} </td>
+    <td><a href="/media/{{ dispute.taker_doc }}">{{ dispute.taker_doc }}</a></td>
+    <td style="color:black"><p><input class="btn btn-sm btn-block" style="background-color:#91DC5B; border-radius:10px; font-weight:bold" type="submit" name="taker_approve" value= " {{ dispute.offer_id }}"></p>
+    <p><input class="btn btn-sm btn-block" style="background-color:#91DC5B; border-radius:10px; font-weight:bold" type="submit" name="taker_deny" value= " {{ dispute.offer_id }}"></p></td>
+    <td><a href="/media/{{ dispute.maker_doc }}">{{ dispute.maker_doc }}</a></td>
+    <td style="color:black"><p><input class="btn btn-sm btn-block" style="background-color:#91DC5B; border-radius:10px; font-weight:bold" type="submit" name="maker_approve" value= " {{ dispute.offer_id }}"></p>
+    <p><input class="btn btn-sm btn-block" style="background-color:#91DC5B; border-radius:10px; font-weight:bold" type="submit" name="maker_deny" value= " {{ dispute.offer_id }}"></p></td>
+    <td style="color:black"><p><input class="btn btn-sm btn-block" style="background-color:#91DC5B; border-radius:10px; font-weight:bold" type="submit" name="approve" value= "{{ dispute.offer_id}} "></p></td>
+    <td>{{ dispute.status }} </td>
+    <td>{{ dispute.verdict }} </td>
+    <td>{{ dispute.country }} </td>
+    <td style="color:black"><p><input class="btn btn-sm btn-block" style="background-color:#91DC5B; border-radius:10px; font-weight:bold" type="submit" name="take" value= "{{ dispute.offer_id }}"></p></td>
+  </tr>
+{% endfor %}
+</form>
+</table>
+</form>
+</div>
+
+
+{% endblock %}
+

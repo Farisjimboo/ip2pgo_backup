@@ -1,0 +1,22 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block content %}
+{% include "header.html" %}
+<br><br>
+<div style="padding-top:110px;">
+<section id="services">
+ <div class="overlay"></div>
+   <div class="gradient-overlay"></div>
+     <div class="row narrow section-intro with-bottom-sep animate-this">
+       <div class="col-md-12" align="center">
+       <h2 style="font-size:30px; letter-spacing: 6px;  word-spacing: 5px;" >{% trans "CHOOSE YOUR APP" %}</h2> <br>
+       <button type="button" style="width:310px; height:60px; font-size:12px; color:#000000;" class="btn btn-warning" onclick="location.href='{% url 'login_otc' %}'"> {% blocktrans %}Global App <br>(crypto/crypto market)  {% endblocktrans %}</button>
+       <button type="button" style="width:310px; height:60px;font-size:12px; color:#000000;"class="btn btn-warning"  onclick="location.href='{% url 'country' %}'"> {% blocktrans %}Country App (crypto/fiat & <br>crypto/crypto markets) {% endblocktrans %}</button>
+       </div>
+    </div>
+</section>
+</div>
+{% include "footer.html" %}
+{% endblock %}

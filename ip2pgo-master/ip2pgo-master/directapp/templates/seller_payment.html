@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+<script>
+
+//timer for malaysia, china and indonesia
+var end = new Date("{{ deadline }}");
+
+var _second = 1000;
+var _minute = _second * 60;
+var _hour = _minute * 60;
+var _day = _hour * 24;
+var timer;
+
+function showRemaining() {
+    var now = new Date(); var gmt = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+    var distance = end - gmt;
+    if (distance < 0) {
+
+      clearInterval(timer);
+      document.getElementById('countdown').innerHTML = {% blocktrans %}"EXPIRED!"{% endblocktrans %};
+      document.getElementById('title').innerHTML = {% blocktrans %}"Please Refresh"{% endblocktrans %};
+      document.getElementById('desc').innerHTML = {% blocktrans %}"The timer has expired. Please click the Refresh button until the Dispute button appears. The regular trade buttons will be unavailable for use now."{% endblocktrans%};
+
+     return;
+    }
+    var days = Math.floor(distance / _day);
+    var hours = Math.floor((distance % _day) / _hour);
+    var minutes = Math.floor((distance % _hour) / _minute);
+    var seconds = Math.floor((distance % _minute) / _second);
+    if(seconds < 10){
+        seconds = '0' + seconds;
+    }
+    document.getElementById('countdown').innerHTML = minutes + ':' + seconds;
+}
+
+timer = setInterval(showRemaining, 1000);
+</script>
+
+<script>
+
+//TIMER FOR AUSTRALIA
+
+var end = new Date("{{ deadline }}");
+
+var _second = 1000;
+var _minute = _second * 60;
+var _hour = _minute * 60;
+var _day = _hour * 24;
+var _timer;
+
+function showRemaining() {
+    var now = new Date();
+    var gmt = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+    var distance = end - gmt;
+    if (distance < 0) {
+
+      clearInterval(timer);
+      document.getElementById('countdown_au').innerHTML = 'EXPIRED!';
+      document.getElementById('title').innerHTML = "Expired Trade";
+      document.getElementById('desc').innterHTML = "The timer has expired. Please click the Refresh button until the Dispute button appears. The regular trade buttons will be unavailable for use now.";
+
+     return;
+    }
+    var days = Math.floor(distance / _day) ;
+    var hours = Math.floor((distance % _day) / _hour);
+    var minutes = Math.floor((distance % _hour) / _minute);
+    var seconds = Math.floor((distance % _minute) / _second);
+    if(hours > 0 && minutes < 10){
+        minutes = '0' + minutes;
+    }
+    if(seconds < 10){
+        seconds = '0' + seconds;
+    }
+
+    document.getElementById('countdown_au').innerHTML = hours + ':' + minutes + ':' + seconds;
+}
+
+_timer = setInterval(showRemaining, 1000);
+
+
+</script>
+
+
+<div style="align:middle">
+  <div class="col" align='middle'>
+   <table class="table table-striped table-borderless table-dark" style="margin-top:-20px;" >
+</a>
+  <tr>
+  <th colspan="3" class="font-weight-bold text-success" style="width:100%; text-align:center; font-size:18px;"> {% trans "Release" %}</th><br>
+  </tr>
+  </table>
+
+<a href="{% url 'payment_confirm' country token security_code offer_id crypto %}">
+<img src="{% static 'logo/refreshingsm.png' %}" width="25px">
+</a><br><br>
+<span style="color:#FFFFFF; font-size:10px">
+<div id="desc">{% trans "You are selling to" %} {{ subject.username }}. {% trans "Your" %} {{ token }} {% trans "is temporarily frozen. Once you received payment from buyer please confirm below so" %} {{ token }} {% trans "can be released to buyer" %}</div></span><br>
+
+{% if not paid %}
+<div class="alert alert-danger">
+{% trans "This offer has not been paid yet" %}
+</div>
+{% endif %}
+   <span><i>{% trans "Time left to pay" %}</i></span>
+   {% if country == 'au' %}
+   <h1 style="color:red" id="countdown_au"></h1>
+   {% else %}
+   <h1 style="color:red" id="countdown"></h1>
+   {% endif %}
+   <span style="color:#FFFF00"><i>{% trans "Trade will automatic dispute when payment countdown ends" %}</i></span>
+
+
+   <br>
+   <form method="post">
+   {% csrf_token %}
+   <div id="overlay"></div>
+   {% if not expired %}
+     {% if paid %}
+       <input type="submit" onclick="on()" class="btn btn-primary" style="width:300px; font-size:13px" value="{% trans "I Have Received Payment" %}" name="received">
+     {% else %}
+       <input type="submit" class="btn btn-primary disabled" style="width:300px; font-size:13px" value="{% trans "I Have Received Payment" %}">
+     {% endif %}
+   {% else %}
+     {% if country == 'id' %}
+       <input type="submit" class="btn"  style="width:300px; font-size:13px; background-color:#FF7F50; color:white" value="Perselisihan" name="dispute">
+     {% else %}
+       <input type="submit" class="btn"  style="width:300px; font-size:13px; background-color:#FF7F50; color:white" value="{% trans "Dispute" %}" name="dispute">
+     {% endif %}
+   {% endif %}
+   </form><br>
+<h6><span align="center" class="text-warning"><strong>{% trans "Buyer Details" %}</strong></span></h6>
+<div class="row" style="border-bottom:1px solid yellow">
+</div>
+<br>
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Offer ID" %}</p>
+  </div>
+<div class="col">
+    <p style="color:#FFFFFF">{{ offer.offer_id }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Username" %}</p>
+  </div>
+<div class="col">
+    <p style="color:#FFFFFF">{{ subject.username }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Bank" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ subject.bank_name }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Bank Account Number" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ subject.bank_account }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Bank Account Holder Name" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ subject.bank_holder }}</p>
+  </div>
+</div>
+
+{% if country == 'au' %}
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>BSB</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ subject.bsb }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>Pay ID / Osko</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ subject.payid }}</p>
+  </div>
+</div>
+{% endif %}
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{{ token }}{% trans " Amount to sell" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ amount }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{{ currency }}{% trans " Amount to be received" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ fiat }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Gross to sell incl fees" %}({{ token }})</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ nett }}</p>
+  </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+<p>
+<h6><strong>{% trans "Thank You." %}</strong></h6>
+</p>
+<br>
+<p>
+{% trans "Thank you for completing feedback form on your trade!" %}
+</p>
+<p>
+{% trans "Check your wallet in a minute or two as the blockchain completes your request." %}
+</p>
+
+{% endblock %}

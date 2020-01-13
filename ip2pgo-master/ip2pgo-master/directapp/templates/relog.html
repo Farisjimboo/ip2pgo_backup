@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+
+
+<html lang="EN">  
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP2PGO</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href="{% static 'css/main.css' %}" rel="stylesheet"/>
+  </head>
+
+  <body style="color:#FFFFFF; background-color:#000000; font-size: 12px">
+    <center>
+      <div class="container"> 
+        <div class="row" style="margin-top:115px; margin-bottom:70px">
+          <div class="col">
+            <p>
+              {% trans "It appears that your security code is no longer valid or you're not supposed to be here. Please log in again to verify your identity to continue using iP2PGo." %}
+            </p>
+            <br>
+            <p>
+              <a href="{% url 'index' 'my' %}" class="btn btn-sm " style="width:300px; background-color:#00FF00; color:#000000; font-weight:bold">{% trans "Log In" %}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </center>
+  </body>
+
+</html>

@@ -1,0 +1,79 @@
+{% load static %}
+{% load i18n %}
+<script>
+$(".dropdown-menu li a").click(function(){
+  var selText = $(this).text();
+  $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+});
+</script>
+<nav class="navbar navbar-dark fixed-top" style="background-color:#202020; bg-dark; margin-top:0px; z-index:999999;">
+ 
+  {% if not 'payment_confirm' or not 'otc_confirm' in request.path %}
+   <a onclick="goBack()" style="color: #d89000; cursor:pointer;"><span class="lbl5"><i class="fa fa-angle-left"></i>{% blocktrans %}&nbsp; &nbsp;Back{% endblocktrans %}</span></a>  
+
+   {% elif 'payment_confirm' or 'otc_confirm' in request.path %}
+  {% if offer.trade_type == 'buy' %}
+   <a href="{% url 'buy_list' country token security_code crypto %}" style="color: #d89000; cursor:pointer;"><span class="lbl5"><i class="fa fa-angle-left"></i>{% blocktrans%}&nbsp; &nbsp;Back{% endblocktrans %}
+</span></a>
+{% elif offer.trade_type == 'sell' %}
+   <a href="{% url 'sell_list' country token security_code crypto %}" style="color: #d89000; cursor:pointer;"><span class="lbl5"><i class="fa fa-angle-left"></i>{% blocktrans%}&nbsp; &nbsp;Back{% endblocktrans %}
+</span></a>
+  {% endif %}
+
+{% endif %}
+
+
+<!-- Dropdown Token -->
+{% if not 'menu' in request.path %}
+<div class="btn-group">
+  <a class="btn dropdown-toggle text-warning"  data-toggle="dropdown" href="#">
+    {{ token }}<span class="caret"></span>
+  </a>
+{% endif %}
+ 
+{% if offer_id == null %}
+  <ul class="dropdown-menu" style="background-color:black">
+ <form method="post">
+{% csrf_token %}
+{% if country == 'cn-wb' %}
+{% for list in cnwb_token %}
+    <li><a class="text-warning" {% if list.token %} href="../../{{ list.token }}/{{ security_code}}/{{ crypto }}"{% endif %}>{{ list.token }}</a></li>
+{% endfor %}
+
+{% else %}
+{% for list in others_token %}
+    <li><a class="text-warning" {% if list.token %} href="../../{{ list.token }}/{{ security_code}}/{{ crypto }}"{% endif %}>{{ list.token }}</a></li>
+{% endfor %}
+{% endif %}
+
+</form>
+   </ul>
+{% endif %}
+</div>
+<!-- end of dropdown token -->
+
+{% if not 'mainpage' in request.path %}
+<div class="btn-group">
+    <a class="btn dropdown-toggle text-warning" style="background-color:#202020" data-toggle="dropdown" href="">{% if crypto == 'FIAT' %} {{ currency }} {% else %} {{ crypto }} {% endif %}<span class="caret"></span></a>
+   {% if offer_id == null %}
+   <ul class="dropdown-menu" style="background-color:black">
+  {% if country != 'cn-wb' %}
+    {% for list in otc %}
+      <li><a class="text-warning" {% if list.name %} href="../../{{ token }}/{{ security_code}}/{{ list.name }}" {% endif %}>
+{% if list.name == 'FIAT' %} {{ currency }} {% else %} {{ list.name }} {% endif %}</a></li>
+    {% endfor %} 
+  {% else %}
+    <li><a class="text-warning" href="../../{{ token }}/{{ security_code }}/FIAT">{{ currency }}</a>
+  {% endif %}
+   </ul>
+{% endif %}
+  </div>
+{% endif %}
+{% if not 'menu' in request.path %}
+  <a class="navbar-brand" href="{% url 'menu' country token security_code crypto %}">
+    <img class="logout_logo" src="{% static "logo/side_nav.png" %}" ><br>
+    <p class="text-warning align-middle" style="font-size:10px"></p>
+  </a>
+{% endif %}
+</nav>
+

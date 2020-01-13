@@ -1,0 +1,203 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+<section id="services">
+  <div class="home-content-table">	
+    <div class="home-content-tablecell">
+      <div class="row">
+	<div class="services-list block-1-1 block-tab-full group">
+	  <div class="bgrid service-item animate-this">
+	    <h2 style="margin-top:40px;padding-bottom:50px; color:#00FF00;">{% trans "IP2PGO TOKEN TERMS & CONDITION" %}</h2>
+	  <table style="border: 1px solid black; width: 100%; word-wrap:break-word;table-layout: fixed;">
+          <tr>
+          <td style="font-weight:bold">{% trans "Item" %}</td>
+          <td style="font-weight:bold">{% trans "Description" %}</td>
+          </tr>
+          <tr>
+          <td style="width:30%">{% trans "Issuer" %}</td>
+          <td style="width:70%">{% trans "iP2PGO" %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Name of Token" %}</td>
+          <td>{% trans "iP2PGO Token" %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Token Code" %}</td>
+          <td>{% trans "GO" %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Token Address" %}</td>
+          <td>{% trans "https://etherscan.io/token/0x8a5f4d2ef1b51c35c25a29723481661011d94912" %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Token Description" %}</td>
+          <td>{% trans "IP2PGO or GO token is a community token for members of iP2PGO platform." %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Transaction Fee" %}</td>
+          <td>{% trans "ZERO transaction fee for purchase/sales of GO tokens." %} <p></p><p> {% trans "*Only for iP2PGO App, trading of GO tokens in iP2PGO DEX will charged normal fees" %}i</p></td>
+          </tr>
+          <tr>
+          <td>{% trans "Deposit Fee / Withdrawal Gas Fee" %}</td>
+          <td>{% blocktrans %} <p>ZERO withdrawal fee for transfer of GO tokens between two iP2PGO Crypto/fiat App wallets.</p><p> Normal withdrawal fee still applies for transfer from iP2PGO wallet to external wallet. Wallets in iP2PGO DEX is considered external wallets.{% endblocktrans %}</p></td>
+          </tr>
+          <!-- <tr>
+          <td>{% trans "Token Distribution" %}</td>
+          <td>{% blocktrans %}<p> I) GO token can be purchased on the iP2PGO App, by using cash or TUSD. </p><p>II) GO token will be distributed as free rewards to users that under take our promotional activities. {% endblocktrans %}</p></td>
+          </tr> -->
+          <tr>
+          <td>{% trans "Usage of the token" %}</td>
+<td>{% blocktrans %}<p>1.Users can use the GO token to pay a discounted transaction fee in the iP2PGO platform. </p><p> 2.Users can hold the GO token and earn a share of iP2PGO’s Net Revenue.</p><p> 3.Users can suggest and vote for any ERC20 token to be listed in the iP2PGO platform. </p> {% endblocktrans %} </td>
+          </tr>
+          <tr>
+          <td>{% trans "1. As payment of Transaction Fee" %}<p></p> <p>{% trans "(for iP2PGO App only)" %}</td>
+          <td> {% blocktrans %}<p> GO token can be used to pay the transaction fee in the iP2PGO App. A discount of 10% will apply on the standard transaction fee.  </p><p> For example, assuming: 1 ETH = US$120 and 1 GO = US$ 0.01  </p><p> In a 1 ETH trade, the transaction fee payable by the taker is 0.008 ETH, payable in ETH.</p><p> If the taker chose to pay in GO, then the transaction fee payable is: </p><p> 0.008 ETH x US$120 = US$ 0.96 </p><p> 10% Discount = US$ 0.096 </p><p> Fee payable = US$ 0.864 </p><p> Fee payable in GO = US$ 0.864 / US$ 0.01 = 86.4 GO*. </p><p>  * This amount will be circulated back into the public circulations, either through rewards or purchase. </p><p> ** GO token can only be used to pay transaction fee for tokens classified as OTC or Prime markets.</p><p> *** GO token cannot be used to pay for iP2PGO DEX transaction fees. </p> {% endblocktrans %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "2. Participate in iP2PGO Net Revenue Share Program. " %}</td>
+          <td>{% blocktrans %}<p> I) GO token holders are entitled to a 30% share of the NET revenue earned by IP2PGO based on ‘staking’ their GO tokens. </p> <p> Staking is done by depositing and holding their GO tokens in their iP2PGO App Wallet.  NET revenue is calculated based on the number of days they hold the GO tokens in their iP2PGO App wallet.  </p><p>IP2PGO’s net revenue is calculated using the formula below: </p><p>  Transaction Fee* </p><p> - Referral Commission (X% x Transaction Fee) </p><p> = Net Revenue </p><p> - Country Partner Share (Y% x Net Revenue) </p><p> = iP2PGO Net Revenue Share </p><p> II) Since iP2PGO charges transaction fee on the different tokens being transacted, the net revenue share amount to be distributed to GO token holders will also be in these different tokens. </p> <p>III) The net revenue share will be calculated on daily basis at (GMT 12:00) and will be deposited into the GO token holders iP2PGO wallet based on the formula below : </p><p>  IP2PGO Net Revenue Share / Supply Issued </p><p> = net revenue share for GO token holders  </p> <p>IV) Only GO tokens held in iP2PGO App wallet will be included in the supply" </p><p> V) *The transaction fee is the total sum of standard transaction fee (0.8%) and discounted transaction fee (using GO tokens). </p><p> VI) Net revenue share calculation will start on 15th January 2019.</p>{% endblocktrans %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "3. Suggest and vote for any ERC20 token to listed in the iP2PGO platform " %}</td>
+          <td>{% blocktrans %}<p>I) GO token holders are entitled to suggest and vote for any ERC20 token to be listed on the iP2PGO platform.</p> <p> II) The voting system and voting rules are expected to be ready on 15th March 2019.</p> {% endblocktrans %}</td>
+          </tr>
+          <tr>
+          <td>{% trans "Exchange list " %}</td>
+          <td>{% blocktrans %}<p>I)iP2PGO App & WebApp</p> <p> II) https://www.coinchangex.com/#!/trade/GO-ETH </p><p> III) https://tokenmom.com/exchange/GO-WETH <p/> 
+{% endblocktrans %}</td>
+          </tr>
+          </table><br><br><br>			
+          <table>
+          <tr>
+          <td>{% trans "Items" %} </td>
+          <td>{% trans "Details" %} </td>
+          <td>{% trans "Amount" %} </td>
+          </tr>
+          <tr>
+          <td>{% trans "1.Locked-up Supply" %}</td>
+          <td>{% blocktrans %}I) For iP2PGO collaboration with other development partners (moratorium ends: 15/12/2019)  Wallet address: 0x776C8B8c9cAD553f0cF4B449d2fCaDf9d981344d
+{% endblocktrans %} </td>
+          <td> 100,000,000</td>
+          </tr>
+          <tr>
+          <td></td>
+          <td>{% trans "II) IP2P Global Ltd - as investor (moratorium ends: 15/12/2019) <br> Wallet address:0xB19C892853ac8262E23159f8214FDb881bdd80D5" %}</td>
+          <td>36,078,867</td>
+          </tr>
+          <tr>
+          <td></td>
+          <td>{% trans "III) Management & country partners (moratorium extended to: 15/12/2019) <br> Wallet address: 0x1F20EE7Ac5A6d2e6c01a89C6C5D6161840160020" %}</td>
+          <td>50,000,000</td>
+          </tr>
+          <tr>
+          <td>{% trans "2. Supply Issued" %}</td>
+          <td>{% trans "Tokens already distributed to 327 external wallet holders for various Rewards programs" %} </td>
+          <td> 1,069,263.70609593</td>
+          </tr>
+          <tr>
+          <td></td>
+          <td> {% blocktrans %} II) Tokens already distributed to 2,817 iP2PGO exchange wallet holders for various Rewards programs  <br> Exchange Wallet address: 0x9EBF6734eBf95efFB99DBE6dC5fAF086EC394d94
+ {% endblocktrans %} </td>
+          <td>2,406,160.7078</td>
+          </tr>
+          <tr>
+           <td></td>
+           <td>{% blocktrans %} III) Reserves for further promotion campaign <br> Exchange wallet address: 0x9EBF6734eBf95efFB99DBE6dC5fAF086EC394d94 {% endblocktrans %}</td>
+           <td> 110,445,707.86405</td>
+           </tr>
+            <tr>
+            <td>{% trans "Allocated Supply for Reverse ICO" %} </td>
+           <td>{% trans "I) Wallet address: 0xf5E5e2796e6dA8cf780BBe1e012fa6Af2DfD3e39" %}</td>
+           <td>200,000,000</td>
+          </tr>
+            <tr>
+            <td>{% trans "Total GO token supply" %} </td>
+           <td></td>
+           <td>500,000,000</td>
+          </tr>
+          </table>
+          <h3 style="color:#00FF00;text-align:left">{% trans "iP2PGO token iP2PGO Net Revenue Sharing Program Terms and Conditions" %}</h3>
+          <p>{% trans "The following terms and conditions ('T&C') apply to iP2PGO’s customers who are owners of the iP2PGO token or GO token & who has joined the iP2PGO Net Revenue Sharing Program ('the Program')." %} </p>
+          <p>{% trans "By owning the GO token, you acknowledge that you have read, understand, and completely agree to these T&C. If you disagree with these T&C or with any subsequent amendments, changes, or updates, your only recourse in the case of disagreement is to stop participating in the Program by disposing your GO token." %}</p>
+          <p>{% trans "These T&C may be amended, changed, or updated by iP2PGO at any time and without prior notice to you. You should check back often to confirm that your copy and understanding of these terms is current and correct. Your continued participation in the iP2PGO Programme after the effective date of any amendments, changes, or updates constitutes your acceptance of these Terms, as modified by such amendments, changes, or updates." %}</p>
+          <h3 style="color:#00FF00;text-align:left">{% trans "1. Interpretation" %}</h3>
+           <p>{% trans "Definitions: In these Program Terms and all documents incorporated herein by reference, the following words have the following meanings unless otherwise indicated:" %}</p>
+           <p>{% trans "1.1	'Associates' means iP2PGlobal Ltd., iP2PGO’s country partners and iP2PMoney, and each and every one of their respective shareholders, subsidiaries, employees, contractors, agents, directors, officers, partners, affiliates, insurers, and attorneys;" %} </p>
+         <p>{% trans "1.2	'Code of Conduct' means the iP2PGO App Support Group Chat’s Code of Conduct;" %}</p>
+         <p>{% trans "1.3	'Digital Tokens' means blockchain-based assets or rights, or other similar digital representations of rights or assets;" %}</p>
+         <p>{% blocktrans %} 1.4	“IP2PGO App” means iP2PGO Country Android Application and iP2PGO Web Application; <br> “IP2PGO App Support Group Chat” means iP2PGO  group chat channel available in the iP2PGO App wherein users may, inter alia, communicate with each other, subject to the Code of Conduct. {% endblocktrans %}</p>
+         <p>{% trans "1.5	'Losses' has the meaning set out in paragraph 11 of these Program Terms;" %}</p>
+         <p>{% trans "1.6	'iP2PGO Net Revenue Sharing Program Page” means the page in the iP2PGO App that shows the net revenue share account" %}</p>
+          <p>{% trans "1.7	'GO' token means the iP2PGO token. Each GO token represents right to participate in the iP2PGO Net Revenue Sharing Program, subject to any terms and restrictions as set out, modified, and updated by iP2PGO from time to time;" %}</p>
+         <p>{% trans "1.8	'Prohibited Use' has the meaning set out in paragraph 7 of these Program Terms;" %} </p>
+         <p>{% trans "1.9	'Prohibited Jurisdiction' means Democratic People’s Republic of Korea,Somalia, Syria and Yemen. " %}</p>
+         <p>{% trans "1.10	'Site' means the Internet website www.ip2pgo.com;" %}</p>
+         <p>{% trans "1.11	'Terms of Service' means iP2PGO’s terms of use, as they may be changed, amended, or updated from time to time, including all Site policies and pages, the Terms & Conditions and Privacy Policy of iP2PGO site. " %}</p>
+         <p>{% blocktrans %} 1.12	'U.S. Person' means:' <br> 1.12.1	in the case of an individual, a Person resident in the United States; and, 1.12.2	in any other case, a Person resident in the United States, or, a Person owned 10% or more by one or more Persons resident in the United States or by one or more corporations or entities incorporated in or formed in the United States {% endblocktrans %}</p>
+         <p>{% trans "2.	Governing Law: These Terms shall be governed by and construed and enforced in accordance with the laws of the Cayman Islands, and shall be interpreted in all respects as a Cayman Islands contract. Any claim or action arising from or related to these terms shall be governed by and construed and enforced in accordance with the laws of the Cayman Islands. For the avoidance of doubt, and without limiting the generality of the foregoing, this provision expressly applies to any tort claim against iP2PGO owner iP2P Global Ltd., . The venue and forum for any claim or action against or involving iP2P Global Ltd shall be in the Cayman Islands. You unconditionally attorn to the exclusive jurisdiction of the courts of the Cayman Islands and all courts competent to hear appeals therefrom. You also unconditionally agree to the exclusive forum and venue of the Cayman Islands in all claims or actions arising from or any dispute or question of any kind relating to these Terms. The doctrine of forum non conveniens shall not apply in the selection of forum under these Terms." %}</p>
+         <h3 style="color:#00FF00;text-align:left">{% trans "3.	Eligibility For iP2PGO Net Revenue Sharing Program" %} </h3>
+          <p>{% trans "3.1	User must register an account with iP2PGO and has set-up an Ethereum and EC20 wallets in the iP2PGO App/" %}</p>
+          <p>{% trans "3.2	User must have ownership of GO Token." %}</p>
+          <p>{% trans "3.3	If you are an individual, to participate in the Program, you must be 18 years of age or older and have the capacity to contract under applicable law. If you are not an individual, to participate in the Program, you must have the requisite power and authority to sign and enter into binding agreements for and on behalf of the user." %}</p>
+          <p>{% trans "3.4 Exclusions: The following persons are prohibited from subscribing to the GO token:" %}</p>
+          <p>{% trans "a)Persons resident in, and nationals of, Prohibited Jurisdictions;" %}</p>
+          <p>{% trans "b)U.S. Persons." %}</p>
+          <p>{% trans "4.	Obtaining GO Tokens: Users can participate in any of the iP2PGO promotion campaign and earn GO tokens after completing certain tasks required under the promotion campaign or users can purchase the GO tokens through the iP2PGO App. " %} </p>
+          <h3 style="color:#00FF00;text-align:left">{% trans "5.	Claiming Rewards:" %}</h3>
+          <p>{% trans "5.1	Net Revenue Sharing : ownership of GO tokens will entitle the owner to 30% share in the net revenue earned by iP2PGO. Net Revenue sharing will be calculated daily at GMT 12:00, and will be distributed to every owner of GO Tokens based on how many GO tokens are in their iP2PGO wallet on the cut off time for that day. GO tokens held in a 3rd party wallet will not qualify for the Net Revenue Sharing.  The revenue share will be credited into the user’s iP2PGO Ethereum or ERC20 wallets. At any time, a user may check the aggregate balance of the net revenue sharing to which he/she is entitled, if any, based on the number of GO Tokens she holds in her iP2PGO wallets. GO token holders may trade their GO tokens in the iP2PGO App. " %}</p>
+          <p>{% trans "5.2	Transaction Fee discount : Any user has a right to pay for their transaction fee using the GO tokens, in doing so the user will get a discount of 10% from the standard transaction fee. " %}</p>
+           <h3 style="color:#00FF00;text-align:left">{% trans "6.	Risk and Limitation of Liability:" %}</h3>
+          
+          <p>{% trans "6.1	GO tokens are not securities and these T&C do not constitute an invitation to subscribe for any securities. The value of GO token, if any, may fluctuate and be subject to extreme volatility. Notably, GO token may lose any and all value at any time. Therefore, by subscribing to the GO tokens and entering the Program, users are only incentivized to add trade volume and liquidity to the platform by obtaining greater amount in the Net Revenue Sharing and transaction fee discounts. Users should not expect any form of guaranteed dividends, distributions, or other income amounts of any kind from holding GO tokens." %}</p>
+           <p>{% trans "6.2	The iP2PGO Net Revenue Sharing Program is subject to modifications, and changes from time to time, without notice to you. By subscribing to participate in the Program and holding any GOs, you agree to accept any such modifications and changes from time to time, and you waive any rights arising therefrom. The % share in the Net Revenue and transaction fee discount may be changed or modified at iP2PGO’s sole and absolute discretion. You acknowledge and agree that the manner of issuance of GO token is at all times subject to modification or changes;" %}</p>
+          <p>{% trans "6.3	IP2PGO and its Associates are not and shall not be responsible or liable for any loss in value, in whole or in part, of GO token or for any reduction in value of the net revenue sharing corresponding to each GO token, whether occurring because of iP2PGO or its Associates’ negligence or for any other reason; and" %}</p>
+           <p>{% trans "6.4	Blockchain technology and the Ethereum protocol, inter alia, are new and untested technologies and are outside of iP2PGO’s control. IP2PGO is not and shall not be responsible or liable for failure to perform, in whole or in part, under these Terms, due to any defect or change in such technology. Tokens or assets tethered on or to these technologies, as well as smart contracts associated with such technologies, are also new technologies. IP2PGO disclaims any liability with regard to defects in the code of the Smart Contract, if any, any tokens sent to incorrect addresses, or bugs or errors in the Ethereum network leading to any mistaken or defective performance under these Terms." %}</p>
+          <p>{% trans "6.5	No Class Proceedings: You and iP2PGO agree that either party hereto may bring claims against the others only on an individual basis and not as a plaintiff or class member in any purported class or representative action or proceeding. No adjudicator may consolidate or join more than one person’s or party’s claims and may not otherwise preside over any form of a consolidated, representative, or class proceeding. Any relief awarded to any iP2PGO App user cannot and may not affect any other ip2PGO App users" %}</p>
+         <p>{% trans "7.	Prohibited Uses: You may not:" %}</p>
+         <p>{% trans "7.1	joined the iP2PGO Net Revenue Sharing Programme in order to disguise the proceeds of, or to further, any breach of applicable laws or regulations, or to deal in any contraband Digital Tokens, funds, or proceeds;" %}</p>
+         <p>{% trans "7.2	trade GOs with anything other than proceeds, keys, or Digital Tokens that have been legally obtained by you and that belong to you;" %}</p>
+          <p>{% trans "7.3	trade using inaccurate information presented by iP2PGO App or by iP2PGO, or take advantage of any technical glitch, malfunction, failure, delay, default, or security breach;" %}</p>
+          <p>{% trans "7.4	use GOs to engage in conduct that is detrimental to iP2PGO or to any other iP2PGO users or any other third party;" %}</p>
+          <p>{% trans "7.5	falsify any account registration details provided to iP2PGO;" %}</p>
+          <p>{% trans "7.6	falsify or materially omit any information or provide misleading information requested by iP2PGO, including at registration;" %}</p>
+         <p>{% trans "7.7	reverse-engineer, decompile, or disassemble any software running on the Site;" %}</p>
+         <p>{% trans "7.8	where you are a resident or national of a Prohibited Jurisdiction or a U.S. Person, access the iP2PGO Net Revenue Sharing Program using any virtual private network, proxy service, or any other third party service, network, or product with the intent of disguising your IP address or location;" %}</p>
+          <p>{% trans "Any use as described in this paragraph shall constitute a 'Prohibited Use.' If iP2PGO determines that you have engaged in any Prohibited Use, iP2PGO may address such Prohibited Use through an appropriate sanction, in its sole and absolute discretion. Such sanction may include, but is not limited to, making a report to law enforcement or other authorities; confiscation of any Digital Tokens that you have in the iP2PGO wallet ; confiscation of any GOs held by you; and, terminating your access to the Program. IP2PGO may, at its sole and absolute discretion, seize and hand over your property to law enforcement or other authorities where circumstances warrant." %}</p>
+         <p>{% trans "8.	Your Representations & Warranties: You represent and warrant to iP2PGO as follows:" %} </p>
+         <p>{% trans "8.1	that, if you are an individual customer, you are 18 years of age or older and that you have the capacity to contract under applicable law;" %}</p>
+         <p>{% trans "8.2	that, if you are not an individual customer, you have the requisite power and authority to sign and enter into binding agreements for and on behalf of the customer;" %}</p>
+          <p>{% trans "8.3	that you understand the risks associated with subscribing to the iP2PGO Net Revenue Sharing Program, that you are not barred from subscribing to the Program, and that you are not otherwise prohibited by applicable law from using the iP2PGO App;" %}</p>
+          <p>{% trans "8.4	that you will not use the iP2PGO App or any Services in order to disguise the proceeds of, or to further, any breach of applicable laws or regulations, or to deal in any contraband Digital Tokens, GOs, or proceeds;" %}</p>
+          <p>{% trans "8.5	that you will not trade or obtain financing on the iP2PGO App or use any Services with anything other than funds or Digital Tokens that have been legally obtained by you and that belong to you;" %}</p>
+          <p>{% trans "8.6	that you will not falsify any account registration details provided to iP2PGO;" %}</p>
+          <p>{% trans "8.7	that you will not falsify or materially omit any information or provide misleading information requested by iP2PGO in the course of, directly or indirectly relating to, or arising from your activities on the iP2PGO App or use of any Services, including at registration;" %}</p>
+          <p>{% trans "8.8	that any trading or other instructions received or undertaken through your login credentials from your authorized e-mail address that you registered with iP2PGO  are deemed to be valid, binding, and conclusive, and that iP2PGO may act upon those instructions without any liability or responsibility attaching to it;" %}</p>
+          <p>{% trans "8.9	that you will fairly and promptly report all income associated with your activity on the iP2PGO App pursuant to applicable law and pay any and all taxes exigible thereon;" %}</p>
+          <p>{% trans "8.10	that you are not subscribing to the iP2PGO Net Revenue Sharing Program as part of a speculative investment scheme or for financial gain; and" %}</p>
+          <p>{% trans "8.11	that you understand that GOs may become illiquid or worthless, or both." %}</p>
+          <p>{% trans "9.	No Representations & Warranties by iP2PGO and its Associates: iP2PGO and its Associates makes no representations, warranties, or guarantees to you of any kind. The iP2PGO App and the GOs are offered strictly on an as-is, where-is basis and, without limiting the generality of the foregoing, are offered without any representation as to merchantability or fitness for any particular purpose." %}</p>
+          <p>{% trans "10.	No Investment Advice: iP2PGO does not provide any investment advice or advice on trading techniques, models, algorithms, or any other schemes. Ratings of each Digital Token or GO generated by users’ discussions on the iP2PGO App support group chat channel do not constitute and shall not be construed as or deemed to be investment advice from or on behalf of iP2PGO. IP2PGO disclaims any and all liability for any inaccurate information contained in such discussions. Each customer must therefore verify the accuracy and veracity of any information disclosed on the support group chat. However, iP2PGO reserves the right to remove or block any comments that it deems inappropriate, in its sole discretion. IP2PGO may also decide to block you from posting in the support group chat channel in cases of misconduct, breach of these Program Terms, or any kind of abuse from you, at iP2PGO’s sole discretion." %}</p>
+        <p>{% trans "11.	Limitations of Liability : Important: Except as may be provided for in these Program Terms,, iP2PGO assumes no liability or responsibility for and shall have no liability or responsibility for any claim, application, loss, injury, delay, accident, cost, business interruption costs, or any other expenses (including, without limitation, attorneys’ fees or the costs of any claim or suit), nor for any incidental, direct, indirect, general, special, punitive, exemplary, or consequential damages, loss of goodwill or business profits, work stoppage, data loss, computer failure or malfunction, or any and all other commercial losses (collectively, referred to herein as “Losses”) directly or indirectly arising out of or related to:" %}</p>
+         <p>{% trans "11.1	these iP2PGO Net Revenue Sharing Program Terms;" %}</p>
+        <p>{% trans "11.2	any inaccurate, misleading, or incomplete statement by iP2PGO or on the iP2PGO App regarding your GO or your iP2PGO Rewards Account, whether caused by iP2PGO’s negligence or otherwise;" %}</p>
+        <p>{% trans "11.3	any failure, delay, malfunction, interruption, or decision (including any decision by iP2PGO to vary or interfere with your rights) by iP2PGO in operating the iP2PGO Net Revenue Sharing Program;" %}</p>
+        <p>{% trans "11.4	any stolen, lost, or unauthorized use of your account information any breach of security or data breach related to your iP2PGO Rewards Account, or any criminal or other third party act affecting iP2PGO or any Associate;" %}</p>
+        <p>{% trans "11.5	any offer, representation, suggestion, statement, or claim made about the iP2PGO Net Revenue Sharing Program on the Site; or" %}</p>
+        <p>{% trans "11.6	any commentary and discussion in the iP2PGO App Support Group Chat." %}</p>
+        <p>{% trans "12.	Liability Release : You hereby agree to release iP2PGO and its Associates from liability for any and all Losses, and you shall indemnify and save and hold iP2PGo and its Associates harmless from and against all Losses. The foregoing limitations of liability shall apply whether the alleged liability or Losses are based on contract, negligence, tort, unjust enrichment, strict liability, or any other basis, even if iP2PGO and its Associates have been advised of or should have known of the possibility of such losses and damages, and without regard to the success or effectiveness of any other remedies." %}</p>
+        <p>{% trans "13.	No Waiver: Any failure by iP2PGO to exercise any of its respective rights, powers, or remedies under the iP2PGO Net Revenue Sharing Program Terms, or any delay by iP2PGO in doing so, does not constitute a waiver of any such right, power, or remedy. The single or partial exercise of any right, power, or remedy by iP2PGO does not prevent either from exercising any other rights, powers, or remedies. Any and all waivers by iP2PGO must be in writing and unequivocal to be effective." %}</p>
+        <p>{% trans "14.	Force Majeure: iP2PGO is not responsible for damages caused by delay or failure to perform undertakings under these iP2PGO Net Revenue Sharing Program Terms when the delay or failure is due to fires; strikes; floods; power outages or failures; acts of God or the state’s enemies; lawful acts of public authorities; any and all market movements, shifts, or volatility; computer, server, or Internet malfunctions; security breaches or cyberattacks; criminal acts; delays or defaults caused by common carriers; acts or omissions of third parties; or, any other delays, defaults, failures or interruptions that cannot reasonably be foreseen or provided against. In the event of force majeure, iP2PGO is excused from any and all performance obligations and these Program Terms shall be fully and conclusively at an end" %}</p>
+        <p>{% trans "15.	Assignment: You may not assign any of your rights or obligations in the iP2PGO Net Revenue Sharing Program (except through trading GOs to another iP2PGO users) to any third parties without the prior written agreement of iP2PGO. Any rights or obligations of iP2PGO in the iP2PGO Net Revenue Sharing Program may be assigned by iP2PGO to any third party at any time, with or without notice to you. Any assignment in violation of this paragraph is void." %}</p>
+        <p>{% trans "16.	Severability: In case any portion of these iP2PGO Net Revenue Sharing Program Terms is held to be invalid or unenforceable, the remaining portions of these Program Terms will remain in full force and effect. Any invalid or unenforceable portion will be interpreted to effect the intent of the original portion. If such construction is not possible, the invalid or unenforceable portion will be severed from these Program Terms  but the rest of these Program Terms will remain in full force and effect" %}</p>
+        <p>{% trans "17.	Taxes: Should any fees, taxes or charges apply in your jurisdiction for earning GOs or trading them, you shall be fully and entirely responsible for declaring and paying them." %}</p>
+        <p>{% trans "18.	Termination: You may unsubscribe from the iP2PGO Net Revenue Sharing Program at any time, with notice to iP2PGO. In any such case, you will no longer be able to benefit from or participate in any right pertaining to the Program, including, without limitation, claiming back any reward associated with GOs . You will also waive and disclaim any rights arising under these Program Terms up to the date of your unsubscription" %}</p>
+	   </div>
+         </div> 
+       </div> <!-- end row --> 
+     </div> <!-- end home-content-tablecell --> 		   
+   </div> <!-- end home-content-table -->
+</section> <!-- end home -->
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="row">
+  <div class="col text-left">
+    <h6><strong>Penawaran Beli #{{ offer_id }}</strong></h6>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <p>{{ seller }}</p>
+  </div>
+  <div class="col">
+    <p>Harga Penawaran/ 1{{ token }}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ currency }}{{ offer_price }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <p>{{ rating }}</p>
+  </div>
+  <div class="col">
+    <p>Jumlah Penawaran</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ minimum.normalize }} - {{ maximum.normalize }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4 text-left">
+    <p>Bank</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ bank_name }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4 text-left">
+    <p>Nomor Rekening Bank</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ bank_account }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4 text-left">
+    <p>Nama Pemilik Rekening Bank</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ holder_name }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4 text-left">
+    <p>Jendela Pembayaran</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ payment_window }} menit</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <form method="post">
+    {% csrf_token %}
+      <input type="hidden" value="{{ offer_price }}" id="offer">
+      <input type="hidden" value="{{ fees }}" id="fees">
+      {{ form.amount.label }}<span class="text-warning">({{ token }})</span>
+      {% render_field form.amount class="form-control form-control-sm" onkeyup="GetSellPrices()" style="background-color:#000000; border:none; border-bottom:1px solid green; color:#FFFF00" id="amount" %}<br>
+
+      <p>
+        Jumlah yang akan diterima:
+        <span class="text-warning">
+        {{ currency }}<input type="text" name="fiat" id="fiat" class="text-warning" style="background-color:#000000; border:none">
+        </span>
+      </p>
+
+      <p>
+        Jumlah minimum yang anda perlu ada dalam wallet iP2PGO sebelum transaksi ini:
+        <span class="text-warning">
+        <input type="text" name="token" id="token" class="text-warning" style="background-color:#000000; border:none">{{ token }}
+        </span><br>
+        <span style="color:#FFFFFF; font-size:10px">
+         * Harap dicatat bahwa ini adalah penganggaran biaya. Biaya sebenarnya akan berlaku sewaktu transaksi, yang mungkin sedikit berbeda dari estimasi ini.
+        </span>
+      </p>
+      <p>
+        <input type="submit" class="btn btn-sm bg-danger" style="width:300px; border-radius:15px; color:#FFFFFF; font-weight:bold" value=JUAL> 
+      </p>
+    </form>
+  </div>
+</div>
+{% endblock %}     

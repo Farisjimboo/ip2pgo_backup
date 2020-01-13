@@ -1,0 +1,73 @@
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+<nav class="nav navbar-dark navbar-expand-sm fixed-top justify-content-center mt-1" style="background-color:#000000; margin-top:-10px">
+ {% if country == 'my'%}
+<img border="0"  src="{% static "icon/ip2pgo_victor.jpg"%}" width="50" height="50">
+{% elif country == 'id' %}
+<img border="0"  src="{% static "images/indonesia.jpg"%}" width="40" height="30">
+{% elif country == 'au' %}
+<img border="0"  src="{% static "images/australia_flag.PNG"%}" width="40" height="30">
+{% elif country == 'cn' %}
+<img border="0"  src="{% static "images/china.png"%}" width="40" height="30">
+{% elif country == 'cn-wb' %}
+<img border="0"  src="{% static "icon/onecity_icon.JPG"%}" width="40" height="40">
+{% elif country == 'vn' %}
+<img border="0"  src="{% static "images/vietnam.png"%}" width="40" height="30">
+{% elif country == 'ng' %}
+<img border="0"  src="{% static "images/nigeria_flag.jpg"%}" width="40" height="30">
+{% elif country == 'gh' %}
+<img border="0"  src="{% static "images/ghana_flag.png"%}" width="40" height="30">
+{% elif country == 'za' %}
+<img border="0"  src="{% static "images/africa_flag.jpg"%}" width="40" height="30">
+{% elif country == 'tz' %}
+<img border="0"  src="{% static "images/tanzania_flag.png"%}" width="40" height="30">
+{% elif country == 'bw' %}
+<img border="0"  src="{% static "icon/botswana_flag.png"%}" width="40" height="30">
+{% elif country == 'ph' %}
+<img border="0"  src="{% static "images/ph_flag.png"%}" width="40" height="30">
+{% endif %}
+<ul class="navbar-nav">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'support_chat' country admin_name 'help'|add:country %}">
+      {% trans "Support Chatroom" %}
+    </a>
+  </li>
+
+{% if admin.clearance != 'support' %}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'list' country admin_name %}">
+      {% trans "KYC Approval" %}
+    </a>
+  </li>
+{% endif %}
+{% if admin.clearance != 'support' %}
+{% if admin.clearance != 'KYC'  %} 
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'dispute' country admin_name %}">
+      {% trans "Dispute Cases" %}
+    </a>
+  </li>
+{% endif %}	
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'list_allusers' country admin_name %}">
+     {% trans " Verified Users (KYC approved)" %}
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'list_unverifiedusers' country admin_name %}">
+      {% trans "Unverified Users (No KYC)" %}
+    </a>
+  </li>
+
+  
+   <li class="nav-item">
+    <a class="nav-link" href="{% url 'list_newusers' country admin_name %}">
+      {% trans "New Users (Not yet create wallet)" %}
+    </a>
+  </li>
+{% endif %}
+</ul>
+</nav>

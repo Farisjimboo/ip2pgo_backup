@@ -1,0 +1,38 @@
+{% extends 'adminbase.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+
+<p>
+<br><br><h3 align="center" style="color:grey">{% trans "Dispute Cases" %}</h3>
+<a href="{% url 'dispute' country admin_name  %}">
+<img src="{% static 'logo/refreshingsm.png' %}" width="40px">
+</a><br><br>
+</p>
+<table class="table table-dark table-striped text-white">
+{% for dispute in dispute_list %}
+<tr>
+<td>{% trans "Case:" %} #{{ dispute.offer_id }} </td>
+<td>{% trans "Status:" %} {{ dispute.status }}</td>
+<td>
+{% if not dispute.admin %}
+  <a href="{% url 'chat_admin' country admin_name dispute.offer_id %}" class="btn btn-success">
+    {% trans "Take" %}
+  </a>
+{% elif dispute.status == 'Done' %}
+  <a href="{% url 'chat_admin' country admin_name dispute.offer_id %}" class="btn btn-danger">
+    {% trans "Done" %}
+  </a>
+{% elif admin_name != dispute.admin %}
+  <button type="button" class="btn btn-warning" disabled>{% trans "Taken" %}</button>
+{% elif admin_name == dispute.admin %}
+  <a href="{% url 'chat_admin' country admin_name dispute.offer_id %}" class="btn btn-primary">
+    {% trans "Chat" %}
+  </a>
+{% endif %}
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

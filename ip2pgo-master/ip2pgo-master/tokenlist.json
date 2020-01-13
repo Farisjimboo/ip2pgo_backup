@@ -1,0 +1,145 @@
+[
+    {
+        "model": "directapp.Tokens",
+        "pk": 1,
+        "fields": {
+            "token": "ETH",
+            "name": "Ether",
+            "decimal_places": "18",
+            "address": "NULL"
+            
+        }
+    },
+    {
+        "model": "directapp.Tokens",
+        "pk": 2,
+        "fields": {
+            "token": "USDT",
+            "name": "Tether USD",
+            "decimal_places": "6",
+            "address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        }
+    },
+
+    {
+        "model": "directapp.Tokens",
+        "pk": 3,
+        "fields": {
+            "token": "ZRX",
+            "name": "0x",
+            "decimal_places": "18",
+            "address": "0xe41d2489571d322189246dafa5ebde1f4699f498"
+        }
+    },
+    
+    {
+        "model": "directapp.Tokens",
+        "pk": 4,
+        "fields": {
+            "token": "OMG",
+            "name": "OmiseGo",
+            "decimal_places": "18",
+            "address": "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07"
+        }
+    },
+    
+    {
+        "model": "directapp.Tokens",
+        "pk": 5,
+        "fields": {
+            "token": "BTM",
+            "name": "Bytom",
+            "decimal_places": "8",
+            "address": "0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750"
+        }
+    },
+
+    {
+        "model": "directapp.Tokens",
+        "pk": 6,
+        "fields": {
+            "token": "SCC",
+            "name": "SiaCashCoin",
+            "decimal_places": "18",
+            "address": "0x74FD51a98a4A1ECBeF8Cc43be801cce630E260Bd"
+        }
+    },
+
+    {
+        "model": "directapp.Tokens",
+        "pk": 7,
+        "fields": {
+            "token": "TUSD",
+            "name": "TrueUSD",
+            "decimal_places": "18",
+            "address": "0x8dd5fbce2f6a956c3022ba3663759011dd51e73e"
+        }
+    },
+
+    {
+        "model": "directapp.Tokens",
+        "pk": 8,
+        "fields": {
+            "token": "TEL",
+            "name": "Telcoin",
+            "decimal_places": "2",
+            "address": "0x85e076361cc813A908Ff672F9BAd1541474402b2"
+        }
+    },
+
+    {
+        "model": "directapp.Tokens",
+        "pk": 9,
+        "fields": {
+            "token": "GO",
+            "name": "iP2PGoToken",
+            "decimal_places": "18",
+            "address": "0x8A5F4D2Ef1b51C35c25A29723481661011d94912" 
+        }
+    },
+    
+    {
+        "model": "directapp.Tokens",
+        "pk": 10,
+        "fields": {
+            "token": "TMB",
+            "name": "TemboCoin",
+            "decimal_places": "0",
+            "address": "0x1De09690e0d3c75C22cd19aCC1AEBdE46bbC7d25" 
+        }
+    },
+
+    {
+        "model": "directapp.Tokens",
+        "pk": 11,
+        "fields": {
+            "token": "REGO",
+            "name": "REGO Token",
+            "decimal_places": "5",
+            "address": "0x2495777D13b1547E9CBa2043dD48BEAEaC3bd161" 
+        }
+    },
+
+    {
+        "model": "directapp.Tokens",
+        "pk": 12,
+        "fields": {
+            "token": "PLS",
+            "name": "PLAAS Token",
+            "decimal_places": "18",
+            "address": "0x8d9626315e8025b81c3bdb926db4c51dde237f52"
+        }
+    },
+    
+    {
+        "model": "directapp.Tokens",
+        "pk": 13,
+        "fields": {
+            "token": "iRA",
+            "name": "iRA Token",
+            "decimal_places": "8",
+            "address": "0xbdd2782b94a36f124ecc8e9c95a66849e7154a44"
+        }
+    }
+        
+]

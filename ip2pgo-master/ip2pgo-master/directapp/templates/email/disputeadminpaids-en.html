@@ -1,0 +1,22 @@
+{% extends "base2.html" %}
+{% load static %}
+{% block content %}
+<section id="about">
+  <div class="center-div">
+    <div class="services-list block-tab-full group">
+        <div class="bgrid service-item animate-this">
+            <img width="170px" height="170px" src="{% static "images/logo.png"%}" >
+            <h2 style=" text-transform:capitalize; font-size:20px;" >Dear</h2>
+            <p style="line-height: normal;">
+            Buyer has not confirmed his payment to you for trade [#Order ID] and we found your evidence to be compelling. The _________ [TOKEN SYMBOL] has been returned to your iP2PGO wallet.</p>
+            <p>Please login to your iP2PGO App to check the latest status</p>
+            <p>This email was sent to you because you created an account with iP2PGO. If this wasn’t you please ignore this email. If this happens again please contact
+            <a style="color:#0645AD;" href="http://ip2pgo.com/en-us/contact/">support@ip2pgo.com</a></p>
+            <p>Thank You</p>
+            <p>iP2PGO team<p>
+        </div>
+    </div>
+  </div>
+ </section>
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+
+<table class="table table-striped table-borderless table-dark" style="margin-top:-20px;" >
+</a>
+  <tr>
+  <th colspan="3" class="font-weight-bold text-success" style="width:100%; text-align:center; font-size:18px;"> {% trans "OTC Trading" %}</th><br>
+  </tr>
+  </table><br><br>
+
+   <form method="post">
+   {% csrf_token %}
+   <div id="overlay"></div>
+   <div class="btn-group">
+     <input  onclick="SpinnerLoad()" type="submit" onclick="on()" class="btn btn-primary" style="font-size:13px; width:150px" value="{% trans "Confirm Trade" %}" name="confirm">
+     <input type="submit" onclick="on()" class="btn btn-danger" style="font-size:13px; width:150px" value="{% trans "Cancel" %}" name="cancel">
+   </div>
+<br><br>
+<h6><span align="center" class="text-warning"><strong>{% trans "Offer Details" %}</strong></span></h6>
+<div class="row" style="border-bottom:1px solid yellow">
+</div>
+<br>
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Offer ID" %}</p>
+  </div>
+<div class="col">
+    <p style="color:#FFFFFF">{{ offer.offer_id }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Maker Username" %}</p>
+  </div>
+<div class="col">
+    <p style="color:#FFFFFF">{{ offer.maker }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{{ token }}{% trans " Amount to buy" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ amount }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{{ crypto }}{% trans " Amount to pay" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ fiat }}</p>
+  </div>
+</div>
+{% if token == 'TUSD' %}
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Nett received after fees" %}({{ token }})</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ nett }}</p>
+  </div>
+</div>
+</form>
+{% endif %}
+
+
+
+
+
+
+{% endblock %}

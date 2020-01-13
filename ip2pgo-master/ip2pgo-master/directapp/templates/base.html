@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="EN">  
+<head>
+
+  <meta name="viewport" content="width=device-width">
+  <title>IP2PGO</title>
+  <link rel="stylesheet" href="{% static 'bootstrap/css/4.1.3/bootstrap.min.css' %}">
+  <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/jquery/3.3.1/jquery.min.js' %}"></script>
+  <script src="{% static 'cloudflare/ajax/libs/vue/2.3.2/vue.js' %}"></script>
+  <script src="{% static 'cloudflare/ajax/libs/popper.js/1.14.3/umd/popper.min.js' %}"></script>
+  <script src="{% static 'bootstrap/4.1.3/js/bootstrap.min.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'cloudflare/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+  <link href="{% static 'css/font-google.css' %}" rel='stylesheet' type='text/css'>
+  <link href="{% static 'css/main.css' %}" rel="stylesheet"/>
+
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<script>
+  function CopyPaste() {
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+  }
+   
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  }
+  
+  // slider
+  function PriceSliderSellID(slider, bill) {
+    var tip = document.getElementById('tip');
+    var tipotc = document.getElementById('tipotc');
+    var slideval = document.getElementById('slideval');
+    var bill = document.getElementById(bill).value;
+    var prcnt = slider * .01;
+    slideval.innerHTML = slider * 10 / 100 + "%";
+    bill = bill.toString().replace(",", ".");
+    tip.innerHTML = (bill - bill * ( prcnt / 100) * 10 * -1).toFixed(2);
+    tipotc.innerHTML = (bill - bill * ( prcnt / 100) * 10 * -1).toFixed(8);
+  }
+
+  function PriceSliderSellVN(slider, bill) {
+    var tip = document.getElementById('tip');
+    var tipotc = document.getElementById('tipotc');
+    var slideval = document.getElementById('slideval');
+    var bill = document.getElementById(bill).value;
+    var prcnt = slider * .01;
+    slideval.innerHTML = slider * 5 / 100 + "%";
+    bill = bill.toString().replace(",", ".");
+    tip.innerHTML = (bill - bill * ( prcnt / 100) * 5 * -1).toFixed(2);
+    tipotc.innerHTML = (bill - bill * ( prcnt / 100) * 5 * -1).toFixed(8);
+  }
+
+  function PriceSliderSell(slider, bill) {
+    var tip = document.getElementById('tip');
+    var tipotc = document.getElementById('tipotc');
+    var slideval = document.getElementById('slideval');
+    var bill = document.getElementById(bill).value;
+    var prcnt = slider * .01;
+    slideval.innerHTML = slider * 5 / 100 + "%";
+    tip.innerHTML = (bill - bill * ( prcnt / 100) * 5 * -1).toFixed(2);
+    tipotc.innerHTML = (bill - bill * ( prcnt / 100) * 5 * -1).toFixed(8);    
+  }
+
+  function PriceSliderSellNG(slider, bill) {
+    var tip = document.getElementById('tip');
+    var tipotc = document.getElementById('tipotc');
+    var slideval = document.getElementById('slideval');
+    var bill = document.getElementById(bill).value;
+    var prcnt = slider * .01;
+    slideval.innerHTML = slider * 20 / 100 + "%";
+    tip.innerHTML = (bill - bill * ( prcnt / 100) * 20 * -1).toFixed(2);
+    tipotc.innerHTML = (bill - bill * ( prcnt / 100) * 20 * -1).toFixed(8);
+  }
+
+
+  // get prices in selling
+  function GetSellPricesID() {
+    var fiat = document.getElementById('fiat');
+    var token = document.getElementById('token');
+    var tokengo = document.getElementById('tokengo');
+    var tokentusd = document.getElementById('tokentusd');
+    var offer = document.getElementById('offer').value;
+    var amount = document.getElementById('amount').value;
+    offer = offer.toString().replace(",", ".");
+    fiat.value = (amount * offer).toFixed(2).toString().replace(".", ",");
+    token.value = amount - amount * 8 / 1000 * -1;
+    tokengo.value = amount - amount * 0 / 1000 * -1;
+    tokentusd.value = amount - amount * 2/1000 * -1; 
+  }
+
+  function GetSellPrices() {
+    var fiat = document.getElementById('fiat');
+    var token = document.getElementById('token');
+    var tokengo = document.getElementById('tokengo');
+    var tokentusd = document.getElementById('tokentusd');
+    var offer = document.getElementById('offer').value;
+    var amount = document.getElementById('amount').value;
+    fiat.value = (amount * offer).toFixed(2);
+    token.value = amount - amount * 8 / 1000 * -1;
+    tokengo.value = amount - amount * 0 / 1000 * -1;
+    tokentusd.value = amount - amount * 2/1000 * -1;
+  }
+
+  // get prices in buying
+  function GetBuyPricesID(offer, amount) {
+    var fiat = document.getElementById('fiat');
+    var token = document.getElementById('token');
+    var tokengo = document.getElementById('tokengo');
+    var tokentusd = document.getElementById('tokentusd');
+    var offer = document.getElementById('offer').value;
+    var amount = document.getElementById('amount').value;
+    offer = offer.toString().replace(",", ".");
+    fiat.value = (amount * offer).toFixed(2).toString().replace(".", ",");
+    token.value = amount - amount * 8 / 1000;
+    tokengo.value = amount - amount * 0/1000;
+    tokentusd.value = amount - amount * 2/1000; 
+  }
+
+  function GetBuyPrices(offer, amount) {
+    var fiat = document.getElementById('fiat');
+    var token = document.getElementById('token');
+    var tokengo = document.getElementById('tokengo');
+    var tokentusd = document.getElementById('tokentusd');
+    var offer = document.getElementById('offer').value;
+    var amount = document.getElementById('amount').value;
+    fiat.value = (amount * offer).toFixed(2);
+    token.value = amount - amount * 8 / 1000;
+    tokengo.value = amount - amount * 0/1000;
+    tokentusd.value = amount - amount * 2/1000;
+  }
+  
+  function addCode(key){
+	var code = document.forms[0].code;
+	if(code.value.length < 6){
+		code.value = code.value + key;
+	}
+  }
+
+  function submitForm(){
+	document.forms[0].submit();
+  } 
+
+  function emptyCode(){
+	document.forms[0].code.value = "";
+  }
+  
+  function SpinnerLoad() {
+    document.getElementById("overlay").style.display = "block";
+  }
+ 
+  function validate(evt) {
+  var theEvent = evt || window.event;
+
+  // Handle paste
+  if (theEvent.type === 'paste') {
+      key = event.clipboardData.getData('text/plain');
+  } else {
+  // Handle key press
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode(key);
+  }
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+  } 
+  
+ 
+
+</script>
+
+
+ 
+  </head>
+
+  <body>
+    <center>
+      <div class="container">
+         {% if not passcode %}
+            {% if not 'mainpage' in request.path %}
+            {% include "headermenu.html" %}
+         {% endif %}
+         {% endif %}
+        <div class="row" style="margin-top:110px; margin-bottom:90px">
+          <div class="col">
+            <br><span  class="text-left text-danger" >
+             {% if notifications %}
+               {% for note in notifications %}
+                 <div class="alert alert-warning">
+                 <span class="badge badge-light">!</span>
+                 {{ note }}
+                 </div><br>
+               {% endfor %}
+             {% endif %}
+             {% if message %}
+               <div class="alert alert-danger">
+               {{ message }}
+               </div>
+             {% endif %}
+            </span>
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </center>
+  </body>
+
+</html>

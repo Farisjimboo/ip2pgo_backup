@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+<a href="{% url 'mainpage' country token security_code crypto %}" style="color:white; font-size:15px">
+<div class="row" style="border-bottom:1px solid grey; margin-top:-100px">
+&ensp;&ensp;<strong>{% trans "Main Menu" %}</strong>
+</div>
+</a>
+<a href="{% url 'profile' country token security_code crypto %}" style="color:white; font-size:15px">
+<div class="row" style="border-bottom:1px solid grey; margin-top:40px">
+&ensp;&ensp;<strong>{% trans "Profile" %}</strong></a>
+</div>
+<a href="{% url 'wallet' country token security_code crypto %}" style="color:white; font-size:15px">
+<div class="row" style="border-bottom:1px solid grey; margin-top:40px">
+&ensp;&ensp;<strong>{% trans "Wallet" %}</strong></a>
+</div>
+<a href="{% url 'history' country token security_code crypto %}" style="color:white; font-size:15px">
+<div class="row" style="border-bottom:1px solid grey; margin-top:40px">
+&ensp;&ensp;<strong>{% trans "History" %}</strong></a>
+</div>
+{% if country != 'otc' %}
+{% if not no_wallet and not  verified_user %}
+<a href="{% url 'create_wallet' country token security_code crypto %}" style="color:white; font-size:15px">
+<div class="row" style="border-bottom:1px solid grey; margin-top:40px">
+&ensp;&ensp;<strong>{% trans "Be A Verified User" %}</strong></a>
+</div>
+{% endif %}
+{% endif %}
+<a href="{% url 'support' country token security_code crypto %}" style="color:white; font-size:15px">
+<div class="row" style="border-bottom:1px solid grey; margin-top:40px">
+&ensp;&ensp;<strong>{% trans "Support Chat" %}</strong></a>
+</div>
+<a href="{% url 'logout' country security_code crypto %}" style="color:white; font-size: 15px">
+<div class="row" style="border-bottom:1px solid grey; margin-top:40px">
+&ensp;&ensp;<strong>{% trans "Logout" %}</strong></a>
+</div>
+
+{% endblock %}

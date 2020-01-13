@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+
+  <br><br><br><br><br>
+  <h2 style=" font-size:15px;  word-spacing: 5px;" >{% trans "Dispute" %}</h2>
+
+
+  <form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <p>
+    <span class="text-warning">{% trans "Please upload your screenshot payment evidence" %}</span><br><br><br>
+    {% if username == trade.maker %}
+      {% render_field form.maker_doc class="form-control form-control-sm" style="background-color:#000000; border:none; color:white" %}<br>
+    {% else %}
+      {% render_field form.taker_doc class="form-control form-control-sm" style="background-color:#000000; border:none; color:white" %}<br>
+    {% endif %}
+  <p><input class="btn btn-sm " style="width:300px; background-color:#91DC5B; font-weight:bold" type="submit" name="upload" value={% trans "Submit" %}
+></p>
+</form>
+  
+
+{% endblock %}

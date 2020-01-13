@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+{% include "trademenu.html" %}
+{% if token == 'ETH' %}
+<div class="bg-dark row">
+  <div class="col">
+  <div class="row mt-3">
+    <h6 colspan="3" class="font-weight-bold text-success" style="width:100%; text-align:center; font-size:16px;padding-bottom:5px;">{% trans "DEPOSIT ETH" %}</h6>
+     </div>
+  </div>
+</div>
+{% else %}
+  <div class="row bg-dark" style="margin-top:-1px">
+  <div class="col">
+  <div class="row mt-3">
+    <h6 colspan="3" class="font-weight-bold text-success " style="width:100%; text-align:center; font-size:16px;padding-bottom:5px;">{% blocktrans %} DEPOSIT {{ token }} {% endblocktrans %}</h6>
+     </div>
+  </div>
+</div>
+{% endif %}
+   
+
+<br>
+<strong>{% trans "Your iP2PGO Wallet Address" %}</strong>
+<p>
+ {% if token == 'ETH' %}
+  <input type="text" class="text-warning form-control" id="myInput" style="background-color:#000000; font-size:11px; border:none" value={{ address }}>
+ {% else %}
+  <input type="text" class="text-warning form-control" id="myInput" style="background-color:#000000; font-size:11px; border:none" value={{ erc20_address }}>
+ {% endif %}
+</p>
+<p>
+{% if token == 'ETH' %}
+  <img src="{{ qr }}"><br>
+{% else %}
+   <img src="{{ qr_erc20 }}"><br>
+{% endif %}
+</p>
+<p>
+  <span style="color:#FFFFFF">
+  {% if token == 'ETH' %}
+    {% trans "This deposit address only accepts ETH tokens. Do not send any other coins into it." %}
+  {% else %}
+  {% trans "This deposit address only accepts ERC20 tokens. Do not send any other coins into it." %}
+  {% endif %}
+   
+  </span>
+</p>
+
+<p>
+  <input onclick="CopyPaste()" class="btn btn-success btn-sm" style="color:#000000; width:300px;" type="submit" name="copy" value={% trans "Copy" %}>
+</p>
+<p>
+<form method="POST">
+  {% csrf_token %}
+  <p>
+  {{ form.txhash.label }}
+  {% render_field form.txhash class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom:1px solid green; color:white" %}
+  </p>
+  <p>
+    <input class="btn btn-success btn-sm" style="color:#000000; width:300px; font-weight:bold" type="submit" name="confirm" value={% trans "Confirm" %}> 
+  </p>
+</form>
+</p>
+<p>
+{% blocktrans %}
+NEW DEPOSIT METHOD
+<br><br>
+1. To make a token deposit, go to the wallet of the token you wish to deposit and click on the deposit link.<br>
+2. Deposit the tokens to the iP2PGO Wallet Address.<br>
+3. Copy and paste the transaction hash (tx hash) of the ‘SEND transaction’ at the space indicated and click ‘Confirm’ to confirm the deposit, you will be taken to your wallet with your balance updated.
+{% endblocktrans %}
+</p>
+{% endblock %}

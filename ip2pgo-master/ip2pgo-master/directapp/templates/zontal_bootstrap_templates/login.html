@@ -1,0 +1,11 @@
+{% load widget_tweaks %}
+<form action="/" method="post">
+  {% csrf_token %}
+    {% for login in login_form %}
+    <div class="form-group">
+      {{ login.label }}
+      {% render_field login class="form-control" %}
+    </div>
+    {% endfor %}
+    <p><input type="submit" class="btn btn-success col" name="login" value="Login" /></p>
+</form>

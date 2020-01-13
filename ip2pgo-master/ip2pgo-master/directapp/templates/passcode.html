@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+
+<br><br><br>
+<div id="overlay"></div>
+<div class = "container" align="center">
+
+<fieldset style="background-color:white; width:250px; height:280px">
+<form method="post">
+{% csrf_token %}
+<table class="table table-borderless" id="keypad" cellpadding="5" cellspacing="3">
+   <tr>
+   <span style="color:black">{% trans "PLEASE ENTER PAYMENT PASSCODE" %}</span>
+   <input type="Password" style="text-align:center" name="code" value="" maxlength="6" class="display" readonly="readonly" id="code" />
+   </tr>
+	<tr>
+    	<td onclick="addCode('1');" style="font-size:15px">1</td>
+        <td onclick="addCode('2');" style="font-size:15px">2</td>
+        <td onclick="addCode('3');" style="font-size:15px">3</td>
+    </tr>
+    <tr>
+    	<td onclick="addCode('4');" style="font-size:15px">4</td>
+        <td onclick="addCode('5');" style="font-size:15px">5</td>
+        <td onclick="addCode('6');" style="font-size:15px">6</td>
+    </tr>
+    <tr>
+    	<td onclick="addCode('7');" style="font-size:15px">7</td>
+        <td onclick="addCode('8');" style="font-size:15px">8</td>
+        <td onclick="addCode('9');" style="font-size:15px">9</td>
+    </tr>
+    <tr>
+    	<td onclick="document.getElementById('code').value = ''" style="font-size:9px" class="align-bottom">{% trans "CLEAR" %}</td>
+        <td onclick="addCode('0');" style="font-size:15px">0</td>
+        <td><input onclick="SpinnerLoad()" class="btn"  style="border-radius:none; width:20px; height:20px; background-color:white; color:black; font-weight:bold; font-size:9px; border:none" type="submit" name="confirm" value={% trans "OK" %}></td>
+    </tr>
+</table>
+<br><br><br><br>
+<input type="submit" class="btn btn-sm btn-danger font-weight-bold" name="cancel" value="Cancel" style="width:300px; border-radius: 15px">
+</form>
+
+</fieldset>
+<p>
+<span class="text-white" style="font-size:10px">
+{% trans "*Please wait after you click the 'OK' button. The escrow contract is being created for the trade." %}
+</span>
+</p>
+</div>
+{% endblock %}

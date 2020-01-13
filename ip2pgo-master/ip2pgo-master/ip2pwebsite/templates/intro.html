@@ -1,0 +1,47 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block content %}
+<section id="about">
+    <div class="services-list block-1-2 block-tab-full group">
+        <div class="bgrid service-item animate-this">	
+	    <h2 style=" font-size:30px;letter-spacing: 6px;  word-spacing: 5px;" >{% trans "INTRODUCTION" %}</h2>
+	    <p style="line-height: normal;">
+                {% trans "iP2PGO is a peer-to-peer marketplace where users can buy and sell ETH & ERC20 tokens to each other using fiat currency via direct bank transfer." %}
+            </p>	
+            <br>
+            <br>
+            {% if request.path == '/en-us/' %}
+            <button style="background-color:#00FF00; width:240px;text-align:left; padding-left:9px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+            {% elif request.path == '/id/' %}
+           <button style="background-color:#00FF00; width:225px;text-align:left; padding-left:23px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style
+="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+          {% elif request.path == '/zh-hans/' %}
+            <button style="background-color:#00FF00; width:150px;text-align:left; padding-left:20px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; width:150px;text-align:left; padding-left:20px;font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button> 
+           {% elif request.path == '/vi/' %}
+           <button style="background-color:#00FF00; width:250px;text-align:left; padding-left:9px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; width:250px; text-align:left; padding-left:6px; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+            {% endif %}
+        </div>	
+        <div class="bgrid service-item animate-this">	
+	    <video style="margin: 0 auto;border: 2px outset #FFFF00;" width="600" height="450" controls>
+            {% if request.path == '/en-us/' %}
+		<source src= "{% static "images/newEngvideo.mp4" %}" type="video/mp4">
+            {% elif request.path == '/id/' %}
+                <source src= "{% static "images/newIdvideo.mp4" %}" type="video/mp4">
+            {% elif request.path == '/zh-hans/' %}
+                <source src= "{% static "images/newCnyvideo.mp4" %}" type="video/mp4">
+            {% elif request.path == '/vi/' %}
+                <source src= "{% static "images/vietnamVideo.mp4" %}" type="video/mp4">
+            {% endif %}
+	    </video>
+        </div>				
+        </div>	
+    </div> 
+ </section>
+
+{% endblock %}

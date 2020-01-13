@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+
+              <div class="container">
+                      <br><br>
+                      <h3>{% trans "Trades" %}</h3><br>
+                      <div id="card">
+                      <table>
+
+                      <thead>
+                        <tr>
+                            <th>{% trans  "Time" %} </th>
+                            <th>{% trans  "Trade Ref No" %} </th>
+                            <th> {% trans "Type" %} </th>
+                            <th> {% trans "Status" %} </th>
+                            <th> {% trans "Trade Amount" %} </th>
+                            <th> {% trans "Fee" %}</th>
+                            <th> {% trans "Trade Value" %} </th>
+                            <th> {% trans "Payment Value" %} </th>
+                            
+
+
+                        </tr>
+                       </thead>
+                       <tbody>
+                        <tr>
+                       <td data-label="Time">{% trans "20/5/18 5.00pm" %}</td>
+                        <td data-label="Trade Ref No">12342514</td>
+                        <td data-label="Type">{% trans "Buy" %}</td>
+                        <td data-label="Status">{% trans "Success" %}</td>
+                        <td data-label="Trade Amount">0.60000 ETH</td>
+                        <td data-label="Fee">0.00198</td>
+                        <td data-label="Trade Value">{% trans "RM2121.00" %}</td>
+                        <td data-label="Payment Value">{% trans "Bank Transfer" %}</td>
+                        </tr>
+
+                       </tbody>
+                    </table>
+                    </div>
+                    </div>
+
+
+
+
+
+
+{% endblock %}

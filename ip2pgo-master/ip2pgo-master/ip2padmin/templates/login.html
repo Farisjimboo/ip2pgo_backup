@@ -1,0 +1,32 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+
+<br><br><br>
+
+  </div><br>
+<div class="container">
+<h3 align="center">{% trans "iP2PGO Admin" %} {{ country_name }}
+</h3>
+</div>
+<br>
+<div class = "container">
+<form method ="post" align="center">
+ {% csrf_token %}
+
+     {% for admin in admin_form %}
+                    {{ admin.label}}
+                    {% render_field admin class="form-control text-success" style="background-color:#000000; border: 1px solid green;" %}
+                    {% endfor %}
+
+
+       <br>
+         <p><input style="background-color: #91DC5B; border-radius: 30px; border: none; height:50px;width:150px; font-weight:bold" type="submit" name="login" value={% trans "Continue" %} /></p>
+   </form>
+</div>
+
+
+
+{% endblock %}

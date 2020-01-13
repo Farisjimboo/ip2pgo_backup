@@ -1,0 +1,34 @@
+{% extends "base2.html" %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+{% include "header.html" %}
+ <section id="services">
+        <br><br><br><br><br>
+
+        <div class="row narrow section-intro animate-this">
+                <div class="col-full">
+                  <h2 style=" font-size:30px;letter-spacing: 6px;  word-spacing: 5px;" >{% trans "Please update your profile" %}</h2>
+                   <form action="" method="POST">
+                    <label style="font-size:70px;" for="male"><b>{% trans "Male" %}</b></label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked />
+    {% trans Male %}
+     <label style="font-size:70px;" for="female"><b>{% trans "Female" %}</b></label>
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+    {% trans Female %}
+                    <label style="font-size:70px;" for="username"><b>{% trans "Username" %}</b></label>
+                    <input style=" margin: 0 auto;height:50px;width:300px;background-color:#FFFFFF;color:#000000;" type="text" placeholder={% trans "Enter Username" %} name="email" required> <br> <br>
+                     <label style="font-size:70px;" for="passcode"><b>{% trans "Passcode" %}</b></label>
+                    <input style=" margin: 0 auto;height:50px;width:300px;background-color:#FFFFFF;color:#000000;" type="text" placeholder={% trans "Enter Passcode" %} name="passcode" required> <br> <br>         
+  <label style="font-size:70px;" for="passcode"><b>{% trans "Enter your passcode again" %}</b></label>
+                    <input style=" margin: 0 auto;height:50px;width:300px;background-color:#FFFFFF;color:#000000;" type="text" placeholder={% trans "Enter Your Passcode Again" %} name="passcode" required> <br> <br>
+
+            <input type="submit" name="update" value={% trans "Update" %}>
+                    </form>
+         </div><!-- end col-full -->
+          
+        </div> <!-- end row -->
+</section>
+
+{% include "footer.html" %}
+{% endblock %}

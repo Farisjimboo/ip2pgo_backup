@@ -1,0 +1,64 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+{% load i18n %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<br><br><br><br><br><br>
+
+{% trans "New Users (Not yet create wallet)" %}<br>
+{% trans "Total New Users (Not yet create wallet) : " %} {{ no_wallet_users }}<br>
+<table class="table table-dark table-striped">
+<tr>
+<th>{% trans "Date created" %}</th>
+<th>{% trans "Email" %}</th>
+<th>{% trans "Username" %}</th>
+<th>{% trans "Member ID" %}</th>
+<th>{% trans "Referer" %}</th>
+<th>{% trans "History" %}</th>
+</tr>
+{% for user in users %}
+{% if not user.approved %}
+<tr>
+<td>{{ user.created }}</td>
+<td>{{ user.email }}</td>
+<td>{{ user.username }}</td>
+<td>{{ user.member_id }}</td>
+<td>{{ user.referer }}</td>
+<td><a href="{% url 'histories' country admin_name user.username %}">history/{{ user.username }}</a></td></td>
+</tr>
+{% endif %}
+{% endfor %}
+</table>
+<!--<div class="pagination" >
+
+  {% if users2.has_previous %}
+
+    <a class="pagination-action" href="?page={{ users2.previous_page_number }}">
+      <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+    </a>
+
+
+  {% endif %}
+
+{% for num in users2.paginator.page_range %}
+
+ {% if users2.number == num %}
+
+  <span class="pagination-number pagination-current">{{ num }}</span>
+    {% elif num > users2.number|add:'-3' and num < users2.number|add:'3' %}
+    <a class="pagination-number" href="?page={{ num }}">{{ num }}</a>
+
+  {% endif %}
+
+{% endfor %}
+
+
+  {% if users2.has_next %}
+
+<a class="pagination-action" href="?page={{ users2.next_page_number }}">
+      <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+    </a>
+
+  {% endif %}
+
+</div>-->
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "adminbase.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+
+<br><br><br>
+</div><br>
+<!--
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color : grey;
+    color :  black;
+    font-size : 16pt;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 2px solid black;
+}
+
+tr:nth-child(even){background-color: grey}
+
+th {
+    background-color: black;
+    color: white;
+}
+</style>
+-->
+<div class="container">
+<h3 align="center" style="color:grey">{% trans "List of new users need to be approved for KYC Requirements" %}</h3>
+<a href="{% url 'list' country admin_name  %}">
+<img src="{% static 'logo/refreshingsm.png' %}" width="40px">
+</a><br><br>
+</div>
+<br>
+<div class = "container">
+<label style="font-size:15pt">{{ message }}</label>
+<table class="table table-dark table-striped">
+<form method = "POST">
+{% csrf_token %}
+  <tr>
+    <th>{% trans "Username" %}</th>
+    <th>{% trans "Email" %}</th>
+    <th>{% trans "Identity Card(ID) Image" %}</th> 
+    <th>{% trans "Selfie Image" %}</th>
+    <th style="width:150px">{% trans "Approve" %}</th>
+    <th style="width:150px">{% trans "Disapprove" %}</th>
+  </tr>
+<form method="post">
+{% csrf_token %}
+{% for user in users %}
+{% if user.upload_ic != '' %}
+{% if user.upload_ic != Null %}
+{% for wallet in wallets %}
+{% if wallet.username == user.username %}
+  <tr>
+    <td>{{ user.username }}</td>
+    <td>{{ user.email }}</td>
+    <td>
+    <a href="/media/{{ user.upload_ic }}">{{ user.upload_ic }}</a></td>
+    <td style="color:black">
+    <a href= "/media/{{ user.upload_selfie }}">{{ user.upload_selfie }}</a></td>
+    <td style="color:black"><p><input class="btn btn-sm btn-block" style="background-color:#91DC5B; border-radius:10px; font-weight:bold" type="submit" name="create" value= "{{ user.username }}"></p></td>
+    <input type="hidden" name="email" id="email" value="{{ user.email }}"/>
+    <td style="color:#FFFF00"><p><input class="btn btn-sm btn-block" style="background-color:red; border-radius:10px; font-weight:bold" type="submit" name="deny" value="{{ user.username }}"></td>
+  </tr>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endif %}
+{% endfor %}
+</form>
+</table>
+</form>
+</div>
+
+
+
+{% endblock %}

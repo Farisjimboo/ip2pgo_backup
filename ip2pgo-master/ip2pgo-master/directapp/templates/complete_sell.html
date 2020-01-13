@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+{% if not thankyou %}
+<h6><strong>{% trans "Crypto Released, Trade Completed" %}</strong></h6>
+<span style="color:#FFFFFF; font-size:10px">{% trans "Your have confirmed receipt of payment from" %} {{ buyer.username }}.{% trans " The cryptocurrency has been debited from your iP2PGO wallet." %}</span><br>
+
+ <form method="post">
+    <br>
+    {% csrf_token %}
+
+<div class="row">
+<div class="col">
+
+ <label>
+    <input type="radio" name="stars" value="1" />
+    <span class="icon">★</span>
+  </label>
+  <label>
+    <input type="radio" name="stars" value="2" />
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+  </label>
+  <label>
+    <input type="radio" name="stars" value="3" />
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+  </label>
+
+
+</div>
+</div>
+
+
+<div class="row">
+  <div class="col">
+    <br><br>
+    <p>
+      {{ form.comment.label }}
+    {% render_field form.comment class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom:1px solid green; color:#FFFF00" %}
+    </p>
+     <p>
+        <input type="submit" class="btn btn-block btn-success btn-sm" style="width:70px; height:28px;color:black; font-weight:bold" value={% trans "Send" %}>
+      </p>
+  </div>
+</div>
+</form>
+{% else %}
+<p>
+<h6><strong>{% trans "Thank you!" %}</strong></h6>
+</p>
+<br>
+<p>
+{% blocktrans %}
+Thank you for concluding trade #{{ offer_id }}. Below are the details of the condluded trade.
+{% endblocktrans %}
+</p>
+<br>
+{% endif %}
+<span align="center" style="color:#FFFF00">{% trans "Buyer Details" %}</span>
+<div class="row" style="border-bottom:1px solid yellow">
+</div>
+<br>
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Offer ID" %}</p>
+  </div>
+<div class="col">
+    <p style="color:#FFFFFF">{{ offer_id }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Username" %}</p>
+  </div>
+<div class="col">
+    <p style="color:#FFFFFF">{{ buyer.username }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Bank" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ buyer.bank_name }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Bank Account Number" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ buyer.bank_account }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{% trans "Bank Account Holder Name" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ buyer.bank_holder }}</p>
+  </div>
+</div>
+
+{% if country == 'au' %}
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>BSB</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ buyer.bsb }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 text-left">
+    <p>Pay ID / Osko</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ buyer.payid }}</p>
+  </div>
+</div>
+{% endif %}
+
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{{ token }} {% trans "amount sold" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ amount }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{{ currency }} {% trans "amount received" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ trade.fiat }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 text-left">
+    <p>{{ token }} {% trans "amount sold incl. fees" %}</p>
+  </div>
+  <div class="col">
+    <p style="color:#FFFFFF">{{ nett }}</p>
+  </div>
+</div>
+
+
+{% endblock %}

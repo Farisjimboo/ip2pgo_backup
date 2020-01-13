@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+<script>
+
+$(document).ready(function($) {
+    $(".table-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
+});
+
+
+</script>
+
+<style>
+
+.table-row{
+cursor:pointer;
+}
+
+.table-wrapper-scroll-y {
+display: block;
+max-height: 200px;
+overflow-y: auto;
+}
+
+</style>
+
+
+{% include "mainheader.html" %}
+
+<!--
+   <div class="bg-primary row">
+  <div class="col">
+  <div class="row mt-3">
+    <h6 colspan="3" class="font-weight-bold text-white" style="padding-bottom:5px;width:100%; text-align:center; font-size:16px;">Initial Exchange Offering (IEO)</h6>
+     </div>
+  </div>
+</div><br>
+
+    
+   <div class="card-body">
+     <div class="table-wrapper-scroll-y">
+      <table>
+        <tr class="table-secondary">
+          {% if country == 'bw' or country == 'ng' %}
+          <th class="text-dark" style="font-size:10px; width:200px">{% trans "Name" %}  </th>
+          <th class="text-dark" style="font-size:10px">{% trans "Sell Price" %}(ETH) </th>
+          <th class="text-dark" style="font-size:10px">{% trans "Sell Price" %}({{ currency }}) </th>
+          {% else %}
+          <th class="text-dark" style="font-size:10px">{% trans "Name" %}  </th>
+          <th class="text-dark" style="font-size:10px">{% trans "Sell Price" %}(ETH) </th>
+          {% endif %}
+          
+        </tr>
+        <tr class="table-row" data-href="{% url 'wallet' country pls.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'tokenlogo/pls.JPG' %}" width=16px> {{ pls.token }}</td>
+          <td style="color:white; font-size:13px"> {{ eth_price }}</td>
+         {% if country == 'bw' or country == 'ng' %}
+          <td style="color:white; font-size:13px"> {{ fiat_price }}</td>
+         {% endif %}
+        </tr>
+        </table>
+    </div>
+    </div>
+-->
+
+<div class="bg-dark row">
+  <div class="col">
+  <div class="row mt-3">
+    <h6 colspan="3" class="font-weight-bold text-success" style="padding-bottom:5px;width:100%; text-align:center; font-size:16px;">{% trans "MARKET" %}</h6>
+     </div>
+  </div>
+</div><br>
+
+ <div class="btn-group">
+{% if user.verified %}
+ <button type="button" class="btn btn-dark" style="width:80px"><a style="color:white" href="{% url 'mainpage' country token security_code 'FIAT' %}">{{ currency }}</button></a>
+{% endif %}
+ <button type="button" class="btn btn-dark" style="width:70px"><a style="color:white" href="{% url 'mainpage' country token security_code 'ETH' %}">ETH</button></a>
+ <button type="button" class="btn btn-dark" style="width:70px"><a style="color:white" href="{% url 'mainpage' country token security_code 'TUSD' %}">TUSD</button></a>
+ <button type="button" class="btn btn-dark" style="width:70px"><a style="color:white" href="{% url 'mainpage' country token security_code 'GO' %}">GO</button></a>
+  </div>
+
+<div class="card-body">
+     <div class="table-wrapper-scroll-y">
+      <table>
+        <tr class="table-secondary">
+          <th class="text-dark" style="font-size:10px; width:100px"> {% trans "Name" %}</th>
+          {% if crypto == 'FIAT' %}
+          <th class="text-dark" style="font-size:10px">{% trans "Bid" %} ({{ currency }}) </th>
+          <th class="text-dark" style="font-size:10px">{% trans "Ask" %} ({{ currency }}) </th>
+          {% else %}
+          <th class="text-dark" style="font-size:10px">{% trans "Bid" %} ({{ crypto }}) </th>
+          <th class="text-dark" style="font-size:10px">{% trans "Ask" %} ({{ crypto }}) </th>
+          {% endif %}
+        </tr>
+        <tr class="table-row" data-href="{% url 'wallet' country eth.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'tokenlogo/ethereum.png' %}" width=14px> {{ eth.token }}</td>
+          <td style="color:white; font-size:13px"> {{ eth_bid }}</td>
+          <td style="color:white; font-size:13px"> {{ eth_ask }}</td>
+        </tr>
+        <tr class="table-row" data-href="{% url 'wallet' country go.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'logo/ip2pgo_token.jpg' %}" width=16px> {{ go.token }}</td>
+          <td style="color:white; font-size:13px">{{ go_bid }}</td>
+          <td style="color:white; font-size:13px">{{ go_ask }}</td>
+        </tr>
+        <tr class="table-row" data-href="{% url 'wallet' country tusd.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'tokenlogo/TUSD.jpg' %}" width=16px> {{ tusd.token }}</td>
+          <td style="color:white; font-size:13px">{{ tusd_bid }}</td>
+          <td style="color:white; font-size:13px">{{ tusd_ask }} </td>
+        </tr>
+        <tr class="table-row" data-href="{% url 'wallet' country btm.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'tokenlogo/btm.png' %}" width=16px> {{ btm.token }}</td>
+          <td style="color:white; font-size:13px">{{ btm_bid }}</td>
+          <td style="color:white; font-size:13px">{{ btm_ask }} </td>
+        </tr>
+        <tr class="table-row" data-href="{% url 'wallet' country scc.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'tokenlogo/scc.png' %}" width=16px> {{ scc.token }}</td>
+          <td style="color:white; font-size:13px">{{ scc_bid }}</td>
+          <td style="color:white; font-size:13px">{{ scc_ask }} </td>
+        </tr>
+        <tr class="table-row" data-href="{% url 'wallet' country zrx.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'tokenlogo/zrx.png' %}" width=16px> {{ zrx.token }}</td>
+          <td style="color:white; font-size:13px">{{ zrx_bid }}</td>
+          <td style="color:white; font-size:13px">{{ zrx_ask }} </td>
+        </tr>
+        <tr class="table-row" data-href="{% url 'wallet' country omg.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'tokenlogo/omisego.png' %}" width=16px> {{ omg.token }}</td>
+          <td style="color:white; font-size:13px">{{ omg_bid }}</td>
+          <td style="color:white; font-size:13px">{{ omg_ask }} </td>
+        </tr>
+        <tr class="table-row" data-href="{% url 'wallet' country tmb.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'tokenlogo/tembocoin.png' %}" width=16px> {{ tmb.token }}</td>
+          <td style="color:white; font-size:13px">{{ tmb_bid }}</td>
+          <td style="color:white; font-size:13px">{{ tmb_ask }} </td>
+        </tr>
+       <tr class="table-row" data-href="{% url 'wallet' country rego.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'tokenlogo/rego.png' %}" width=16px> {{ rego.token }}</td>
+          <td style="color:white; font-size:13px">{{ rego_bid }}</td>
+          <td style="color:white; font-size:13px">{{ rego_ask }} </td>
+        </tr>
+        <tr class="table-row" data-href="{% url 'wallet' country ira.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'logo/ira.jpg' %}" width=16px> {{ ira.token }}</td>
+          <td style="color:white; font-size:13px">{{ ira_bid }}</td>
+          <td style="color:white; font-size:13px">{{ ira_ask }} </td>
+        </tr>
+        <tr class="table-row" data-href="{% url 'wallet' country pls.token security_code crypto %}">
+          <td style="color:white; font-size:13px"> <img src="{% static 'tokenlogo/pls.JPG' %}" width=16px> {{ pls.token }}</td>
+          <td style="color:white; font-size:13px">{{ pls_bid }}</td>
+          <td style="color:white; font-size:13px">{{ pls_ask }} </td> 
+       </tr>
+      </table>
+    </div>
+    </div><br><br>
+
+
+<p>
+{% include 'referral.html' %}
+<p>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'loginbase.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+
+<br><br><br>
+<p>
+  <img src="{% static "images/logo.png" %}"  width="200" height="200">
+</p>
+<p>
+<!--<label style="color: #FFFF00">{% trans "There is something problem with the server, please login back after a few minutes. If still have the problem please contact support" %}</label>-->
+
+<label style="color: #FFFF00">{% trans "The app is undergoing 24 hour system maintenance. We will announce its availability in the website and main telegram group" %}</label>
+</p>
+
+
+{% endblock %}

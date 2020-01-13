@@ -1,0 +1,95 @@
+{% extends "base2.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %} 
+<section id="services">
+   	
+   	<div class="row narrow section-intro with-bottom-sep animate-this">
+   		<div class="col-full">
+   			
+   				<h2 style="font-size:30px; letter-spacing: 6px;  word-spacing: 5px;" >{% trans "WHY YOU SHOULD USE iP2PGO" %}</h2>
+   			
+   	   </div> <!-- end col-full -->
+   	</div> <!-- end row -->
+
+   	<div class="row services-content">
+
+   		<div class="services-list block-1-5 block-tab-full group">
+
+	      	<div class="bgrid service-item animate-this">	
+
+	      		    <img width="100px" height="100px" src="{% static "images/ip2pgo/product.png"%}" >	        
+
+	            <div class="services-content">
+	            	<h2 class="h05">{% trans "More Choice of Crypto" %}</h2>
+
+	         	</div> 	         	 
+
+			</div> <!-- end bgrid -->
+
+				<div class="bgrid service-item animate-this">	
+
+					<img width="100px" height="100px" src="{% static "images/marketplace/Transaction.png"%}" >	                            
+
+	            <div class="services-content">	
+	            	<h2 class="h05">{% trans "Low Fees" %}</h2>  
+       		
+	            </div>	                          
+
+			   </div> <!-- end bgrid -->
+
+			   <div class="bgrid service-item animate-this">
+
+			   	<img width="100px" height="100px" src="{% static "images/marketplace/aml.png"%}" >	   		            
+
+	            <div class="services-content">
+	            	<h2 class="h05">{% trans "Comprehensive AML & KYC Process" %}</h2>
+
+	        			
+	            </div> 	            	               
+
+			   </div> <!-- end bgrid -->
+
+				<div class="bgrid service-item animate-this">
+
+					<img width="100px" height="100px" src="{% static "images/marketplace/experience.png"%}" >	   	              
+
+	            <div class="services-content">
+	            	<h2 class="h05">{% trans "Experience Management" %}</h2>
+	         		
+	            </div>                
+
+				</div> <!-- end bgrid -->		
+
+                 <div class="bgrid service-item animate-this">
+
+					<img width="100px" height="100px" src="{% static "images/marketplace/easy.png"%}" >	   	              
+
+	            <div class="services-content">
+	            	<h2 class="h05">{% trans "Easy, Fast & Secure" %}</h2>
+                     </div>
+                    </div>	       
+                   </div>  		
+
+                <br><br>
+<div style="text-align:center">
+{% if request.path == '/en-us/' %}
+            <button style="background-color:#00FF00; width:240px;text-align:left; padding-left:9px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+            {% elif request.path == '/id/' %}
+           <button style="background-color:#00FF00; width:225px;text-align:left; padding-left:23px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style
+="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+          {% elif request.path == '/zh-hans/' %}
+            <button style="background-color:#00FF00; width:150px;text-align:left; padding-left:20px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; width:150px;text-align:left; padding-left:20px;font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+           {% elif request.path == '/vi/' %}
+           <button style="background-color:#00FF00; width:250px;text-align:left; padding-left:9px; font-size:12px; font-weight:bold" type="submit" name="register" value
+={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style=
+"height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; width:250px; text-align:left; padding-left:6px; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+            {% endif %}
+</div>  
+</div>
+</section>
+{% endblock %}

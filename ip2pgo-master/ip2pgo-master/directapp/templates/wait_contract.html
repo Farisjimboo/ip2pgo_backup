@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+{% if deadline %}
+<script>
+
+var end = new Date("{{ deadline }}");
+
+var _second = 1000;
+var _minute = _second * 60;
+var _hour = _minute * 60;
+var _day = _hour * 24;
+var timer;
+
+function showRemaining() {
+    var now = new Date(); var gmt = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+    var distance = end - gmt;
+    if (distance < 0) {
+
+      clearInterval(timer);
+      document.getElementById('countdown').innerHTML = 'EXPIRED!';
+
+     return;
+    }
+    var days = Math.floor(distance / _day);
+    var hours = Math.floor((distance % _day) / _hour);
+    var minutes = Math.floor((distance % _hour) / _minute);
+    var seconds = Math.floor((distance % _minute) / _second);
+
+    document.getElementById('countdown').innerHTML = minutes + ':' + seconds;
+}
+
+timer = setInterval(showRemaining, 1000);
+
+
+</script>
+
+<script>
+
+//TIMER FOR AUSTRALIA
+
+var end = new Date("{{ deadline }}");
+
+var _second = 1000;
+var _minute = _second * 60;
+var _hour = _minute * 60;
+var _day = _hour * 24;
+var timer;
+
+function showRemaining() {
+    var now = new Date();
+    var gmt = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+    var distance = end - gmt;
+    if (distance < 0) {
+
+      clearInterval(timer);
+      document.getElementById('countdown_au').innerHTML = 'EXPIRED!';
+      document.getElementById('title').innerHTML = "Expired Trade";
+      document.getElementById('desc').innterHTML = "The timer has expired. Please click the Refresh button until the Dispute button appears. The regular trade buttons will be unavailable for use now.";
+
+     return;
+    }
+    var days = Math.floor(distance / _day) ;
+    var hours = Math.floor((distance % _day) / _hour);
+    var minutes = Math.floor((distance % _hour) / _minute);
+    var seconds = Math.floor((distance % _minute) / _second);
+    if(hours > 0 && minutes < 10){
+        minutes = '0' + minutes;
+    }
+    if(seconds < 10){
+        seconds = '0' + seconds;
+    }
+    document.getElementById('countdown_au').innerHTML = hours + ':' + minutes + ':' + seconds;
+}
+
+timer = setInterval(showRemaining, 1000);
+
+
+</script>
+
+<p>
+{% if country == 'au' %}
+  <h1 style="color:red" id="countdown_au"></h1>
+{% else %}
+  <h1 style="color:red" id="countdown"></h1>
+{% endif %}
+</p>
+{% endif %}
+<p>
+<h6><strong>{% trans "Please Wait for Offer" %} {{ offer_id }}...</strong></h6>
+</p>
+<br>
+<p>
+{% blocktrans %}
+The trade is waiting for {{ subject.username }} to complete his/her action. 
+{% endblocktrans %}
+</p>
+<p>
+{% trans "Please refresh to view the latest status of this trade." %}
+</p>
+<p>
+{% if offer.dispute %}
+  <a href="{% url 'chat' country token security_code offer_id crypto %}">
+    <img src="{% static 'logo/refreshingsm.png' %}">
+  </a>  
+{% else %}
+  <a href="{% url 'payment_confirm' country token security_code offer_id crypto %}">
+    <img src="{% static 'logo/refreshingsm.png' %}">
+  </a>
+{% endif %}
+</p>
+{% endblock %}

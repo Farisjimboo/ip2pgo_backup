@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h6><strong>Please Wait...</strong></h6>
+<p>
+{% blocktrans %}The blockchain is finalizing the smart contract. Please click the button below to reload the page.{% endblocktrans %}
+</p>
+<p>
+<a href="{% url 'payment_confirm' country token security_code trade.offer_id crypto %}" class="btn btn-sm text-black" style="width:300px; background-color:#91DC5B; border-radius: 15px">
+  {% trans "Reload" %}
+</a>
+</p>
+{% endblock %}

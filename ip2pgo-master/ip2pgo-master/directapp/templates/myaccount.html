@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+<div class="container">
+<br><br>
+
+
+<p>{% include "eth_balance.html" %}</p>
+  <br>
+  <div class="table-responsive">
+    <label style=color:green>{% trans "Account Summary" %}</label>
+    <table>
+        <tbody>
+
+                <tr>
+                <td>{% trans "User ID" %}</td>
+                <td>{% trans "QN04" %} </td>
+        </tr>
+        <tr>
+                 <td>{% trans "Username" %}</td>
+                <td>{% trans "Ribhrahim" %} </td>
+
+         </tr>
+         <tr>
+                 <td>{% trans "Email Address" %}</td>
+                 <td>{% trans "rashdan@ip2pmoney.com" %} </td>
+         </tr>
+         <tr>
+                    <td>{% trans "Succesful Trades" %}</td>
+                  <td>1</td>
+         </tr>
+                    <tr>
+                    <td>{% trans "Cancelled Trades" %}</td>
+                  <td>0 </td>
+         </tr>
+                  
+                     <tr>
+                    <td>{% trans "Account Created On" %}</td>
+                  <td>29-05-18 </td>
+         </tr>
+                    <tr>
+                    <td>{% trans "Last Online" %}</td>
+                  <td>30-05-18 23:07 </td>
+         </tr>
+        </tbody>
+</table>
+</div>
+
+
+
+
+
+
+</div>
+{% endblock %}

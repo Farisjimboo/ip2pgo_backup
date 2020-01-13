@@ -1,0 +1,59 @@
+{% extends "loginbase.html" %}
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block content %}
+{% load widget_tweaks %}
+
+<div id="overlay"></div>
+<br><br><br>
+  <div align="center" >
+  {% if country == 'my' %}
+  <img src="{% static "icon/ip2pgo_victor.jpg" %}"  width="200" height="200">
+  {% elif country == 'cn' %}
+  <img src="{% static "icon/china_icon.JPG" %}" style="margin-top:20px" width="200" height="200">
+  {% elif country == 'id' %}
+  <img src="{% static "icon/indo_icon.JPG" %}" style="margin-top:20px" width="200" height="200">
+  {% elif country == 'cn-wb' %}
+  <img src="{% static "icon/onecity_icon.JPG" %}" style="margin-top:20px" width="200" height="200">
+  {% elif country == 'au' %}
+  <img src="{% static "icon/au_icon.jpg" %}" style="margin-top:20px" width="200" height="200">
+  {% elif country == 'vn' %}
+  <img src="{% static "icon/vn_icon.jpg" %}" style="margin-top:20px" width="200" height="200"> 
+  {% elif country == 'ng' %}
+  <img src="{% static "icon/ng_icon.jpg" %}" style="margin-top:20px" width="200" height="200">
+  {% elif country == 'gh' %}
+  <img src="{% static "images/icon_ghana.jpg" %}" style="margin-top:20px" width="200" height="200">
+  {% elif country == 'za' %}
+  <img src="{% static "icon/za_icon.JPG" %}" style="margin-top:20px" width="200" height="200">
+   {% elif country == 'tz' %}
+  <img src="{% static "icon/tz_icon.jpg" %}" style="margin-top:20px" width="200" height="200">
+   {% elif country == 'otc' %}
+  <img src="{% static "icon/logo_otc.jpg" %}" style="margin-top:20px" width="300" height="200">
+   {% elif country == 'bw' %}
+  <img src="{% static "icon/botswana_icon.jpg" %}" style="margin-top:20px" width="200" height="200">
+  {% elif country == 'ph' %}
+  <img src="{% static "icon/ip2pgo_philippines.jpg" %}" style="margin-top:20px" width="200" height="200">
+  {% endif %}
+  
+  </div><br>
+<div class="container">
+<h3 align="center">{% trans "Login" %}</h3>
+</div>
+<br>
+<div class = "container"> 
+<form method ="post" align="center">
+ {% csrf_token %}
+{{ login_form.email.label }}
+    {% render_field login_form.email class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom: 1px solid green;" %}<br>
+
+
+       
+       <br>
+         <p><input onclick="on()"  class="btn-success" style="border-radius: 30px; border: none; height:50px;width:150px; font-weight:bold" type="submit" name="login" value={% trans "Continue" %} /></p>
+   </form>
+</div>
+
+
+
+{% endblock %}

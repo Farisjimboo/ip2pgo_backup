@@ -1,0 +1,73 @@
+{% extends "base2.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<footer>
+<div class="footer-main">
+
+   		<div class="row">  
+
+	      	<div class="col-two tab-full footer-about">       
+                     <div style="text-align: center;">
+	            <img  width="90px" height="90px" src="{% static "images/ip2pglobal.png"%}" >
+                    </div>
+			
+
+		      </div> <!-- end footer-about -->
+
+
+	      	<div class="col-four tab-full">
+                       <div style="text-align: center;">                                                                                                                                                
+			<p style=" line-height:normal;text-align: center;color:#FFFF00;">{% trans "Copyright © 2018 iP2PGO" %} <br><br>{% trans  "iP2P Global Ltd" %}<br> <br>{% trans " Sertus Chambers, Governors Square," %}<br>{% trans "Lime Tree  Bay Avenue, P.O.Box 2547," %}<br>{% trans "Grand Cayman, Cayman Islands" %}</p>
+
+
+                        </div>
+
+	      	</div> <!-- end footer-subscribe --> 
+
+                  <div class="col-three tab-full">
+                       <div style="text-align: center;">
+
+                        <a style="color:#FFFFFF;text-align: center;" href="{% url 'terms' %}">{% trans "TERMS & CONDITIONS " %}</a><br>
+
+                                <a style="color:#FFFFFF;text-align: center;" href="{% url 'termsofuse' %}">{% trans "TERMS OF USE" %}</a><br>
+                                                
+                                <a style="color:#FFFFFF;text-align: center;" href="{% url 'policy' %}">{% trans "PRIVACY POLICY " %}</a><br>
+
+                                <a style="color:#FFFFFF;text-align: center;" href="{% url 'faq' %}">{% trans "FAQ" %}</a><br>
+
+                                <a style="color:#FFFFFF;text-align: center;" href="{% url 'contact' %}">{% trans "CONTACT US" %}</a><br>
+                        </div>
+
+                </div> <!-- end footer-subscribe -->
+
+            <div class="col-three tab-full ">
+
+	      		
+
+	      		<ul  class="list-links">
+	      		<a href="https://www.facebook.com/ip2pgo/" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+        		<a href="https://twitter.com/ip2pGo" target="_blank" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
+        		<a href="https://t.me/ip2pgo" target="_blank" class="btn-social btn-telegram"><i class="fa fa-telegram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCJTvFPHUqFv2rYyt0_tHMDQ" target="_blank" class="btn-social btn-youtube"><i class="fa fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/ip2pgo/" target="_blank" class="btn-social btn-instagram"><i class="fa fa-instagram"></i></a>
+       					
+					</ul>
+
+	      	</div> <!-- end footer-social -->  
+     	    
+
+	      </div> <!-- end row -->
+
+   	</div> <!-- end footer-main -->
+
+
+
+      <div id="go-top">
+		   <a class="smoothscroll" title="Back to Top" href="#top">
+		   	<i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+		   </a>
+		</div>		
+</footer>
+{% endblock %}
+

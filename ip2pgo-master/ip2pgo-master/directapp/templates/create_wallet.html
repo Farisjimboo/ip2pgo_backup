@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+{% if first_login %}
+<h6><strong>{% trans "Welcome to iP2PGO" %} {{ username }}!</strong></h6>
+<p>
+<span style="color : #91DC5B">{% trans "Just a few more steps to create your wallet" %}</span>
+</p>
+{% else %}
+<h6><strong>{% trans "Create Wallet" %}</strong></h6>
+{% endif %}
+<div id="overlay"></div>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+<br>
+ <p>
+    <span class="text-warning">{% trans "KYC Requirements" %}</span><br><br>
+    <img src="{% static 'logo/ic.PNG' %}" width="100px"><br>
+    {% if country == 'au' %}
+    <label>Please upload your driving license card.</label><br>
+    {% else %}
+    {{ form.upload_ic.label }}<br>
+    {% endif %}
+    {% render_field form.upload_ic class="form-control form-control-sm" style="background-color:#000000; border:none; color:white" %}<br>
+    <img src="{% static 'logo/selfie.PNG' %}" width="200px"><br>
+    {% if country == 'au' %}
+    <label>Please upload a selfie holding your driving license card. Make sure that the photos are clear </label><br>
+    {% else %}
+    {{ form.upload_selfie.label }}<br>
+    {% endif %}
+    {% render_field form.upload_selfie class="form-control form-control-sm" style="background-color:#000000; border:none; color:white" %}<br>
+  <p><input onclick="SpinnerLoad()" class="btn btn-success btn-sm"  style="color:#000000; width:300px; font-weight:bold" type="submit" name="update" value={% trans "Submit" %}
+></p>
+</form>
+{% endblock %}
+

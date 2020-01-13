@@ -1,0 +1,25 @@
+{% load static %}
+{% load i18n %}
+<nav class="navbar navbar-dark fixed-top justify-content-center" style="background-color:#202020; bg-dark; margin-top:70px; margin-bottom:0px">
+  <ul class="nav" style="width:100%">
+    <li class="col-header">
+      <a class="nav-link text-warning" href="{% url 'buy_list' country token security_code crypto %}" style="color:#FFFFFF"><strong>{% trans "Buyers" %}</strong></a>
+    </li>
+    <li class="col-header">
+      <a class="nav-link text-warning" href="{% url 'sell_list' country token security_code crypto %}" style="color:#FFFFFF"><strong>{% trans "Sellers" %}</strong></a>
+    </li>
+    <li class="col-header">
+      {% if 'wallet' in request.path %}
+      <span class="nav-link text-warning" ><strong>{% trans "Wallet" %}</strong></span>
+      {% else %}
+      <a class="nav-link text-warning" href="{% url 'wallet' country token security_code crypto %}" style="color:#FFFFFF"><strong>{% trans "Wallet" %}</strong></a>
+      {% endif %}
+    </li>
+  </ul>
+</nav>
+
+
+
+
+
+

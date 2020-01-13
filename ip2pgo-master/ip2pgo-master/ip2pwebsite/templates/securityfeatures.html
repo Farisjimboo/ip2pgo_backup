@@ -1,0 +1,138 @@
+{% extends "base2.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<section id="services">
+
+   	<div class="overlay"></div>
+   	<div class="gradient-overlay"></div>
+   	
+   	<div class="row narrow section-intro with-bottom-sep animate-this">
+
+         	   <div class="col-two tab-full">
+
+                            <div style="float:left; margin-bottom:45px;">
+                                 <img width="100px" height="100px" src="{% static "images/logo.png"%}" >
+                                </div>
+                    </div>
+                     <div class="col-ten tab-full">
+                           <h2 style="font-size:30px; text:align:right; letter-spacing: 6px;  word-spacing: 5px;" >{% trans "iP2PGO APP SECURITY FEATURES" %}</h2>
+
+                        </div>
+							 
+
+   	</div> <!-- end row -->
+
+   	<div class="row services-content">
+
+   		<div class="services-list block-1-1 block-tab-full group">
+
+	      	<div class="bgrid service-item animate-this">	
+      
+
+	            <div class="services-content">
+                         <div style="text-align:center">
+	            	<h3 class="h05">{% trans "Not downloadable via google Playstore" %}</h3>
+                          </div>
+
+		            <p style="text-align:center;font-size:17px;word-spacing:2px; letter-spacing: 2px;line-height: normal;"> {% trans "No instance of another phishing app clone to appear to steal your data by masquerading as the real app." %}</p>	
+         			         	</div> 	         	 
+
+			</div> <!-- end bgrid -->
+
+				<div class="bgrid service-item animate-this">	
+                         
+
+
+	            <div class="services-content">	
+                      <div style="text-align:center">
+	            	<h3 class="h05"> {% trans "No data stored on mobile device" %}</h3>
+                       </div>  
+
+		            <p style="text-align:center;font-size:17px;word-spacing:2px; letter-spacing: 2px;line-height: normal;">{% trans "All data is stored on our database which has its access secured by only a single connection, which is through our app server." %} </p>	         		
+	            </div>	                          
+
+			   </div> <!-- end bgrid -->
+
+			   <div class="bgrid service-item animate-this">
+                                    
+
+	            <div class="services-content">
+                    <div style="text-align:center">
+  			<h3 class="h05">{% trans "No exposed endpoint" %}</h3>
+                    </div>
+
+                            <p style="text-align:center;font-size:17px;word-spacing:2px; letter-spacing: 2px;line-height: normal;"> {% trans "No IP or internet address is given to access our app, it is obfuscated by the android app interface. "%}
+                                        </p>
+                    </div>
+
+                           </div> <!-- end bgrid -->
+
+                                <div class="bgrid service-item animate-this">
+
+                    <div class="services-content">
+                        <div style="text-align:center">
+                        <h3 class="h05">{% trans "Constant security login" %}</h3>
+                        </div>
+
+                            <p style="text-align:center;font-size:18px;word-spacing:2px; letter-spacing: 2px;line-height: normal;">{% trans "Users are not kept logged on for long and will have to key in their Security Code every time they wish to log in, which is sent to their registered email every time." %}
+                                </p>
+                    </div>
+
+                                </div> <!-- end bgrid -->
+
+                 <div class="bgrid service-item animate-this">
+
+
+                    <div class="services-content">
+                       <div style="text-align:center">
+                        <h3 class="h05">{% trans "Double verification" %}</h3>
+                        </div>
+
+                            <p style="text-align:center;font-size:18px;word-spacing:2px; letter-spacing: 2px;line-height: normal;">{% trans "Users need to key in their passcode for every Ether ransaction. Treat your passcode as you would treat your bank account's PIN." %}
+                                </p>
+                    </div>
+
+                                </div>
+
+                <div class="bgrid service-item animate-this">
+
+
+                    <div class="services-content">
+                      <div style="text-align:center">
+                        <h3 class="h05">{% trans "None-Key wallets" %}</h3>
+                      </div>
+
+                            <p style="text-align:center;font-size:18px;word-spacing:2px; letter-spacing: 2px;line-height: normal;">{% trans "The holding wallets can only be signed by our own executing wallet for all operations and no private keys are available to be exported." %}
+                                </p>
+                    </div>
+
+                                </div>
+
+                <div class="bgrid service-item animate-this">
+
+                <br><br>
+{% if request.path == '/en-us/' %}
+            <button style="background-color:#00FF00; width:240px;text-align:left; padding-left:9px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style
+="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+            {% elif request.path == '/id/' %}
+           <button style="background-color:#00FF00; width:225px;text-align:left; padding-left:23px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style
+="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+          {% elif request.path == '/zh-hans/' %}
+            <button style="background-color:#00FF00; width:150px;text-align:left; padding-left:20px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; width:150px;text-align:left; padding-left:20px;font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+           {% elif request.path == '/vi/' %}
+           <button style="background-color:#00FF00; width:250px;text-align:left; padding-left:9px; font-size:12px; font-weight:bold" type="submit" name="register" value={% trans "Register/Download" %} onclick="location.href='{% url 'categories' %}'">{% trans "Register/Download" %}<img src="{% static "logo/android.png" %}" style="height:50px; width:50px; "/></button>
+            <button style="background-color:#00FF00; width:250px; text-align:left; padding-left:6px; font-size:12px; font-weight:bold" type="submit" name="login" value={% trans "Login/Register" %} onclick="location.href='{% url 'login_categories' %}'">{% trans "Login/Register" %}<img src="{% static "logo/website_icon.png" %}" style="height:50px; width:50px; "/></button>
+            {% endif %}
+                                </div> <!-- end bgrid -->
+
+              </div> <!-- end services-list -->
+
+        </div> <!-- end services-content -->
+
+</section>
+{% endblock %}
+

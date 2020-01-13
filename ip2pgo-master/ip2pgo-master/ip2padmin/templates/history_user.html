@@ -1,0 +1,29 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+<br><br><br><br>
+<div style="overflow-x:auto;">
+{% trans "Username :" %} {{ username }}<br>
+{% trans "Email :" %} {{ email }}<br>
+<table class="table table-dark table-striped">
+  <tr>
+  <th colspan="3" class="font-weight-bold text-success" style="width:100%; text-align:center; font-size:16px;"> {% trans "HISTORY" %} </th><br>
+  </tr>
+<tr>
+<th>{% trans "Timestamp(UTC)" %}</th>
+<th>{% trans "Activities" %}</th>
+<th>{% trans "Amount" %}</th>
+<th>{% trans "Token" %}</th>
+{% for his in history|dictsortreversed:"time" %}
+<tr>
+<td>{{ his.time }}</td>
+<td>{{ his.activity }}</td>
+<td>{{ his.norm_amount.normalize }}</td>
+<td>{{ his.token }}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

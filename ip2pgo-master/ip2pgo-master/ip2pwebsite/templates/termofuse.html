@@ -1,0 +1,214 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+<section id="services">
+  <div class="home-content-table">	
+    <div class="home-content-tablecell">
+      <div class="row">
+        <div class="services-list block-1-1 block-tab-full group">
+          <div class="bgrid service-item animate-this">
+            <h2 style="margin-top:40px;padding-bottom:50px; color:#00FF00;">{% trans "IP2PGO App & Web App Terms of Use" %}</h2>
+	    <h3 style="color:#FFFF00;text-align:left">{% trans "1. Introduction" %}</h3>
+	    
+            <p>{% trans "This page sets out the Terms of Use for iP2PGo account holders. By signing up for an iP2PGo account, you accept all of these terms. A reference in these Terms of Use to ‘we’, ‘us’ or ‘our’ means iP2P Global Ltd and its directors and officers." %} </p>
+							 
+            <p>{% trans "Separate terms of use apply to website visitors. These Terms of Use apply if you create an account with iP2PGo. The website Terms & Conditions also apply to the use of the services. In the event of conflict between these Terms of Use and the website Terms & Conditions, the Terms of Use prevail." %}</p>
+					
+            <p>{% trans "iP2PGo is a service that enables its users to find others interested in trading Ethereum digital currency (“ETH”) or ERC20 tokens for local currencies and vice versa. iP2PGo do not facilitate the exchange of fiat currency for a digital currency, and we do not provide a digital currency exchange service. iP2PGo does not purchase ETH or ERC20 tokens from, or sell ETH or ERC20 tokens to, its account holders." %}</p>
+							 
+	    <p>{% trans "iP2PGo do not give legal or financial advice. The information on our website, and the posting and viewing of any the information on our website, should not be construed as, and should not be relied upon for, legal, financial or taxation advice in any circumstance." %} </p>
+							 
+	    <h3 style="color:#FFFF00;text-align:left">{% trans "2. Your account" %}</h3>
+	    <p>{% trans "You will need to register and create an account in order to download the iP2PGo Application (“App”) as a user. To access the App you will have to open the App and you will have to key in your registered email address, an email will be sent to your email address with the login code. You must enter the login code when you open the App to access the services." %}  </p>
+            <p>{% trans "As a rule a user can only register one account under one email address for one country App. A user can have multiple accounts in other country Apps if the user has bank accounts in multiple countries, however the user must register under a different email address for each account. If the administrator detects that a user is using different email addresses to register many accounts for one country App, the administrator will delete the accounts except one. " %}  
+							</p>
+            <p>{% trans "As a user you must maintain the security of your registered email and confidentiality of your email password and you are responsible for all activities that are conducted through your account, whether or not you have authorised such use." %}</p>
+           <p>{% trans "You must remember your email address. If you forgot or lose your email address, you will not be able to access your encrypted communications or wallet, and there is no way for iP2PGo to recover access." %}</p>
+							
+           <p>{%trans "We currently do not allow the registered email address to be changed. If your email address has been compromised, you have to inform the administrator immediately via the support desk and present proof so we can verify you are the owner of the compromised email address. On positive verification we will then delete the account registered under the compromised email address. " %}</p>
+							
+							<p>{% trans "If you wish to delete your account, please contact the support desk with your request." %}</p>
+							
+							<p>{% trans "You must be at least 18 years old to sign up for an iP2PGo account. If you sign up for an account, you warrant that you are at least 18 years old." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "3. VERIFIED AND UNVERIFIED USERS" %}</h3>	
+
+							<p>{% trans "Before generating the Ethereum and ERC20 wallets, you will have a choice to select whether you want to be a verified user or an unverified user. If you choose to be verified you will have to undergo the KYC approval process by uploading your identification document and a picture of your selfie holding the identification document, KYC approval may take at least 30 minutes or a few hours. " %}</p>
+								<h3 style="color:#FFFF00;text-align:left">{% trans "4. Generating Ethereum Wallet" %}</h3>
+								
+								<p>{% trans "When you create an account, an Ethereum wallet is created for you with a unique public key / address." %}</p>
+								
+								<p>{% trans "This wallet is an exchange wallet and is only to be used for; " %} </p>
+								
+							<p style ="padding-left:20px" >{% trans "I)you to deposit ETH or ERC20 tokens into the exchange wallet," %} <br>{% trans "II)for you to withdraw ETH or ERC20 tokens from the exchange wallet to your own private wallets," %} <br> {% trans "III)for you to send ETH or ERC20 tokens to the Escrow Smart Contract in the event you are making a sale transaction," %} <br>{% trans "IV)for you to receive ETH or ERC20 tokens from the Escrow Smart Contract in the event you are making a buy transaction." %}</p>
+							
+							<p>{% trans "Since this is an exchange wallet, the private key will not be created. " %}</p>
+							
+							<p>{% trans "You are not to use this exchange wallet to subscribe to an initial coin offerings (“ICO”), since the system will not be able to track the ownership of the token when it is issued.  " %}</p>
+							
+							<h3 style="color:#FFFF00;text-align:left">{% trans "5. Making offers" %}</h3>
+							<p>{% trans "iP2PGo users may post offers to buy or sell ETH or ERC20 tokens in exchange for local currencies using the marketplace. Those that post offers (buy or sell) are called ‘Makers’. Offers on the marketplace are made publicly available, and can be viewed by anyone who accesses the App." %}</p>
+							<p>{% trans "All offers are based on good-till-cancel (“GTC”) basis. Makers will have to set their Offer Spread above/below the Spot ask/bid price by varying the spread scale." %}</p>
+							<p>{% trans "Unless the offer is cancelled manually by the Maker itself, the offer will still be valid irregardless of the ETH or ERC20 token future price movements, this is because the Maker is making their offer based on Spread above the market price rather than on absolute price. " %}</p>
+							<p>{% trans "As an option the Maker can also set additional floor (minimum) price (for sell offer) and a ceiling (maximum) price (for a buy offer). During the period where the Maker’s bid offer price of the ETH or ERC20 token increases above the ceiling price, the Maker’s buy offer will be suspended from the marketplace and will only be reinstated once the offer price drops again to and below the ceiling price (if not yet hit by a taker) and vice versa in the case for sell offer." %}</p>
+								<p>{% trans "Apart from the Offer Spread above, the Maker must also key-in the ‘Amount to Buy or Sell’, which is also the maximum amount. As an option the Maker can also key-in the minimum amount to buy or sell. If only the ‘Amount to Buy/Sell’ is keyed-in, then the Taker will have to match the exact amount to enter into a transaction, however if the minimum amount is also keyed-in, then any amount within the minimum and maximum can be transacted." %}</p>
+							<p>{% trans "Lastly, the Maker must input their bank account details, whether they are making a buy or sell offer. This is so that the seller will know from which account he will receive the funds and the buyer will know to which account he needs to transfer the funds to. The Maker will also need to choose between 15 minutes or 30 minutes payment window." %}</p>
+							<p>{% trans "iP2PGo reserves the right to delete offers from the marketplace at its discretion. Generally, it will delete offers if they appear to be unlawful, non-genuine, fraudulent, spam or are otherwise incorrect." %}</p>
+							
+					                <p>{% trans "In making an offer verified users will have an option to specify whether he/she would want to trade with an unverified user. If the option is NOT selected, any unverified user would not be able to ‘take’ the offer by the verified user." %}</p>
+  	
+							<h3 style="color:#FFFF00;text-align:left">{% trans "6. Communications between parties" %}</h3>
+							<p>{% trans "A communication channel will be opened to buyers, sellers and support desk in the event of a dispute." %}</p>
+							<p>{% trans "It is the responsibility of a user to make and keep adequate records of communications, details of transactions and financial history to the extent that they are required to do so in their jurisdiction." %}</p>
+							<p>{% trans "You must not be engage in communication with other iP2PGo users or the Support Desks personnel which is offensive, abusive, unlawful, defamatory, indecent or inappropriate." %}</p>
+							<p>{% trans "You acknowledge that we are unable to provide you with any other information about the identity of another iP2PGo user other than what is made available to you on our website." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "7. Trades of ETH or ERC20 token" %}</h3>
+							<p>{% trans "The parties of a trade are referred to as 'buyer' (those who are interested in trading local currency for ETH or ERC20 tokens) and 'sellers' (those who are interested in trading ETH or ERC20 tokens for local currency). Both can be “makers” (those who are interested to make an offer in the marketplace) and “takers” (those who are interested to hit on an offer listed in the marketplace)." %}</p>
+							<p>{% trans "When trading with a user located with the aid of iP2PGo's services, payment instructions can only be communicated directly between the buyer and seller. We do not have any bank accounts that hold users' funds, nor do we facilitate or escrow any local currency payments between buyers and sellers. At no point during the course of a trade does the buyers' or sellers' ETH or ERC20 tokens enter our control, unless  a dispute situation arises." %}</p>
+							<p>{% trans "ETH and ERC20 token trades are conducted via the Ethereum distributed computing network, which we cannot and do not control. When a seller enters into a transaction with a buyer, the seller transfers ETH or ERC20 tokens directly to an Escrow Smart Contract on the Ethereum blockchain. iP2PGo can only access ETH or ERC20 tokens held in the Escrow Smart Contract if explicit digital permission is given by the buyer or seller and only in the event of a trade dispute. It is impossible for us to have ETH or ERC20 tokens directed to anyone other than the seller or the buyer as per the code of the Escrow Smart Contract." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "8. Terms of the transaction" %}</h3>
+							<p>{% trans "Once ETH or ERC20 token is transferred into the Escrow Smart Contract, the trade should proceed in accordance with the terms agreed between the buyer and the seller. This will ordinarily require:" %}</p>
+							<p>{% trans "I.The buyer making a payment in local currency directly to the seller;" %}</p>
+							<p>{% trans "II.once local currency payment is received in full and in cleared funds, the ETH or ERC20 token held in escrow must be released by the seller." %}</p>
+							<p>{% trans "Once a buyer select a particular sell offer from a seller or once a buyer’s offer has been selected by a seller, an Escrow Smart Contract for the transaction will be created and the ‘time left to pay’ timer will start the countdown. The seller’s ETH or ERC20 token will be transferred to the Escrow Smart Contract and locked. The buyer will then have to make payment and represent that the payment has been made by clicking the ‘I have paid’ button before the timer countdown finishes. " %}</p>
+							<p>{% trans "If the countdown ends and there is still no representation from the buyer, the system will automatically put the transaction into ‘dispute’, the support desks will then access the situation and if it’s determined that the buyer didn’t want to go through the transaction the ETH or ERC20 token will be released back to seller’s exchange wallet. " %}</p>
+							<p>{% trans "Buyer who cancels a transaction before the countdown ends or didn’t act on the transaction after the countdown ended will be charged a gas fee since the platform has already incurred gas fees for creating the Escrow Smart Contract and the platform will have to return the ETH or ERC20 token back to the seller’s exchange wallet. If the buyer does not have any ETH or ERC20 tokens in its exchange wallet during the time of the cancelled transaction, the system will deduct it when the buyer’s exchange wallet has any balance. The buyer will need to repay this gas fee by depositing ETH or ERC20 token, before he/she can undertake any further trades. " %}</p>
+							<p>{% trans "The seller must deposit the amount of ETH or ERC20 token in it’s exchange wallet before creating a sell offer in the marketplace (maker) or before selecting a particular buy offer.  The seller cannot cancel a transaction once it has been selected by a buyer." %}</p>
+							<p>{% trans "Sales between buyers and sellers are subject to:" %}</p>
+							<p  style ="padding-left:20px" >•{% trans "the payment of iP2PGo transaction fee;<br>•the payment of Gas price to the Ethereum network;" %}<br>•{% trans "the process for resolving disputes set out in these Terms of Use; and" %}<br>•{% trans "the seller’s terms and conditions." %}</p>
+							 <h3 style="color:#FFFF00;text-align:left">{% trans "9. Security" %}</h3>
+							<p>{% trans "You must comply with all reasonable security requirements prescribed from time to time by iP2PGo." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "10. Disputes" %}</h3>
+							<p>{% trans "A dispute may arise about a trade if:" %}</p>
+							
+							<table>
+								  <tr>
+									<th>{% trans "Scenario" %}</th>
+									<th>{% trans "Buyer" %}</th>
+									<th>{% trans "Seller" %}</th>
+									<th>{% trans "Dispute initiator" %}</th>
+								  </tr>
+								  <tr>
+									<td>{% trans "1" %}</td>
+									<td>{% trans "Buyer has paid in full" %}</td>
+									<td>{% trans "Seller has received in full, but did not release the escrow" %}</td>
+									<td>{% trans "Buyer or automatically by the system if the countdown ended" %}</td>
+								  </tr>
+								  <tr>
+									<td>{% trans "2" %}</td>
+									<td>{% trans "Buyer hasn’t paid in full, but claims to have paid in full" %}</td>
+									<td></td>
+									<td>{% trans "Seller" %}</td>
+								  </tr>
+								  <tr>
+									<td>{% trans "3" %}</td>
+									<td>{% trans "Buyer hasn’t paid at all, but claims to have paid in full" %}</td>
+									<td></td>
+									<td>{% trans "Seller" %}</td>
+								  </tr>
+								  <tr>
+									<td>{% trans "4" %}</td>
+									<td>{% trans "Buyer paid in full after the countdown has ended" %}</td>
+									<td></td>
+									<td>{% trans "Automatically by the system " %}</td>
+									
+								  </tr>
+								</table>
+								
+								<h3 style="color:#00FF00;text-align:left">{% trans "The contract of sale is between the seller and the buyer. " %}</h3>
+								
+								
+							<p>{% trans "In the event that any of the 4 scenarios above happened, the transaction will be put in dispute status by the initiators as shown above. Once a dispute status has been triggered 2 things will happened." %}</p>
+							
+							<p  style ="padding-left:20px" >{% trans "I.The iP2PGo support desk will be given access to the Escrow Smart Contract of the transaction with limited control of the Escrow Smart Contract." %}<br>{% trans "II.A 3-way chat function will be made available to the buyer, seller and iP2PGo support desk." %}</p>
+							<p>{% trans "Firstly, the buyer and seller are required to first use best efforts to resolve the dispute between themselves using the 3-way chat function. The iP2PGo support desk will initially take a monitoring role." %}</p>
+							<p>{% trans "If the parties have not resolved the dispute themselves, either party may request the iP2PGo support desk to act as an arbitrator in order to resolve the dispute." %}</p>
+							<p>{% trans "IP2PGo support desk will review the evidence and it will direct the ETH or ERC20 token to the party who in iP2PGo support desk’s reasonable opinion is entitled to own it under the terms of sale." %}</p>
+							<p>{% trans "Parties must respond to iP2PGo support desk’s requests for information promptly within the timeframe specified by the iP2PGo support desks. If a party does not respond to a request within that timeframe, iP2PGo support desk may resolve the escrow in favour of the other party to the dispute." %}</p>
+							
+						   <p>{% trans "The parties agree that except in cases of gross negligence or fraud, iP2PGo support desk’s decision is final and binding on the parties and there is no appeal from such decision." %}</p>
+							<p>{% trans "IP2PGo reserves the right to refuse to resolve a dispute where iP2PGo, in its sole discretion, considers that:" %}</p>
+							<p  style ="padding-left:20px" >{% trans "•the issue is best resolved through other methods;<br>•one or both parties have not provided all required or requested information;"  %}<br>{% trans "•the ownership of ETH or ERC20 token is not clear from the information provided;" %}<br>{% trans "•the contract between the parties is unlawful;" %}<br>{% trans "•a party is acting unlawfully or fraudulently;" %}<br>{% trans "•IP2PGo has a legal obligation to do so; or" %}<br>{% trans "•directing ETH or ERC20 token to a party would cause iP2PGo to breach any law." %} </p>
+							<p>{% trans "Where iP2PGo exercises its right to refuse to resolve a dispute, iP2PGo will notify both parties of this. Either party may then apply for a court order resolving the dispute. IP2PGo will continue to keep the particular Escrow Smart Contract in it’s system until a court order is presented by any of the disputing parties." %}</p>
+							<p>{% trans "If a party provides a copy of a court order to iP2PGo, iP2PGo will resolve the escrow in accordance with the court order." %}</p>
+							<p>{% trans "This process for resolving disputes is incorporated in all contracts between buyers and sellers arranged through iP2PGo." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "11. iP2PGo fees" %}</h3>
+							<p>{% trans "I.	Transaction fee:" %}</p>
+							<p>{% trans "For crypto/fiat transactions concluded through the iP2PGo app, iP2PGo charges the taker (the person responding to the offer) a 0.80% fee on the value of the transaction. There is no fee charged to the maker (the person who placed the offer listing).The fee is charged in ETH or ERC20 token which is the subject of the transaction. " %}</p>
+							<p>{% trans "For crypto/crypto transaction concluded though the iP2PGO app, iP2PGO charges the taker a 0.20% fee and the maker a 0.10% fee on the value of the transaction," %}</p>
+							<p>{% trans "II.	Gas fee:" %}</p>
+                                                        <p>{% trans "For transaction concluded through the iP2PGo app, iP2PGo will have to pay for the gas fee to create the Escrow Smart Contract, to move the ETH or ERC20 tokens from the seller wallet to the Escrow Smart Contract during a transaction initiation and also to move the ETH or ERC20 tokens to user’s private wallet in the event of withdrawal. "%}</p>
+                                                        <p>{% trans "In a successful transaction, this gas fee will be deducted from the taker (the person responding to the offer). "%}</p>
+                                                        <p>{% trans "However if a buyer (maker or taker) cancelled a transaction or let the transaction countdown timer to end, then the gas fee will be deducted from the buyer. "%}</p>
+							<p>{% trans " The gas fee is charged in ETH or ERC20 token which the subject of the transaction."%}</p>
+							<p>{% trans "III. Deposit and Withdrawal fee:" %}</p>
+                                                        <p>{% trans "There is no deposit fee."%} </p>
+                       					<p>{% trans "Withdrawal fee :" %}</p>
+							<p>{% trans "I)Verified users will be charged a withdrawal fee of 0.005 ETH (or equivalent in other tokens) for any withdrawal, and "%}</p>
+							<p>{% trans "II)Unverified users will be charged a withdrawal fee equivalent to 0.01 ETH (or equivalent in other tokens)."%} </p> 
+			
+							<h3 style="color:#FFFF00;text-align:left">{% trans "12. Taxes" %}</h3>
+							<p>{% trans "By using iP2PGo, you are responsible for determining what taxes apply to any transaction you conduct with other iP2PGo users. You must pay for all taxes applicable to all trades in which you participate." %}</p>
+							
+							<p>{% trans "You indemnify iP2PGo for any claim, loss or damage arising from your failure to pay applicable taxes." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "13. Suspending and deleting your account" %}</h3>
+							<p>{% trans "We may suspend or delete your account if:" %}</p>
+							<p  style ="padding-left:20px" >{% blocktrans %}•we consider that you are using the iP2PGo platform to scam other users or for any other unlawful purpose;<br> •we receive reports that you are communicating offensive, abusive, unlawful, defamatory, indecent or inappropriate messages to other users;<br> •we know or suspect that you have completed the residency declaration dishonestly;<br>•iP2PGo is required by law to do so;<br>•there is any change in law that adversely affects iP2PGo’s operating model or would make it unlawful to continue the service without materially changing the iP2PGo platform or regulatory licence required to operate; and<br>•for any other reason in our absolute discretion. {% endblocktrans %}</p>
+							<p>{% trans "Once your account is deleted, we destroy any information we hold in relation to it after any legal requirement imposed on iP2PGo to retain it has expired." %}</p>
+							<p>{% trans "After suspension of your account, you are entitled to limited access for the purpose of managing existing trades however you may not open new trades or post to the marketplace." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "14. Compliance with laws" %}</h3>
+							
+							<p>{% trans "Although our website and App may be accessed outside of the Cayman Islands, we make no representation that the services comply with the laws of any other country. If you use the services from outside the Cayman Islands, you are solely responsible for ensuring compliance with your local laws." %}</p>
+							<p>{% trans "You warrant that you will use the website, App and the services in compliance with your local legislation and the laws of the Cayman Islands." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "15. Risks associated with dealing with other users" %}</h3>
+							
+							<p>{% trans "ETH or ERC20 token transfers are irreversible. If you release or send ETH or ERC20 token to somebody else, it is generally not possible for iP2PGo, nor yourself, to recover the funds. This also applies to sending ETH or ERC20 token to an incorrect address. You transfer any ETH or ERC20 token at your own risk." %}</p>
+							<p>{% trans "If someone gains access to your account and uses your wallet, we will have no way to recover your ETH or ERC20 token in your wallet." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "16. Disclaimer of warranties" %}</h3>
+							<p>{% trans "iP2P Global Ltd through its iP2PGo App does not facilitate or provide brokerage, exchange, payment, escrow, remittance or merchant services." %}</p>
+							<p>{% trans "iP2P Global Ltd through its iP2PGo App is only an introductory and information service app, and, to the maximum extent permissible by law, is not responsible for any actions of its users including, without limitation, representations by any users regarding funds (ETH, ERC20 tokens or currency) having been transferred or any ownership of ETH and ERC20 tokens or funds." %}</p>
+							<p>{% trans "To the maximum extent permitted by law, iP2P Global Ltd does not guarantee the quality or fitness for purpose of its iP2PGo App services. iP2PGo App services is provided on an 'as is' and “as available” basis and you agree to use it at your sole risk. While we strive to make the services available to you at all times, we do not make any representations as to the availability of the services, or that your access or use of the website and App will be uninterrupted or timely. There may be delays, failures, errors, omissions or loss of transmitted information." %}</p>
+							<p>{% trans "We make no warranties, claims or guarantees related to any of our users, including but not limited to:" %}</p>
+							<p  style ="padding-left:20px" >{% blocktrans %}•the merchantability or fitness of the user;<br>•the identity of the user;<br>•the location of the user;<br>•the reliability and timeliness of the user;<br>•the accuracy of any information the user presents; or<br>•the accuracy of any information we provide about the user. {%endblocktrans %}</p>
+							<p>{% trans "To the maximum extent permitted by law, we make no guarantees to the safety, reliability, availability or longevity of any of the ETH and ERC20 tokens we stored in our exchange wallet or the data we collect or store. " %}</p>
+							<p>{% trans "Our Website Terms of Use contains some disclaimers of warranties in relation to our website and the content on it." %}</p>
+							 <h3 style="color:#FFFF00;text-align:left">{% trans "17. Limitation of liability and indemnity" %}</h3>
+							<p>{% trans "You indemnify iP2P Global Ltd and hold iP2P Global Ltd harmless against all loss, claims, actions, liability, damage, costs (including legal fees on a solicitor and client basis), expenses and penalties arising directly or indirectly from any:" %}</p>
+							<p  style ="padding-left:20px" >{% trans "I.breach by you of these Terms of Use;" %}<br>{% trans "II.unauthorised use of your iP2PGo account;" %}<br>{% trans "III.act or omission (including any negligence, unlawful conduct, wilful misconduct or fraud) by you in relation to your use of iP2PGo’s services;" %}<br>{% trans "IV.third party claim against us in relation to your use of iP2PGo’s services;<br>V.any action taken by iP2PGo at your request in respect of your account, trade or dispute;" %}<br>{% trans "VI.any inaction or delay on your part in respect of any dispute, including any failure by you to respond to a request for information by us within the time required under clause 9 (Disputes);" %}<br>{% trans "VII.any failure by you to comply with any reasonable recommendation made by iP2PGo; and<br>VIII.infringement of intellectual property rights by you." %}</p>
+							<p>{% trans "Except in the case of gross negligence or fraud in resulting a dispute, and to the fullest extent permitted by law, iP2P Global Ltd is not liable for:" %}</p>
+							<p  style ="padding-left:20px" >{% trans "I.breach by you of these Terms of Use;" %}<br>{% trans "II.unauthorised use of your iP2PGo account;" %}<br>{% trans "III.act or omission (including any negligence, unlawful conduct, wilful misconduct or fraud) by you in relation to your use of iP2PGo’s services; " %}<br>{% trans "IV.third party claim against us in relation to your use of iP2PGo’s services;<br>V.any action taken by iP2PGo at your request in respect of your account, trade or dispute; " %}<br>{% trans "VI.any inaction or delay on your part in respect of any dispute, including any failure by you to respond to a request for information by us within the time required under clause 9 (Disputes);" %}<br>{% trans "VII.any failure by you to comply with any reasonable recommendation made by iP2PGo; and<br>VIII.infringement of intellectual property rights by you." %}</p>
+
+							<p>{% trans "If we are fraudulent in providing a service under these Terms of Use, then our liability is uncapped. Under no circumstances, including in cases of gross negligence or fraud, are we liable to you for any consequential loss suffered by you (including any loss of profit)." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "18. Privacy" %}</h3>
+							<p>{% trans "Personal information we collect about you through the services (if any) will be dealt with in accordance with our Privacy Policy." %}</p>
+							 <h3 style="color:#FFFF00;text-align:left">{% trans "19. Applicable law and language" %}</h3>
+							<p>{% trans "These Terms of Use are governed by the laws of the Cayman Islands. These Terms of Use may be translated into other languages, however the official language of these terms is English. Translations may not accurately represent the information communicated in the English language." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "20. Notices" %}</h3>
+							<p>{% trans "You agree that an email sent to the email address nominated when you created your account is a valid notice under these Terms of Use." %}</p>
+							<p>{% trans "You should exercise reasonable caution when reviewing emails and SMSs purporting to originate from iP2PGo as emails can be vulnerable to phishing, spoofing and additional viruses." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "21. Changes to these terms" %}</h3>
+							<p  style ="padding-left:20px" >{% blocktrans %}We reserve the right, at our sole discretion, to update, change or replace any part of these Terms of Use by posting updates and changes to our website. If there is a change which has a material adverse impact on you, we will notify you by emailing you and providing 30 days’ notice. If you do not agree to the changes, your only remedy is to discontinue using the services.<br>It is your responsibility to check our website periodically for changes. Your continued use of or access to our website or the services following the posting of any changes to these Terms of Use constitutes acceptance of those changes.{%endblocktrans %}</p>
+							<p>{% trans "These Terms of Use were last updated on 1st August 2018." %}</p>
+							 <h3 style="color:#FFFF00;text-align:left">{% trans "22. Terms that survive account closure" %}</h3>
+							<p>{% trans "The following terms in these Terms of Use continue to apply after the closure of your account:" %}</p>
+							<p  style ="padding-left:20px" >{% blocktrans %}•Clause 9 – Disputes;<br>•Clause 10 – iP2PGo fees; and<br>•Clause 16 – Limitation of liability and indemnity.{%endblocktrans %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "23. Entire understanding" %}</h3>
+							<p>{% trans "These Terms of Use contain the entire understanding between the parties as to the subject matter of this terms." %}</p>
+							<h3 style="color:#FFFF00;text-align:left">{% trans "24. Contact" %}</h3>
+							<p>{% trans "Please send any questions, comments, issues, or general correspondence via email to admin@ip2pgo.com" %}</p>
+							</div>
+ 
+
+			    </div> 
+		   	</div> <!-- end row --> 
+
+
+		   </div> <!-- end home-content-tablecell --> 		   
+		</div> <!-- end home-content-table -->
+		
+
+   
+   </section> <!-- end home -->
+    {% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+{% if first_login %}
+<h6><strong>{% trans "Welcome to iP2PGO" %} {{ username }}!</strong></h6>
+<p>
+<span style="color : #91DC5B">{% trans "Just a few more steps to create your account" %}</span>
+</p>
+{% else %}
+<div class="bg-dark row">
+  <div class="col">
+  <div class="row mt-3">
+    <h6 colspan="3" class="font-weight-bold text-success" style="padding-bottom:5px;width:100%; text-align:center; font-size:16px;">{% trans "UPDATE PROFILE" %} </h6>
+     </div>
+  </div>
+</div>
+{% endif %}
+<div id="overlay"></div>
+<form method="post">
+  {% csrf_token %}
+<p><br>    
+<span class="text-warning">{% trans "1. Please enter your phone number" %}</span><br><br>
+    {{ form.phone_number.label }}
+    {% render_field form.phone_number class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom:1px solid green; color:white" %}<br>
+  </p>
+  <p>
+    <span class="text-warning">{% trans "2. Please enter your 6 digits passcode" %}</span><br><br>
+    {{ form.passcode.label }}
+    {% render_field form.passcode class="form-control form-control-sm" onkeypress="validate(event)" style="background-color:#000000; border:none; border-bottom:1px solid green; color:white" %}<br>
+    {{ form.repasscode.label }}
+    {% render_field form.repasscode class="form-control form-control-sm" onkeypress="validate(event)" style="background-color:#000000;  border:none; border-bottom:1px solid green; color:white" %}<br>
+    <span style="color:#FFFFFF; font-size:10px"> {% trans " * The 6 digits passcode is needed for certain payment related actions" %}</span>
+  </p>
+    <p>
+    {% if country != 'otc' %}
+    <span class="text-warning">{% trans "3. Please enter your bank account details" %}</span><br><br>
+    {{ form.bank_name.label }}
+    {% render_field form.bank_name class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom:1px solid green; color:white" %}<br>
+    {{ form.bank_account.label }}
+    {% render_field form.bank_account class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom:1px solid green; color:white" %}<br>
+    {{ form.holder_name.label }}
+    {% render_field form.holder_name class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom:1px solid green; color:white" %}<br>
+    {% if country == 'au' %}
+      {{ form.bsb.label }}
+      {% render_field form.bsb class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom:1px solid green; color:white" %}<br>
+      {{ form.payid.label }}
+      {% render_field form.payid class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom:1px solid green; color:white" %}<br>
+    {% endif %}
+   {% endif %} 
+    
+<p><input class="btn btn-success btn-sm" style="color:#000000; width:300px; font-weight:bold" type="submit" name="update" value={% trans "Continue" %}></p>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+{% include "header.html" %}
+ <section id="services">
+        <br><br><br><br><br>
+   <div class="row narrow section-intro animate-this">
+                <div class="col-full">
+                  <h2 style=" font-size:30px;letter-spacing: 6px;  word-spacing: 5px;" >{% trans "REGISTER" %}</h2>
+                   <form  method="POST" >
+                   <div class="form-group">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div>{{ message }}</div>
+                    {% endfor %}
+                    {% endif %}
+                   {% csrf_token %}
+                    
+                   {{ registration_form.email.label }}
+    {% render_field registration_form.email class="form-control form-control-sm" style="background-color:#000000; border:1px solid green; color:white" %}<br>   
+               {{ registration_form.username.label }}
+    {% render_field registration_form.username class="form-control form-control-sm" style="background-color:#000000; border:1px solid green; color:white" %}<br>
+     {{ registration_form.passcode.label }}
+    {% render_field registration_form.passcode class="form-control form-control-sm" style="background-color:#000000; border:1px solid green; color:white" %}<br>
+     {{ registration_form.repasscode.label }}
+    {% render_field registration_form.repasscode class="form-control form-control-sm" style="background-color:#000000; border:1px solid green; color:white" %}<br>
+
+
+    {% if referral_id == null %}
+    {{ registration_form.referral_id.label }}
+    {% render_field registration_form.referral_id class="form-control form-control-sm" style="background-color:#000000; border:1px solid green; color:white" %}<br> 
+     {% else %}
+       {{ registration_form.referral_id.label }}
+    {% render_field registration_form.referral_id class="form-control form-control-sm"  style=" pointer-events: none; background-color:#000000; border:1px solid green; color:white;"  %}<br>
+ {% endif %}
+                   <p style="margin-top:-20px; color:white;text-align:center"> {% trans "*Please leave this blank if you are not referred by someone. "%}</p>              <span style="font-size: 17px; color:#FFFFFF;">{% trans "Already have account? Click" %}</span>
+   {% if country == 'my' %}
+   <a style="color:#91DC5B; font-size: 17px" href="http://my.ip2pgo.com/en-us/app/my/web">here</a>
+   {% elif country == 'cn' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://ip2pgo.com/zh-hans/app/cn/web">这里</a>
+   {% elif country == 'id' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://id.ip2pgo.com/id/app/id/web">di sini</a>
+   {% elif country == 'au' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://au.ip2pgo.com/en-us/app/au/web">here</a>
+   {% elif country == 'vn' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://vn.ip2pgo.com/vi/app/vn/web">đây</a>
+   {% elif country == 'ng' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://ng.ip2pgo.com/en-us/app/ng/web">here</a>
+   {% elif country == 'gh' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://gh.ip2pgo.com/en-us/app/gh/web">here</a>
+   {% elif country == 'za' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://za.ip2pgo.com/en-us/app/za/web">here</a>
+   {% elif country == 'tz' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://tz.ip2pgo.com/en-us/app/tz/web">here</a>
+   {% elif country == 'bw' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://bw.ip2pgo.com/en-us/app/bw/web">here</a>
+   {% elif country == 'ph' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://ph.ip2pgo.com/en-us/app/ph/web">here</a>
+    {% endif %}
+   <span style="font-size: 17px; color:#FFFFFF;">{% trans "to login." %}</span><br> 
+                    <p><input style="background-color:#00FF00;" type="submit" class="btn btn-success col" name="register" value={% trans "Register" %} /></p>
+                   </div>
+                    </form>
+         </div><!-- end col-full -->
+        </div> <!-- end row -->
+</section>
+
+{% include "footer.html" %}
+
+{% endblock %}                  

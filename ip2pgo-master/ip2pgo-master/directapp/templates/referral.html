@@ -1,0 +1,133 @@
+{% load i18n %}
+<br><br>
+<div class="bg-dark row">
+  <div class="col">
+  <div class="row mt-3">
+    <h6 colspan="3" class="font-weight-bold text-success" style="padding-bottom:5px;width:100%; text-align:center; font-size:16px;">{% trans "REFERRAL" %} </h6>
+     </div>
+  </div>
+</div><br>
+<div class="row" style="border-bottom: 1px solid green">
+  <div class="col text-left">
+    {% trans "My Referral ID" %} <span class="text-warning">{{ member_id }}</span>
+  </div>
+</div>
+
+<div class="row" style="margin-top:10px">
+  <div class="col text-left">
+    {% trans "Referral Link" %} <input type="text" class="text-warning form-control" id="myInput" style="background-color:#000000; border:none; font-size:12px" value={{ referral_link }}>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <img src="{{ qr }}">
+  </div>
+</div>
+</p>
+<p>
+<input onclick="CopyPaste()" class="btn btn-success btn-sm" style=" color:#000000; width:300px" type="submit" name="copy" value={% trans "Copy" %}>
+</p>
+<div class="row" style="border-bottom: 1px solid green"></div>
+<p>
+<div class="row">
+  <div class="col">
+<div class="bg-dark row">
+  <div class="col">
+  <div class="row mt-3">
+    <h6 colspan="3" class="font-weight-bold text-success" style="padding-bottom:5px;width:100%; text-align:center; font-size:16px;">{% trans "YOUR FRIENDS" %} </h6>
+     </div>
+  </div>
+</div>
+<p>
+{% trans "*Members in red means they have not created their iP2PGo Wallets yet" %}
+</p>
+<p>
+<div id="accordion">
+  <div class="card">
+    <a class="card-link bg-dark border-0" style="background-color:#000000; border:none;"data-toggle="collapse" href="#firstlevel">
+      {% trans "Level 1 Referrals" %}
+    </a> 
+  </div>
+  <div id="firstlevel" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+      <table class="table table-dark table-striped table-sm">
+      {% for ref in firstlevels %}
+        <tr>
+          {% if ref in nowallets %}
+            <td class="text-danger">{{ ref }}</td>
+          {% else %}
+            <td>{{ ref }}</td>
+          {% endif %}
+        </tr>
+      {% endfor %} 
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <a class="card-link bg-dark" data-toggle="collapse" href="#secondlevel">
+      {% trans "Level 2 Referrals" %}
+    </a> 
+  </div>
+  <div id="secondlevel" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+      <table class="table table-dark table-striped table-sm">
+      {% for ref in secondlevels %}
+        <tr>
+          <td>{{ ref }}</td>
+        </tr>
+      {% endfor %} 
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <a class="card-link bg-dark" data-toggle="collapse" href="#otherlevel">
+      {% if country == 'cn-wb' %}
+        {% trans "Level 3 Referrals" %}
+      {% else %}
+        {% trans "Level 3-9 Referrals" %}
+      {% endif %}
+    </a> 
+  </div>
+  <div id="otherlevel" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+      <table class="table table-dark table-striped table-sm">
+      {% for ref in otherlevels %}
+        <tr>
+          <td>{{ ref }}</td>
+        </tr>
+      {% endfor %} 
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <a class="card-link bg-dark" data-toggle="collapse" href="#refhistory">
+      {% trans "See Referral Commission History" %}
+    </a> 
+  </div>
+  <div id="refhistory" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+     <div style="overflow-x:auto;">
+      <table>
+        <tr>
+          <th>{% trans "Timestamp(UTC)" %}</th>
+          <th>{% trans "Activities" %}</th>
+          <th>{% trans "Amount" %}</th>
+          <th>{% trans "Token" %}</th>
+        </tr>
+      {% for his in history %}
+        <tr>
+          <td>{{ his.time }}</td>
+          <td>{{ his.activity }}</td>
+          <td>{{ his.norm_amount.normalize }}</td>
+          <td>{{ his.token }}</td>
+        </tr>
+      {% endfor %} 
+      </table>
+    </div>
+    </div>
+  </div>
+</div>
+</p>

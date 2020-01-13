@@ -1,0 +1,39 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+
+<section id="services">
+<br><br><br><br><br>
+<div class="col-md-12" align="center">
+
+ <h2 style="color:#00FF00; font-size:30px;letter-spacing: 6px;  word-spacing: 5px;" >{% trans "SELECT YOUR APP" %}</h2><br>
+</div>
+   <div class="row">
+    <div class="col-md-3" align="center" style="width:25%">
+      <a href="http://my.ip2pgo.com/en-us/registration/my"><img border="0"  src="{% static "icon/ip2pgo_victor.jpg"%}" width="140" height="140"></a><br><br>
+       <a href="https://ip2pgo.com/zh-hans/registration/cn-wb"><img border="0"  src="{% static "icon/onecity_icon.JPG"%}" width="140" height="140"></a><br><br>
+     <a href="https://ph.ip2pgo.com/en-us/registration/ph"><img border="0"  src="{% static "icon/ph_icon.jpg"%}" width="140" height="140"></a><br><br>
+     </div>
+      <div class="col-md-3" align="center" style="width:25%">
+      <a href="http://id.ip2pgo.com/id/registration/id"><img border="0"  src="{% static "icon/indo_icon.JPG"%}" width="140" height="140"></a>   <br><br>
+      <a href="http://vn.ip2pgo.com/vi/registration/vn"><img border="0"  src="{% static "icon/vn_icon.jpg"%}" width="140" height="140"></a> <br><br>
+     <!-- <a href="http://cn.ip2pgo.com/zh-hans/registration/cn"><img border="0"  src="{% static "icon/china_icon.JPG"%}" width="140" height="140"></a> <br><br>-->
+      </div>
+     <div class="col-md-3" align="center" style="width:25%">
+      <a href="http://au.ip2pgo.com/en-us/registration/au"><img border="0"  src="{% static "icon/au_icon.jpg"%}" width="140" height="140"></a><br><br>
+       <a href="http://za.ip2pgo.com/en-us/registration/za"><img border="0"  src="{% static "icon/za_icon.JPG"%}" width="140" height="140"></a><br><br>
+       <a href="http://ng.ip2pgo.com/en-us/registration/ng"><img border="0"  src="{% static "icon/ng_icon.jpg"%}" width="140" height="140"></a><br><br>
+     </div>
+    <div class="col-md-3"align="center" style="width:25%; padding-bottom:50px;">
+      <a href="http://gh.ip2pgo.com/en-us/registration/gh"><img border="0"  src="{% static "images/icon_ghana.jpg"%}" width="140" height="140"></a><br><br>
+       <a href="http://tz.ip2pgo.com/en-us/registration/tz"><img border="0"  src="{% static "icon/tz_icon.jpg"%}" width="140" height="140"></a><br><br>
+       <a href="http://bw.ip2pgo.com/en-us/registration/bw"><img border="0"  src="{% static "icon/botswana_icon.jpg"%}" width="140" height="140"></a><br><br>
+    </div>
+   </div>
+</section>
+
+{% include "footer.html" %}
+{% endblock %}
+

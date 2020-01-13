@@ -1,0 +1,53 @@
+{% extends "base2.html" %}
+{% load static %}
+{% load i18n %} 
+{% block content %}
+ 
+  <div class="header" style="height:150px"> 
+    <div class="header-logo">	
+       	 
+      <img style="padding-top:50px;" width="70px" height="70px" src="{% static "images/logo.png" %}" > 
+      <h6 style="padding-left:100px;margin-top:-50px; color:#00FF00;padding-bottom:-20px">{% trans "P2P CRYPTO MARKETPLACE" %}</h6>
+      <h6 style="padding-left:100px;margin-top:-10px;color:#FFFF00">{% trans "FOR ETH & ERC20 TOKENS" %}</h6>
+   </div> 
+         
+      <div style="text-align:left; padding-left:20px; padding-top:22px;">
+        <div class="dropdown"> 
+
+             <button style="background-color:#00FF00; height:38px;font-weight:bold; color:#000000"class="btn btn-success btn-md dropdown-toggle" type="button" data-toggle="dropdown">{% trans "Language" %} 
+
+          </button>
+            <div class="dropdown-menu " style="background-color:#00FF00">
+              <a style = "padding-left:25px; font-weight:bold; background-color:#00FF00;padding-bottom:-50px;padding-right:25px; font-size:12px;color: black;" class="dropdown-item" href="/en-us/">ENGLISH</a><br>
+              <a style = "padding-left:25px; font-weight:bold;background-color:#00FF00;padding-right:25px; font-size:12px;color: black;" class="dropdown-item" href="/id/">BAHASA INDONESIA</a><br>
+              <a style = "padding-left:25px;font-weight:bold; background-color:#00FF00;padding-right:25px; font-size:12px;color: black;" class="dropdown-item" href="/zh-hans/">中文</a><br>
+              <a style = "padding-left:25px; font-weight:bold;background-color:#00FF00;padding-right:25px; font-size:12px; color: black;" class="dropdown-item" href="/vi/">TIẾNG VIỆT</a><br>
+                     
+            </div>
+          </div>
+        </div>
+              <a id="header-menu-trigger" href=""  >
+	      <span class="header-menu-text"></span>
+	      <span style="padding-top:-40px;"   class="header-menu-icon"></span>
+	      </a> 
+                 
+                <nav id="menu-nav-wrap" style="width:300px">
+                  <a href=""  class="close-button" title="close"><span>{% trans "Close" %}</span></a>	
+                  <h3>{% trans "MENU" %}</h3>  
+                    <ul class="nav-list">
+		      <li><a style="font-size:13px;" href="{% url 'website' %}">{% trans "HOME" %}</a></li>
+                      <li><a style="font-size:13px;" href="{% url 'faq' %}">{% trans "GUIDE & FAQ" %}</a></li>
+                      <li><a style="font-size:13px;" href="{% url 'userguide' %}">{% trans "USER GUIDE" %}</a></li> 
+		      <li><a style="font-size:13px;" href="{% url 'referralwebsite' %}" title="">{% trans "REFERRAL PROGRAM" %}</a></li>
+                      <li><a style="font-size:13px;" href="{% url 'dividends' %}" title="">{% trans "NET REVENUE SHARING" %}</a></li>
+                      <li><a style="font-size:13px;" href="{% url 'rewards' %}" title="">{% trans "IP2PGO TOKEN" %}</a></li>	
+                      <li><a style="font-size:13px;" href="{% url 'ip2pgoterms' %}" title="">{% trans "IP2PGO TOKEN TERMS & CONDITIONS" %}</a></li>
+                       <li><a style="font-size:13px;" href="{% url 'otc_userguide' %}" title="">{% trans "IP2PGO USER GUIDE OTC TRADES" %}</a></li>
+                      <li><a style="font-size:13px;" href="{% url 'fiat_userguide' %}" title="">{% trans "IP2PGO USER GUIDE FIAT TRADES" %}</a></li>
+                      <li><a style="font-size:13px;" href="{% url 'rico_main' %}" title="">{% trans "IP2PGO REVERSE ICO" %}</a></li>
+		      <li><a style="font-size:13px;" href="{% url 'categories' %}" title="">{% trans "REGISTER/DOWNLOAD MOBILE APPS" %}</a></li>					      <li><a style="font-size:13px;" href="{% url 'login_categories' %}" title="">{% trans "LOGIN FOR WEB APPS " %}</a></li>
+		    </ul>	
+		</nav>  <!-- end #menu-nav-wrap -->
+</div>
+  
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+    {% include "header.html" %}
+<br>
+   <section id="services">
+
+
+        <div class="home-content-table">
+                   <div class="home-content-tablecell">
+                        <div class="row">
+                            <div class="services-list block-1-1 block-tab-full group">
+
+                    <div class="bgrid service-item animate-this">
+                                        
+                       <h2 style=" color:#00FF00; font-size:20px;" >{% trans "Thank you for registering. Please click the button below to download iP2PGO App." %}</h2>
+                           <br>
+                         {% if country == 'my' %}
+                         <a href="{% static "apk/iP2PGO_Victor.apk" %}" download>
+                         {% elif country == 'cn' %}
+                         <a href="{% static "apk/iP2PGO_China.apk" %}" download>
+                         {% elif country == 'id' %}
+                         <a href="{% static "apk/iP2PGO_ID.apk" %}" download>
+                         {% elif country == 'cn-wb' %}
+                         <a href="{% static "apk/iP2PGO_WB.apk" %}" download>
+                         {% elif country == 'au' %}
+                         <a href="{% static "apk/iP2PGO_AU.apk" %}" download>
+                         {% elif country == 'vn' %}
+                         <a href="{% static "apk/iP2PGO_Vietnam.apk" %}" download>
+                         {% elif country == 'ng' %}
+                         <a href="{% static "apk/iP2PGO_Nigeria.apk" %}" download>
+                         {% elif country == 'gh' %}
+                         <a href="{% static "apk/iP2PGO_Ghana.apk" %}" download>
+                         {% elif country == 'za' %}
+                         <a href="{% static "apk/iP2PGO_SouthAfrica.apk" %}" download>
+                         {% elif country == 'tz' %}
+                         <a href="{% static "apk/iP2PGO_Tanzania.apk" %}" download>
+                         {% elif country == 'bw' %}
+                         <a href="{% static "apk/iP2PGO_Botswana.apk" %}" download>
+                          {% elif country == 'otc' %}
+                         <a href="{% static "apk/iP2PGO_Global.apk" %}" download>
+                         {% elif country == 'ph' %}
+                         <a href="{% static "apk/iP2PGO_Philippines.apk" %}" download>
+                         {% endif %}
+                         <img width="250px" height="250px" src="{% static "images/download.png" %}">
+                         </a>
+                                   
+                                                        </div>
+                          <h2 style=" color:#FFFF00; font-size:16px;" >{% trans "* Download is for Android phones only" %}</h2>
+                          <h2 style="font-size:19px; color:#FFFFFF; " >{% trans "The download link will be sent to your email for future reference. Please check your inbox. If you waited for too long, please check your spam inbox folder." %}</h2>
+                           <h2 style="font-size:19px; color:#FFFFFF; " >{% trans "OR" %}</h2>
+                           <h2 style="font-size:19px; color:#FFFFFF; " >{% trans "Click icon below to login." %}</h2><br>
+                         {% if country == 'my' %}
+                         <a href="http://my.ip2pgo.com/en-us/app/my/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >LOGIN</h2>
+                         {% elif country == 'cn' %}
+                         <a href="http://ip2pgo.com/zh-hans/app/cn/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >登录</h2>
+                         {% elif country == 'id' %}
+                         <a href="http://id.ip2pgo.com/id/app/id/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >LOGIN</h2>
+                         {% elif country == 'cn-wb' %}
+                         <a href="http://ip2pgo.com/zh-hans/app/cn-wb/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >登录</h2>
+                         {% elif country == 'au' %}
+                         <a href="http://au.ip2pgo.com/en-us/app/au/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >LOGIN</h2>
+                         {% elif country == 'vn' %}
+                         <a href="http://vn.ip2pgo.com/vi/app/vn/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >Đăng Ký</h2>
+                         {% elif country == 'ng' %}
+                         <a href="http://ng.ip2pgo.com/en-us/app/ng/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >LOGIN</h2>
+                         {% elif country == 'gh' %}
+                         <a href="http://gh.ip2pgo.com/en-us/app/gh/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >LOGIN</h2>
+                         {% elif country == 'za' %}
+                         <a href="http://za.ip2pgo.com/en-us/app/za/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >LOGIN</h2>
+                         {% elif country == 'tz' %}
+                         <a href="http://tz.ip2pgo.com/en-us/app/tz/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >LOGIN</h2>
+
+                         {% elif country == 'bw' %}
+                         <a href="http://bw.ip2pgo.com/en-us/app/bw/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >LOGIN</h2>
+                         
+                         {% elif country == 'otc' %}
+                         <a href="http://otc.ip2pgo.com/en-us/app/otc/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >LOGIN</h2>
+                         {% elif country == 'ph' %}
+                         <a href="http://ph.ip2pgo.com/en-us/app/ph/web" style="color:#FFFF00;"><h2 style="font-size:25px; color:#FFFF00;padding-bottom:-10px; " >LOGIN</h2>
+                         {% endif %}
+
+                         {% if country == 'my' %}
+                         <a href="http://my.ip2pgo.com/en-us/app/my/web">
+                         {% elif country == 'cn' %}
+                         <a href="http://ip2pgo.com/zh-hans/app/cn/web">
+                         {% elif country == 'id' %}
+                         <a href="http://id.ip2pgo.com/id/app/id/web">
+                         {% elif country == 'cn-wb' %}
+                         <a href="http://ip2pgo.com/zh-hans/app/cn-wb/web">
+                         {% elif country == 'au' %}
+                         <a href="http://au.ip2pgo.com/en-us/app/au/web">
+                         {% elif country == 'vn' %}
+                         <a href="http://vn.ip2pgo.com/vi/app/vn/web">
+                         {% elif country == 'ng' %}
+                         <a href="http://ng.ip2pgo.com/en-us/app/ng/web" >
+                         {% elif country == 'gh' %}
+                         <a href="http://gh.ip2pgo.com/en-us/app/gh/web" >
+                         {% elif country == 'za' %}
+                         <a href="http://za.ip2pgo.com/en-us/app/za/web" >
+                         {% elif country == 'tz' %}
+                         <a href="http://tz.ip2pgo.com/en-us/app/tz/web" >
+                         {% elif country == 'bw' %}
+                         <a href="http://bw.ip2pgo.com/en-us/app/bw/web" >
+                         {% elif country == 'otc' %}
+                         <a href="http://otc.ip2pgo.com/en-us/app/otc/web" >
+                         {% elif country == 'ph' %}
+                         <a href="http://ph.ip2pgo.com/en-us/app/ph/web" >
+                         {% endif %}
+                         <img width="250px" height="250px" src="{% static "icon/logo_web.PNG" %}">
+                         </a>
+                            </div>
+                        </div> <!-- end row -->
+
+
+                   </div> <!-- end home-content-tablecell -->
+                </div> <!-- end home-content-table -->
+
+
+
+   </section> <!-- end home -->
+
+    {% include "footer.html" %}
+{% endblock %}

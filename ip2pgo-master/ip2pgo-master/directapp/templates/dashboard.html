@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container">
+
+<fieldset align=center>
+<h4>{% trans "Hello" %} {{ username }} </h4>
+<label> {% trans "Your ETH balance :" %} {{ balance }} </label><br>
+<label> {% trans "Your Referral Bonus :" %} {{ referral }} </label><br>
+<label> {% trans "Ask Price : " %} {{ price_ask }} </label>&nbsp; &nbsp;
+<label> {% trans "Bid Price :" %} {{ price_bid }} </label><br>
+<label> {% trans "Rate :" %} {{ rate }} </label>
+</fieldset>
+
+</div>
+
+
+<div class="container">
+
+<br>
+<div class="tab_1">
+  <button class="tablinks" onclick="openCity(event, 'Buy')" id="defaultOpen" >{% trans "Buy" %}</button>
+  <button class="tablinks" onclick="openCity(event, 'Sell')">{% trans "Sell" %}</button>
+
+</div>
+
+
+<div id="Buy" class="tabcontent" active>
+<br>
+
+<label>{% trans "Buy Offers" %}</label>
+<br><br>
+
+
+
+
+            
+      {% for list in sell_offers %}    
+    <form method="post"> 
+    {% csrf_token %}     
+     <div class="id-card">
+    <div class="profile-row">
+      <div class="dp">
+        <div class="dp-arc-outer"></div>
+        <div class="dp-arc-inner"></div>
+       <label> {{ list.username }} </label>
+      </div>
+      <div class="desc" margin: 10px>
+            <label>{% trans "Amount Offer :" %} </label>
+            <label> {{ list.minimum }}{{ coin }} - {{ list.maximum }}{{ coin }}</label><br>
+            <label>{% trans "Bank :" %}  {{ list.bank_name }}</label><br>
+             <input type="submit" class="btn btn-success col" style="color:white; height:30px; width:50px; font-size: 1em" name="buy" value={% trans "Buy" %} />
+      </div>
+      <p align=right>{{ list.offer_id }}</p>  
+    </div>
+  </form>
+  </div><br>{% endfor %}
+           
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div id="Sell" class="tabcontent">
+<br>
+
+
+<label>{% trans "Sell Offers" %}</label>
+<br><br>
+      {% for list in buy_offers %}
+     <div class="id-card">
+    <div class="profile-row">
+      <div class="dp">
+        <div class="dp-arc-outer"></div>
+        <div class="dp-arc-inner"></div>
+       <label> {{ list.username }} </label>
+      </div>
+      <div class="desc">
+            <label>{% trans "Amount Offer :" %} </label>
+            <label> {{ list.minimum }}{{ coin }} - {{ list.maximum }}{{ coin }}</label><br>
+            <label>{% trans "Bank :" %}  {{ list.bank_name }}</label><br><br>
+             <input type="button" style="color:white; height:35px; width:60px" name="sell" value="Sell" />
+      </div>
+      <p align=right>{{ list.offer_id }}</p>
+
+    </div>
+  </div><br>{% endfor %}
+
+
+
+
+
+
+
+
+
+</div>
+
+
+   
+
+</div>
+
+
+{% endblock %}
+
+	

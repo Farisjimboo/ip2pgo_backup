@@ -1,0 +1,39 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+<section id="services">
+
+  <div class="home-content-table">
+      <div class="home-content-tablecell">
+          <div class="row">
+             <div class="services-list block-1-1 block-tab-full group">
+
+                <div class="bgrid service-item animate-this">
+                                                                                 
+                  <img width="200px" height="200px" src={% static "logo/ip2pgo_token.jpg" %} >
+
+                  <h2 style="margin-top:40px;padding-bottom:50px; color:#00FF00; ">{% trans "IP2PGO TOKEN" %}</h2>
+                  <p>{% trans "IP2PGO or GO token is a community token for members of iP2PGO platform" %} <p>
+
+                  <p>{% trans "In a Co-operative (“Co-op”), members earn a share of the co-op income by participating and supporting the co-op business, therefore as the co-op prosper the members will prosper too by earning larger income. " %}</p>
+
+                  <p>{% trans "This concept is similar to our community token concept. The more support iP2PGO received from its members to grow the platform transaction volume, the more prosperous our members will be  by getting higher amount of income from their GO token holdings. This will also make the GO token more valuable.    " %} </p>
+
+
+             </div>
+          </div>
+       </div> <!-- end row -->
+    </div> <!-- end home-content-tablecell -->
+  </div> <!-- end home-content-table -->
+       <h3 style="text-align:center; margin-top:5px;padding-bottom:50px; font-size:30px; color:#00FF00;">{% trans "IP2PGO TOKEN SLIDE DECK" %}</h3>
+                       <h2 style=" text-align:center; color:#FFFFFF; font-size:20px;" >{% trans "Please click this icon below to download the IP2PGO Token Guideline." %}</h2>
+                           <br>
+                         <a href="{% static "IP2PGO_token_SlideDeck_V2.pdf" %}" download>
+                         <img style="margin-left: auto;margin-right: auto;display: block;" width="100px" height="100px" src="{% static "icon/download_yellow.png" %}">
+                         </a>
+</section> <!-- end home -->
+{% include "footer.html" %}
+{% endblock %}
+

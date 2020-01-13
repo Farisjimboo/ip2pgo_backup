@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+
+
+<div class="container" align="center">
+<div class="bg-dark row">
+  <div class="col">
+  <div class="row mt-3">
+    <h6 colspan="3" class="font-weight-bold text-success" style="padding-bottom:5px;width:100%; text-align:center; font-size:16px;">{% trans "PROFILE" %} </h6>
+     </div>
+  </div>
+</div>
+</div>
+
+<div class="table-responsive">
+    <table>
+        <tbody>
+
+                <tr>
+                <td style="color:#FFFFFF">{% trans "User ID" %}</td>
+                <td style="color:#FFFF00">{{ member_id }} </td>
+        </tr>
+        <tr>
+                 <td style="color:#FFFFFF">{% trans "Username" %}</td>
+                <td style="color:#FFFF00">{{ username }} </td>
+
+         </tr>
+           <tr>
+                 <td style="color:#FFFFFF">{% trans "Phone Number" %}</td>
+                 <td style="color:#FFFF00">{{ phone_number }} </td>
+         </tr>
+
+         <tr>
+                 <td style="color:#FFFFFF">{% trans "Email Address" %}</td>
+                 <td style="color:#FFFF00">{{ email }} </td>
+         </tr>
+         {% if country != 'otc' %}
+          <tr>
+           {% if country != 'otc' %}
+                 <td style="color:#FFFFFF">{% trans "Payment Method" %}</td>
+                 <td style="color:#FFFF00">{{ bank_name }} </td>
+         </tr>
+          <tr>
+                 <td style="color:#FFFFFF">{% trans "Account No.(for Bank) / Mobile No.(for Mobile Money)" %}</td>
+                 <td style="color:#FFFF00">{{ bank_account }} </td>
+         </tr>
+          <tr>
+                 <td style="color:#FFFFFF">{% trans "Account Holder Name" %}</td>
+                 <td style="color:#FFFF00">{{ bank_holder }} </td>
+         </tr>
+          {% endif %}
+          {% if country == 'au' %}
+          <tr>
+                 <td style="color:#FFFFFF">BSB</td>
+                 <td style="color:#FFFF00">{{ bsb }} </td>
+          </tr>
+          <tr>
+                 <td style="color:#FFFFFF">Pay ID / Osko</td>
+                 <td style="color:#FFFF00">{{ payid }} </td>
+          </tr>
+ 
+          {% endif %}
+          {% else %}
+          {% endif %}
+         <tr>
+                  <td style="color:#FFFFFF">{% trans "No. Succesful Trades" %}</td>
+                  <td style="color:#FFFF00">{{ success }} </td>
+         </tr>
+         <tr>
+                  <td style="color:#FFFFFF">{% trans "No.Cancelled Trades" %}</td>
+                  <td style="color:#FFFF00">{{ cancelled }} </td>
+         </tr>
+         <tr>
+                  <td style="color:#FFFFFF">{% trans "Feedback Score" %}</td>
+                  <td style="color:#FFFF00">{{ feedback.normalize }} </td>
+         </tr>
+                  
+         <tr>
+                    <td style="color:#FFFFFF">{% trans "Account Created On" %}</td>
+                  <td style="color:#FFFF00">{{ created }}</td>
+         </tr>
+                    <tr>
+                    <td style="color:#FFFFFF">{% trans "Last Online" %}</td>
+                  <td style="color:#FFFF00">{{ last_on }}</td>
+         </tr>
+        </tbody>
+</table>
+
+</div>
+<a href="{% url 'update_profile' country token security_code crypto %}" class="btn btn-success btn-sm" style="color:#000000; width:300px;">{% trans "Edit/Update Profile" %}</a>
+<br>
+{% endblock %}                 

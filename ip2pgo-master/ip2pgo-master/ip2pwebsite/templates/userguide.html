@@ -1,0 +1,28 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+
+   <section id="services">
+
+
+		<h2 style=" text-align:center; margin-top:200px;padding-bottom:50px; color:#00FF00;">{% trans "USER GUIDE " %}</h2>				
+                       <h2 style=" text-align:center;color:#FFFFFF; font-size:20px;" >{% trans "Please click this icon below to download the User Guide. " %}</h2>
+                           <br>
+                         {% if request.path == '/en-us/userguide/' %}
+                         <a href="{% static "userguide/IP2PGO_User_Guide_V2.1-English.pdf" %}" download>
+                         {% elif request.path == '/zh-hans/userguide/' %}
+                         <a href="{% static "userguide/IP2PGO_User_Guide_V2.1-China.pdf" %}" download>
+                         {% elif request.path == '/id/userguide/' %}
+                         <a href="{% static "userguide/IP2PGO_User_Guide_Indonesia.pdf" %}" download>
+                         {% endif %}
+                         <img style="margin-left: auto;margin-right: auto;display: block;" width="100px" height="100px" src="{% static "userguide.ico" %}">
+                         </a>
+                                   
+
+   </section> <!-- end home -->
+
+    {% include "footer.html" %}
+{% endblock %}
+

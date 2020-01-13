@@ -1,0 +1,49 @@
+{% extends "base2.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<br><br><br><br><br><br><br><br>
+<script>
+    var i =0;
+    var images = [];
+    var time = 3000;
+    
+    {% if request.path == '/en-us/' %}
+    images[0] = '{% static "images/carouselImage/carouselEng.jpg" %}';
+    images[1] = '{% static "images/carouselImage/speedyEng.jpg" %}';
+    images[2] = '{% static "images/carouselImage/simpleEng.jpg" %}';
+    images[3] = '{% static "images/carouselImage/secureEng.jpg" %}';
+    {% elif request.path == '/id/' %}
+    images[0] = '{% static "images/carouselImage/carouselIndo.jpg" %}';
+    images[1] = '{% static "images/carouselImage/speedyIndo.jpg" %}';
+    images[2] = '{% static "images/carouselImage/simpleIndo.jpg" %}';
+    images[3] = '{% static "images/carouselImage/secureIndo.jpg" %}';
+    {% elif request.path == '/zh-hans/' %}
+    images[0] = '{% static "images/carouselImage/carouselCny.jpg" %}';
+    images[1] = '{% static "images/carouselImage/speedyCny.jpg" %}';
+    images[2] = '{% static "images/carouselImage/simpleCny.jpg" %}';
+    images[3] = '{% static "images/carouselImage/secureCny.jpg" %}' ;
+    {% endif %}
+
+    function changeImg(){
+      document.slide.src = images[i];
+
+      if(i < images.length - 1){
+        i++;
+
+
+      } else {
+       i = 0;
+     }
+
+   setTimeout("changeImg()", time);
+
+}
+
+  window.onload = changeImg;
+</script>
+
+<img class="img-responsive" name = "slide" width="1000" height="600">
+
+
+{% endblock %}

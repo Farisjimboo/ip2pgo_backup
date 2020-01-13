@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+{% load widget_tweaks %}
+<h6><strong>{% trans "Create Your Offer" %}</strong></h6>
+<div class="row">
+{% if token == "SCC" %}
+<div class="col text-white" style="font-size:10px">1000{{ token }}/{{ currency }}<br>{% trans "Spot Ask <br> Price" %}</div>
+<div class="col text-white" style="font-size:10px">1000{{ token }}/{{ currency }}<br>{% trans "Spot <br> Price" %} </div>
+<div class="col text-white" style="font-size:10px">1000{{ token }}/{{ currency }}<br>{% trans "Spot Bid <br> Price" %}</div>
+{% else %}
+<div class="col text-white" style="font-size:10px">1{{ token }}/{{ currency }}<br>{% trans "Spot Ask <br> Price" %}</div>
+<div class="col text-white" style="font-size:10px">1{{ token }}/{{ currency }}<br>{% trans "Spot <br> Price" %} </div>
+<div class="col text-white" style="font-size:10px">1{{ token }}/{{ currency }}<br>{% trans "Spot Bid <br> Price" %}</div>
+{% endif %}
+</div>
+<div class="row">
+<div class="col text-warning"><strong>{{ price_ask }}</strong></div>
+<div class="col text-warning"><h6><strong>{{ price_spot }}</strong></h6></div>
+{% if token == 'ICO' %}
+<div class="col text-warning"><strong>--</strong></div>
+{% else %}
+<div class="col text-warning"><strong>{{ price_bid }}</strong></div>
+{% endif %}
+</div>
+
+<div class="row" style="margin-bottom:10px">
+
+<div class="col-4">
+   {% if token != '1CT' %}
+  <a href="{% url 'create_sell_offer' country token security_code %}">
+   {% if country in english %}
+  <img src="{% static 'logo/sell_offer.PNG' %}" width="65px">
+   {% elif country in chinese %}
+  <img src="{% static 'button/create_sell_offer-cn.PNG' %}" width="65px">
+   {% elif country == 'id' %}
+  <img src="{% static 'button/create_sell_offer-id.PNG' %}" width="65px">
+   {% elif country == 'vn' %}
+  <img src="{% static 'buttonvietnam/create_sell-vn.PNG' %}" width="65px">
+   {% endif %}
+  </a>
+  {% endif %}
+</div>
+<div class="col">
+</div>
+<div class="col-2">
+   {% if token == '1CT' %}
+   {% if ico %}
+  <a href="{% url 'create_sell_offer' country token security_code %}">
+   {% if country in english %}
+  <img src="{% static 'logo/sell_offer.PNG' %}" width="65px">
+   {% elif country in chinese %}
+  <img src="{% static 'button/create_sell_offer-cn.PNG' %}" width="65px">
+   {% elif country == 'id' %}
+  <img src="{% static 'button/create_sell_offer-id.PNG' %}" width="65px">
+   {% elif country == 'vn' %}
+  <img src="{% static 'buttonvietnam/create_sell-vn.PNG' %}" width="65px">
+   {% endif %}
+   {% endif %}
+  </a>
+  {% endif %}
+</div>
+
+<div class="col"></div>
+<div class="col-4">
+ {% if token != '1CT' %}
+  <a href="{% url 'create_buy_offer' country token security_code %}">
+  {% if country in english %}
+  <img src="{% static 'logo/buy_offer.PNG' %}" width="65px">
+  {% elif country in chinese %}
+  <img src="{% static 'button/create_buy_offer-cn.PNG' %}" width="65px">
+  {% elif country == 'id' %}
+  <img src="{% static 'button/create_buy_offer-id.PNG' %}" width="65px">
+  {% elif country == 'vn' %}
+  <img src="{% static 'buttonvietnam/create_buy-vn.PNG' %}" width="65px">
+   {% endif %}
+  </a>
+{% endif %}
+</div>
+</div>
+<p>
+<h6 class="align-middle"><strong>{% trans "My Active Trades " %}</strong>
+<a href="{% url 'order_list' country token security_code %}">
+<img src="{% static 'logo/refreshingsm.png' %}" width="25px">
+</a>
+</h6>
+</p>
+
+{% for list in taken %}
+<div class="row" style="border-bottom: 1px solid yellow">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <strong><span class="text-white">{{ list.offer_id }}</span>
+         {% trans "Time" %}</strong>: {{ list.datetime }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5">
+        <strong>{% trans "Offer Price" %}{{ token }}</strong><br>
+        <strong>{% trans "Trade Amount" %}</strong><br>
+        <strong>{% trans "Status" %}</strong>
+      </div>
+      <div class="col text-white align-top">
+        {{ list.fiat }}<br>
+        {{ list.amount }}<br>
+        {% if list.dispute %}
+            <span class="text-danger">{% trans "DISPUTE" %}</span>
+        {% else %}
+            {% trans "TRADE" %}
+        {% endif %}
+      </div>
+      <div class="col align-middle">
+        {% if list.dispute %}
+          <a href="{% url 'chat' country token security_code list.offer_id %}">
+           {% if country in english %}
+            <img src="{% static 'logo/trade.PNG' %}" width="50px">
+           {% elif country in chinese %}
+           <img src="{% static 'button/trade-cn.PNG' %}" width="50px">
+           {% elif country == 'id' %}
+           <img src="{% static 'button/trade-id.PNG' %}" width="50px">
+           {% elif country == 'vn' %}
+           <img src="{% static 'buttonvietnam/trade-vn.PNG' %}" width="50px">
+           {% endif %}
+          </a>
+        {% else %} 
+          <a href="{% url 'payment_confirm' country list.token security_code list.offer_id %}">
+            {% if country in english %}
+            <img src="{% static 'logo/trade.PNG' %}" width="50px">
+            {% elif  country in chinese %}
+            <img src="{% static 'button/trade-cn.PNG' %}" width="50px">
+            {% elif country == 'id' %}
+           <img src="{% static 'button/trade-id.PNG' %}" width="50px">
+            {% elif country == 'vn' %}
+           <img src="{% static 'buttonvietnam/trade-vn.PNG' %}" width="50px">
+             {% endif %}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+<p>
+<h6 class="align-middle"><strong>{% trans "My Current Orders" %}</strong>
+<a href="{% url 'order_list' country token security_code %}">
+<img src="{% static 'logo/refreshingsm.png' %}" width="25px">
+</a>
+</h6>
+</h6>
+</p>
+{% for list in buy_offers %}
+<div class="row" style="border-bottom: 1px solid yellow">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <strong><span class="text-white">{{ list.offer_id }}</span>
+        : {% trans "Time" %}</strong>: {{ list.datetime }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5">
+        <strong>{% trans "Offer Price/ 1" %}{{ token }}</strong><br>
+        <strong>{% trans "Offer Amount" %}</strong><br>
+        <strong>{% trans "Status" %}</strong>
+      </div>
+      <div class="col text-white">
+        {{ list.price }}<br>
+        {{ list.minimum }} - {{ list.maximum }}<br>
+        {{ list.status }}
+      </div>
+      <div class="col align-middle">
+        <a href="{% url 'editing' country token security_code 'buy' list.offer_id %}">
+          {% if country in english %}
+          <img src="{% static 'logo/buy.PNG' %}" width="50px">
+          {% elif country in chinese %}
+           <img src="{% static 'button/edit_buy_offer-cn.PNG' %}" width="50px">
+          {% elif country == 'id' %}
+           <img src="{% static 'button/edit_buy_offer-id.PNG' %}" width="50px">
+          {% elif country == 'vn' %}
+           <img src="{% static 'buttonvietnam/edit_buy-vn.PNG' %}" width="50px">
+          {% endif %}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% for list in sell_offers %}
+<div class="row" style="border-bottom: 1px solid yellow">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <strong><span class="text-white">{{ list.offer_id }}</span>
+        :{% trans " Time" %}</strong>: {{ list.datetime }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5">
+        <strong>{% trans "Offer Price/ " %}1{{ token }}</strong><br>
+        <strong>{% trans "Offer Amount" %}</strong><br>
+        <strong>{% trans "Status" %}</strong>
+      </div>
+      <div class="col text-white">
+        {{ list.price }}<br>
+        {{ list.minimum }} - {{ list.maximum }}<br>
+        {{ list.status }}
+      </div>
+      <div class="col align-middle">
+        <a href="{% url 'editing' country token security_code 'sell' list.offer_id %}">
+          {% if country in english %}
+          <img src="{% static 'logo/sell.PNG' %}" width="50px">
+           {% elif country in chinese %}
+           <img src="{% static 'button/edit_sell_offer-cn.PNG' %}" width="50px">
+           {% elif country == 'id' %}
+           <img src="{% static 'button/edit_sell_offer-id.PNG' %}" width="50px">
+           {% elif country == 'vn' %}
+           <img src="{% static 'buttonvietnam/edit_sell-vn.PNG' %}" width="50px">
+           {% endif %}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}

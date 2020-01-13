@@ -1,0 +1,93 @@
+{% extends "loginbase.html" %}
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block content %}
+{% load widget_tweaks %}
+
+<div id="overlay"></div>
+<br><br><br>
+  <div align="center" >
+  <img src="{% static "icon/logo_web.PNG" %}"  width="350" height="200">
+  
+  </div><br>
+<div class="container">
+<h3 align="center">{% trans "Login" %}</h3>
+</div>
+<br>
+<div class = "container"> 
+<form method ="post" align="center">
+ {% csrf_token %}
+ {{ login_form.email.label }}
+    {% render_field login_form.email class="form-control form-control-sm" style="background-color:#000000; border:1px solid green; color:white" %}<br>
+
+{{ login_form.code.label }}
+    {% render_field login_form.code class="form-control form-control-sm" style="background-color:#000000; border:1px solid green; color:white" %}<br>
+
+     <span style="font-size: 17px; color:#FFFFFF;">{% trans "Forget your passcode? Click" %}</span>
+   {% if country == 'my' %}
+   <a style="color:#91DC5B; font-size: 17px" href="http://my.ip2pgo.com/en-us/app/my">here</a>
+   {% elif country == 'cn' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://ip2pgo.com/zh-hans/app/cn">这里</a>
+   {% elif country == 'id' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://id.ip2pgo.com/id/app/id">di sini</a>
+   {% elif country == 'au' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://au.ip2pgo.com/en-us/app/au">here</a>
+   {% elif country == 'vn' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://vn.ip2pgo.com/vi/app/vn">đây</a>
+   {% elif country == 'ng' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://ng.ip2pgo.com/en-us/app/ng">here</a>
+   {% elif country == 'gh' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://gh.ip2pgo.com/en-us/app/gh">here</a>
+   {% elif country == 'za' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://za.ip2pgo.com/en-us/app/za">here</a>
+   {% elif country == 'tz' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://tz.ip2pgo.com/en-us/app/tz">here</a>
+   {% elif country == 'bw' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://bw.ip2pgo.com/en-us/app/bw">here</a>
+    {% elif country == 'otc' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://otc.ip2pgo.com/en-us/app/otc">here</a>
+    {% elif country == 'ph' %}
+    <a style="color:#91DC5B; font-size: 17px" href="http://ph.ip2pgo.com/en-us/app/ph">here</a>
+    {% endif %}
+
+       <br><br>
+         <p><input onclick="on()"  class="btn-success" style="border-radius: 30px; height:50px;width:150px; font-weight:bold" type="submit" name="login" value={% trans "Continue" %} /></p>
+   </form>
+
+
+   <span style="font-size: 15px">{% trans "Don't have an account? Click the button below to register" %}</span><br>
+   <div class="btn btn-success">
+       {% if country == 'my' %}
+       <a  style="color:white;" href="https://my.ip2pgo.com/en-us/registration/my">Register</a>
+      {% elif country == 'au' %}
+      <a  style="color:white;" href="https://au.ip2pgo.com/en-us/registration/au">Register</a>
+      {% elif country == 'ng' %} 
+      <a  style="color:white;" href="https://ng.ip2pgo.com/en-us/registration/ng">Register</a>
+      {% elif country == 'gh' %}
+      <a  style="color:white;" href="https://gh.ip2pgo.com/en-us/registration/gh">Register</a>
+      {% elif country == 'za' %}
+      <a  style="color:white;" href="https://za.ip2pgo.com/en-us/registration/za">Register</a>
+      {% elif country == 'tz' %}
+      <a  style="color:white;" href="https://tz.ip2pgo.com/en-us/registration/tz">Register</a>
+      {% elif country == 'bw' %}
+      <a  style="color:white;" href="https://bw.ip2pgo.com/en-us/registration/bw">Register</a>
+      {% elif country == 'vn' %}
+      <a  style="color:white;" href="https://vn.ip2pgo.com/vi/registration/vn">Ghi danh</a>
+      {% elif country == 'cn-wb' %}
+      <a  style="color:white;" href="https://ip2pgo.com/zh-hans/registration/cn-wb">寄存器</a>
+      {% elif country == 'cn' %}
+      <a  style="color:white;" href="https://ip2pgo.com/zh-hans/registration/cn">寄存器</a>
+      {% elif country == 'id' %}
+      <a  style="color:white;" href="https://id.ip2pgo.com/id/registration/id">Daftar</a>
+      {% elif country == 'otc' %}
+      <a  style="color:white;" href="https://bw.ip2pgo.com/en-us/registration/bw">Register</a>
+      {% elif country == 'ph' %}
+      <a  style="color:white;" href="https://ph.ip2pgo.com/en-us/registration/ph">Register</a>
+      {% endif %}
+       </div>
+</div>
+
+
+
+{% endblock %}

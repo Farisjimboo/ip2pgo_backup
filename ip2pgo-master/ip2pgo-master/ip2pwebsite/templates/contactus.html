@@ -1,0 +1,41 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+{% include "header.html" %}
+<section id="contact">
+<div class="overlay"></div>
+  <div class="row narrow section-intro with-bottom-sep animate-this">
+    <div class="col-twelve">
+    </div>
+  </div> <!-- end section-intro -->
+
+    <div class="row contact-content">
+     <div class="col-full tab-full animate-this">
+
+      <h3 style="color:#00FF00; text-align: center; font-size:35px;">{% trans "Send Us A Message" %}</h3>
+      <br><br>
+      </div>
+      <form  method="POST" >
+        <div class="form-group">
+          {% csrf_token %}
+         {{ form.name.label }}
+         {% render_field form.name class="form-control form-control-sm" style="background-color:#000000; border:none; border-bottom:1px solid green; color:white" %}<br>
+         {{ form.from_email.label }}
+         {% render_field form.from_email class="form-control form-control-sm" style="background-color:#000000; border:none;border-bottom:1px solid green; color:white" %}<br>
+         {{ form.message.label }}
+         {% render_field form.message class="form-control form-control-sm" style="background-color:#000000; border:none;border-bottom:1px solid green; color:white" %}<br>
+
+<p><input onclick="SpinnerLoad()" class="btn btn-sm btn-block" style="background-color:#FFFF00; border-radius:15px; font-weight:bold" type="submit" name="submit" value={% trans "Send" %}></p>
+          </div>
+       </form>
+
+</div> <!-- end row contact-content -->
+
+</section> <!-- end contact -->
+                             
+{%  include "footer.html" %}
+{% endblock %}
+
+

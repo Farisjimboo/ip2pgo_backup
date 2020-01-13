@@ -1,0 +1,294 @@
+{% extends "base2.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+
+<section id="services">
+
+<div class="home-content-table">	
+  <div class="home-content-tablecell">
+    <div class="row">
+	<div class="services-list block-1-1 block-tab-full group">
+           <div class="bgrid service-item animate-this">
+		<h2 style="margin-top:40px;padding-bottom:50px; color:#00FF00;">
+		{% trans "FAQ " %}</h2>
+		<h3 style="color:#00FF00;text-align:left">{% trans "1. Getting started" %}</h3>
+		<h3 style="color:#FFFF00;text-align:left">{% trans "What is iP2PGo ?" %}</h3>
+	        <p>{% trans "IP2PGo is a crypto peer to peer marketplace, where users can buy and sell ETH and ERC20 tokens and pay and receive in fiat money (cash) via their bank accounts. " %}</p>
+                <h3 style="color:#FFFF00;text-align:left">{% trans "WHAT IF I DONT HAVE AN ANDROID DEVICE ?" %} </h3>
+                <p>{% trans "If you don’t have an Android phone or tablet, you can access iP2PGO Web App in your iPhone, iPad, MacBook, Laptop or PC, by going registering/login at" %} <a style="color:#FFFFFF;" href="https://ip2pgo.com/"> iP2PGO.com</a></p>
+		<h3 style="color:#FFFF00;text-align:left">{% trans "Is iP2PGo account free ?" %}</h3>
+		<p>{% trans "Yes, there is no fee or costs for opening an account with iP2PGo. " %}</p>
+		<h3 style="color:#FFFF00;text-align:left">{% trans "How do I download the iP2PGo App ?" %}</h3>
+		<p>{% trans "Please go to ip2pgo.com, click on register, enter your email and select the country where you live, check your email for the download link and click on the link to download the APK file." %}</p>
+	        <h3 style="color:#00FF00;text-align:left">{% trans "2. Using iP2PGo App" %}</h3>
+		<h3 style="color:#FFFF00;text-align:left">{% trans "How safe to trade the ETH / ERC20 tokens in iP2PGo ? " %}</h3>
+		<p>{% trans "It is very safe. " %}</p>
+		<p>{% trans "The ETH and ERC20 token trades are conducted via the Ethereum distributed computing network, which iP2PGo cannot and do not control. " %}</p>
+                <p>{% trans "When a seller enters into a transaction with a buyer, the seller transfers ETH or ERC20 tokens directly to an Escrow Smart Contract on the Ethereum blockchain. This Escrow Smart Contract is unique and created specially only for that particular transaction. Once the buyer transfer the funds to seller’s bank account and seller confirming it on the iP2PGo App, the Escrow Smart Contract will release the ETH or ERC20 tokens to the buyer’s wallet. " %}</p>
+                <p>{% trans "If the trade is smooth, only the buyer and seller can access and interact with the Escrow Smart Contract. iP2PGo can only access ETH or ERC20 tokens held in the Escrow Smart Contract if explicit digital permission is given by the buyer or seller and only in the event of a trade dispute and with a limited function of either releasing the ETH to the buyer or sending it back to the seller." %}</p>
+               <h3 style="color:#FFFF00;text-align:left">{% trans "What are the trading fee or fees ? How is it calculated ?" %}</h3>
+	       <p style="padding-left:20px">{% trans "For crypto/fiat transactions concluded through the iP2PGo app, iP2PGo will deduct:" %} <br>{% trans "I) a 0.80% fee on the value of the transaction." %}<br> {% trans "II) The gas fee charged by the Ethereum network."  %} </p>
+	       <p>{% trans "IP2PGo will deduct the fee from the ETH or ERC20 token which is the subject of the transaction." %}</p>
+	       <p>{% trans "A. The fee calculation for a Seller-taker on a buy-offer is as shown below:" %}</p>
+	       <table>
+               <tr>
+	       <th>{% trans "BUY OFFER" %}</th>
+	       <th></th>
+	       </tr>
+	       <tr>
+	       <td>{% trans "Buyer Username (Maker)" %}</td>
+	       <td>{% trans "Tom123" %}</td>
+	       </tr>
+	       <tr>
+	       <td>{% trans "Buy Offer Price (1ETH/MYR)" %}</td>
+	       <td>{% trans "MYR 1,980.67 *" %}</td>
+	       </tr>
+	       <tr>
+	       <td>{% trans "Buy Offer Amount" %}</td>
+	       <td>{% trans "1.0000 ETH" %}</td>
+               </tr>
+               <tr>
+		<td>{% trans "Seller Username (Taker)" %}</td>
+		<td>{% trans "Bob456" %}</td>
+		</tr>
+	        <tr>
+	        <td>{% trans "Sell Price (1ETH/MYR)" %}</td>
+		<td>{% trans "MYR 1980.67" %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "Sell Amount" %}</td>
+		<td>{% trans "1.0000 ETH" %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "Transaction Fee  0.8%" %}</td>
+		<td>{% trans "0.0080 ETH" %}</td>
+		</tr>
+		<tr>
+	        <td>{% trans "Gas Fee" %}</td>
+		<td>{% trans "0.0005 ETH **" %}</td>
+		</tr>
+		<tr>
+	        <td>{% trans "Total ETH deducted from wallet" %}</td>
+		<td>{% trans "1.0085 ETH ***" %}</td>
+		</tr>
+		</table>
+								
+	        <p style="padding-left:20px">{% trans    "This is the price shown in the Buy-Offer advertisement and the fiat amount that will be sent by the Buyer-maker to the Seller-taker’s bank account." %}<br>  {% trans  "This is the gas fee charged by the Ethereum network to conclude the transaction." %} <br> {% trans "The total ETH deducted from the Seller-taker’s exchange wallet is higher than the offer amount after including fees, therefore the Seller-taker must always deposit a higher amount than the amount he/she wanted to sell in order to take into account the transaction and gas fees." %}</p>
+
+      		<p>{% trans "  The total ETH deducted from the Seller-taker’s exchange wallet is higher than the offer amount after including fees, therefore the Seller-taker must always deposit a higher amount than the amount he/she wanted to sell in order to take into account the transaction and gas fees." %} </p>
+							
+
+		<p>{% trans "B . The fee calculation for a Buyer-taker on a sell-offer is as shown below:" %}</p>
+								
+		<table>
+		<tr>
+		<th>{% trans "SELL OFFER" %}</th>
+	        <th></th>
+		</tr>
+		<tr>
+		<td>{% trans "Seller Username (Maker)" %}</td>
+		<td>{% trans "Bob456" %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "Sell Offer Price (1ETH/MYR)" %}</td>
+		<td>{% trans "MYR 2,004.56 *" %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "Sell Offer Amount" %}</td>
+	        <td>{% trans "1.0000 ETH" %}</td>
+	        </tr>
+		<tr>
+		<td>{% trans "Buyer Username (Taker)" %}</td>
+                <td>{% trans "Tom123" %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "Buy Price (1ETH/MYR)" %}</td>
+	        <td>{% trans "MYR 2004.56" %}</td>
+	        </tr>
+		<tr>
+		<td>{% trans "Buy Amount" %}</td>
+		<td>{% trans "1.0000 ETH" %}</td>
+		</tr>
+	        <tr>
+		<td>{% trans "Transaction Fee  0.8%" %}</td>
+		<td>{% trans "0.0080 ETH" %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "Gas Fee" %}</td>
+		<td>{% trans "0.0005 ETH **" %}</td>
+		</tr>
+                <tr>
+		<td>{% trans "Total ETH credited to wallet" %}</td>
+		<td>{% trans "0.9915 ETH ***" %}</td>
+		</tr>
+		</table>
+								
+	        <p style="padding-left:20px">{% trans    "This is the price shown in the Sell-Offer advertisement and the fiat amount that will be sent by the Buyer-taker to the Seller-taker’s bank account." %} {% trans "This is the gas fee charged by the Ethereum network to conclude the transaction." %}  {% trans "The total ETH to be credited to the Buyer-taker’s wallet will be less than the amount bought since iP2PGo will deduct the transaction fee and the gas fee from it, therefore the Buyer-taker must always take note that he/she will received less in their wallet compared to the sell offer amount shown in the sell offer" %}</p>
+		<p>  {% trans "This is the gas fee charged by the Ethereum network to conclude the transaction. " %} </p>
+
+                <p>  {% trans "The total ETH to be credited to the Buyer-taker’s wallet will be less than the amount bought since iP2PGo will deduct the transaction fee and the gas fee from it, therefore the Buyer-taker must always take note that he/she will received less in their wallet compared to the sell offer amount shown in the sell offer." %} </p>
+
+                <p>{% trans "For crypto/crypto transactions, iP2PGO will deduct a fee of 0.1% from the maker and 0.2% from the taker." %} </p> 
+                <h3 style="color:#FFFF00;text-align:left">{% trans "How do I deposit into my iP2PGo wallet, is there any deposit fee ?" %}</h3>
+								 
+                <p>{% trans "Users can access his/her iP2PGo wallet address from the dashboard. Users can then send ETH or ERC20 tokens into their iP2PGo wallet. IP2PGo does not charge a deposit fee. " %}</p>
+
+		<h3 style="color:#FFFF00;text-align:left">{% trans "How do I withdraw from my iP2PGo wallet, is there any withdrawal fee ? " %}</h3>
+								 
+                <p>{% trans "Users can access the withdrawal page from his dashboard. Users can then send the ETH or ERC20 tokens from their iP2PGo wallet to any wallet, verified users will be charged a withdrawal fee of 0.005 ETH (or equivalent in other tokens) for any withdrawal, and unverified users will be charged a withdrawal fee equivalent to 0.01 ETH (or equivalent in other tokens)." %}</p>
+								 
+		<h3 style="color:#FFFF00;text-align:left">{% trans "Is there a minimum transaction amount ? Is there a minimum deposit amount ? Is there a minimum withdrawal amount ?" %}</h3>
+		<p>{% trans "The minimum transaction amount is 0.1 ETH or equivalent in ERC20 tokens. " %}</p>
+								 
+                <h3 style="color:#FFFF00;text-align:left">{% trans "How to buy ETH / ERC20 tokens with FIAT MONEY ?" %}</h3>
+								 
+                <p>{% trans "Look for sell-offer or you can create your own buy-offer and wait for seller to hit your offer." %}</p>
+								 
+                <table>
+		<tr>
+		<th>{% trans "Buyer-maker" %}</th>
+		<th>{% trans "Buyer-taker" %}</th>
+		</tr>
+		<tr>
+		<td>{% trans "1. Select the crypto you want to buy " %}</td>
+		<td>{% trans "1. Select the crypto you want to buy " %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "2. Set your spread at or below the Spot Bid Price by changing the sliding scale. Set your ceiling price (optional)." %}</td>
+		<td>{% trans "2. Select the sell-offer " %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "3. Enter the minimum and maximum amount you want to purchase." %}</td>
+		<td>{% trans "3. Enter the amount of ETH or ERC20 token that you want to purchase" %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "4. Select your bank" %}</td>
+		<td>{% trans "4. Click Buy" %}</td>
+		</tr>
+		<tr>
+	        <td>{% trans "5. Enter your bank account number" %}</td>
+		<td>{% trans "5. Enter you 6 digit passcode" %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "6. Enter you name as per the bank account" %}</td>
+		<td>{% trans "6. Transfer funds to the seller’s banking coordinates and confirm it by clicking on ‘I have paid’ button." %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "7. Select your payment window (15 minutes or 30 minutes) and create your buy-offer" %}</td>
+		<td>{% trans "7. Receives your ETH or ERC20 tokens before the payment window specified in the sell-offer ends." %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "8. Receive notification in the App or by email that your buy-offer has been taken, login to the App to see the seller-taker details" %}</td>
+	       <td></td>
+	       </tr>
+		<tr>
+		<td>{% trans "9. Transfer funds to the seller’s banking coordinates." %}</td>
+	        <td></td>
+		</tr>
+		<tr>
+		<td>{% trans "10. Receives your ETH or ERC20 tokens before the payment window specified in your buy-offer. " %}</td>
+		<td></td>
+		</tr>
+	        </table>
+								
+	        <h3 style="color:#FFFF00;text-align:left">{% trans "How to sell ETH / ERC20 tokens for fiat money ?" %}</h3>
+		<p>{% trans "Look for buy-offer or you can create your own sell-offer and wait for buyer to hit your offer." %}</p>
+								
+		 <table>
+		<tr>
+		<th>{% trans "Seller-maker" %}</th>
+	        <th>{% trans "Seller-taker" %}</th>
+		</tr>
+		<tr>
+		<td>{% trans "1. Select the crypto you want to sell  " %}</td>
+                <td>{% trans "1. Select the crypto you want to sell" %}</td>
+		</tr>
+	        <tr>
+		<td>{% trans "2. Deposit the ETH or ERC20 tokens into your iP2PGo wallet" %}</td>
+		<td>{% trans "2. Deposit the ETH or ERC20 tokens into your iP2PGo wallet " %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "3. Set your spread at or above the Spot Ask Price by changing the sliding scale. Set your floor price (optional)." %}</td>
+		<td>{% trans "3. Select the buy-offer " %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "4. Enter the minimum and maximum amount you want to sell." %}</td>
+	        <td>{% trans "4. Enter the amount of ETH or ERC20 token that you want to sell" %}</td>
+		</tr>
+		<tr>
+		<td>{% trans "5. Select your bank" %}</td>
+	        <td>{% trans "5. Click Sell" %}</td>
+		</tr>
+		<tr>
+                <td>{% trans "6. Enter your bank account number" %}</td>
+	        <td>{% trans "6. Enter you 6 digit passcode"%}</td>
+		</tr>
+		<tr>
+		<td>{% trans "7. Enter you name as per the bank account" %}</td>
+		<td>{% trans "7. Wait for funds from buyer and once received, confirm it by clicking on ‘I have received’ button." %}</td>
+		</tr>
+	        <tr>
+		<td>{% trans "8. Select your payment window (15 minutes or 30 minutes) and create your sell-offer" %}</td>
+		<td></td>
+		</tr>
+	        <tr>
+		<td>{% trans "9. Receive notification in the App or by email that your sell-offer has been taken, login to the App to see the buyer-taker details" %}</td>
+                <td></td>
+		 </tr>
+		<tr>
+		<td>{% trans "10. Wait for funds from the buyer and once received, confirm it by clicking ‘I have received’ button. " %}</td>
+		<td></td>
+		</tr>
+		</table>
+								
+	         <h3 style="color:#FFFF00;text-align:left">{% trans "How do I set my offer price ? What is a floor and ceiling price?" %}</h3>
+	         <p>{% trans "iP2PGo users may post offers to buy or sell ETH or ERC20 tokens in exchange for local currencies using the marketplace. Those that post offers (buy or sell) are called ‘Makers’." %}</p>
+							 
+		 <p>{% trans "All offers are based on good-till-cancel (“GTC”) basis. Makers will have to set their Offer Spread above/below the Spot ask/bid price by varying the spread scale. The bid and ask price is based on bittrex.com  " %}</p>
+		<p>{% trans "Unless the offer is cancelled manually by the Maker itself, the offer will still be valid irregardless of the ETH or ERC20 token future price movements, this is because the Maker offer is based on Spread above a moving market price rather than a fixed  absolute price. " %}</p>
+		<p>{% trans "As an option the Maker can also set additional floor (minimum) price (for sell offer) and a ceiling (maximum) price (for a buy offer). During the period where the Maker’s buy (bid) offer price of the ETH or ERC20 token increases above the ceiling price, the Maker’s buy offer will be suspended from the marketplace and will only be reinstated once his/her buy offer price drops again to and below the ceiling price (if not yet hit by a taker) and vice versa in the case for sell offer." %}</p>
+								
+		<p>{% trans "Examples of how this works are as shown below :" %}</p>
+
+
+               {% if request.path == '/en-us/faq/' %}
+               <img src= '{% static "images/faq.png" %}' width="2000px" height="1900px">
+               <img  src= '{% static "images/faq2.png" %}' width="2000px" height="1900px">
+               {% elif request.path == '/id/faq/' %}
+               <img src= '{% static "images/carouselImage/faqindo.jpg" %}' width="2000px" height="1900px">
+               <img  src= '{% static "images/carouselImage/faq2indo.jpg" %}' width="2000px" height="1900px">
+               {% elif request.path == '/zh-hans/faq/' %}
+               <img src= '{% static "images/faq1Cny.jpg" %}' width="2000px" height="1900px">
+               <img  src= '{% static "images/faq2Cny.jpg" %}' width="2000px" height="19000px">
+               {% elif request.path == '/vi/faq/' %}
+               <img src= '{% static "images/faq1-vn.jpg" %}' width="2000px" height="1900px">
+               <img  src= '{% static "images/faq2-vn.jpg" %}' width="2000px" height="1900px">
+               {% endif %}
+		
+							 	 
+	      <h3 style="color:#00FF00;text-align:left">{% trans "3. Security" %}</h3>
+	      <h3 style="color:#FFFF00;text-align:left">{% trans "How does iP2PGo store my ETH ?" %}</h3>
+	      <p>{% trans "IP2PGo store users’ ETH and ERC20 tokens in multiple holding wallets that can only be signed by our own executing wallet for all operations furthermore no private keys are available to be exported." %}</p>
+								
+	      <h3 style="color:#FFFF00;text-align:left">{% trans "Can the administrator access the escrow wallet ?" %}</h3>
+	      <p>{% trans "iP2PGo admin can only access ETH or ERC20 tokens held in the Escrow Smart Contract if explicit digital permission is given by the buyer or seller and only in the event of a trade dispute and with a limited function of either releasing the ETH to the buyer or sending it back to the seller." %}</p>
+             <h3 style="color:#FFFF00;text-align:left">{% trans "Can the administrator access my exchange wallet ?" %}</h3>
+	     <p>{% trans "The iP2PGo admin cannot transfer any amount from the user’s iP2PGo wallet, since the smart contract that runs the wallet has been programmed to only allow the user to execute any withdrawal command through his login.  " %}</p>
+							 
+							 
+	</div>
+ 
+      </div> 
+    </div> <!-- end row --> 
+
+
+  </div> <!-- end home-content-tablecell --> 		   
+</div> <!-- end home-content-table -->
+		
+
+   
+</section> <!-- end home -->
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base_rico.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+{% include "header.html" %}
+    <div class="col-full"><br><br><br><br><center>
+       <h5 style="color:#00FF00;font-size:30px; letter-spacing: 6px;  word-spacing: 5px;margin-top:40px" >{% trans "SUBSCRIPTION REGISTRATION" %}</h5></center>
+    </div>
+        <div align="center">
+         {% if message %}
+          <span>{{ message }}</span>
+            {% endif %}
+          <br>
+          <form method="POST">
+          {% csrf_token %}          
+          <span style="color:#ffffff;">{{ form.email.label }}</span>
+          {% render_field form.email class="form-control form-control-sm" style="background-color:#000000; border:1px solid green; color:white; width:700px;" %}
+          <span style="color:#ffffff;">{{ form.password.label }}</span>
+          {% render_field form.password class="form-control form-control-sm" style="background-color:#000000; border:1px solid green; color:white; width:700px;" %}
+          <span style="color:#ffffff;">{{ form.address.label }}</span>
+          {% render_field form.address class="form-control form-control-sm" style="background-color:#000000; border:1px solid green; color:white; width:700px;" %}
+          <span style="color:#ffffff;">{{ form.referral.label }}</span>
+          {% render_field form.referral class="form-control form-control-sm" style="background-color:#000000; border:1px solid green; color:white; width:700px;" %}
+          {{ form.referer }}
+          <span style="color:#ffffff;">{{ form.referer.label }}</span><br>
+          {{ form.verify }}
+          <span style="color:#ffffff;">{{ form.verify.label }}</span><br>
+
+          <p><input style="background-color:#00ff00; width:700px;" type="submit" class="btn btn-success col" name="register" value={% trans "Register" %} /></p>
+<span style="color:#ffffff">{% trans "If you have an iP2PGo account, make sure to register with the same email that you registered with the app." %}</span>
+
+          
+          </form>
+       </div>
+<center> 
+        <a style="color:#FFFF00;font-size:15px; letter-spacing: 1px;  word-spacing: 5px;margin-top:150px" >{% trans "As featured in:" %}</a><br>
+      <a href="https://www.initialcoinlist.com/ico/ip2pgo-token/"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/initial.jpeg" %} ></a>
+         <a href="https://icolink.com/ico-ip2pgo.html"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/link.png" %} ></a>
+         <a href="https://www.trackico.io/ico/ip2pgo-token/"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/track.jpeg" %} ></a>
+         <a href="https://icopicker.io/ip-2-pgo-token-ico-review"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/picker.jpg" %} ></a>
+       <a href="https://www.coinhills.com/ico/view/ip2pgo/"><img style="margin-right:30px" width="70px" height="70px" src={% static "img/coinhills.jpeg" %} ></a>
+
+      <a href="https://icobazaar.com/v2/ip2pgo-token"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/baazar.jpg" %} ></a>
+         <a href="https://icoholder.com/en/ip2pgo-token-29111"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/icoholder.jpg" %} ></a>
+         <a href="https://www.icochamps.com/ico/IP2PGO%20Token"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/champs.png" %} ></a>
+         <a href="https://baserank.io/profile/ip2pgo-token-go"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/rank.jpg" %} ></a>
+         <a href="https://cryptototem.com/ip2pgo-go-ico/"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/cryptotem.png" %} ></a>
+         <a href="https://www.prlog.org/12766809-ip2pgo-an-escrow-p2p-marketplace-is-launching-its-reverse-ico-on-1st-may-2019.html"><img style="margin-right:30px" width="100px" height="100px" src={% static "img/prlog.jpg" %} ></a>
+       <a href="https://coinworldstory.com/ip2pgo-token-ico-review-ip2pgo-app-is-an-escrow-p2p-marketplace/"><img style="margin-right:30px" width="70px" height="70px" src={% static "img/worldstory.jpg" %} ></a>
+    <a href="https://www.icoonboard.com/icodetail/IP2PGO%20token"><img style="margin-right:30px" width="70px" height="70px" src={% static "img/ico_onboard.jpg" %} ></a>
+        <a href="https://awesomeicos.com/icos/5220"><img style="margin-right:30px" width="70px" height="70px" src={% static "img/awesome_ico.jpg" %} ></a>
+        <a href="https://investfuture.ru/ico/ip2pgo-token"><img style="margin-right:30px" width="70px" height="70px" src={% static "img/investfuture.jpg" %} ></a>
+       
+</br><br><br><br>
+
+
+
+
+        <a style="color:#FFFF00;font-size:15px; letter-spacing: 1px;  word-spacing: 5px;margin-top:150px" >{% trans "IP2PGO Token is listed on:" %}</a><br>
+       <a href="https://www.coinchangex.com/#!/trade/GO-ETH"> <img style="margin-right:30px" width="140px" height="100px" src={% static "img/changex.png" %} ></a>
+        <a href="{% url 'register_country' %}"> <img style="margin-right:30px" width="60px" height="60px" src={% static "images/logo.png" %} ></a>
+        <a href="{% url 'country' %}"> <img style="margin-right:30px" width="80px" height="80px" src={% static "icon/logo_web.PNG" %} ></a>
+        <a href="https://tokenmom.com/exchange/GO-WETH"> <img style="margin-right:30px" width="140px" height="100px" src={% static "img/tokenmom.png" %} ></a>
+{% include "footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% load static %}
+{% load i18n %}
+<nav class="navbar navbar-dark fixed-bottom justify-content-center" style="background-color:#202020; bg-dark">
+
+      <div class="col-footer">
+       <a href="{% url 'profile' country token security_code %}">
+      <img class="align-bottom" src="{% static "logo/new_logo/profile.PNG" %}" ><br>
+      <span class="text-warning align-top" style="font-size:11px;" >{% trans "Profile" %}</span>
+      </a>
+      </div>
+      <div class="col-footer">
+      <a href="{% url 'support' country token security_code %}">
+      <img class="align-bottom" src="{% static "img/support_logo.PNG" %}" ><br>
+      <span class="text-warning align-top" style="font-size:11px;">{% trans "Support" %}</span>
+      </a>
+      </div>
+
+      <div class="col-footer">
+      <a href="{% url 'wallet' country token security_code %}">
+      <img class="align-bottom" src="{% static "img/wallet_logo.PNG" %}"><br>
+      <span class="text-warning align-top" style="font-size:11px;">{% trans "Wallet" %}</span>
+      </a>
+      </div>
+      <div class="col-footer">
+      <a href="{% url 'referral' country token security_code %}">
+      <img class="align-bottom" src="{% static "logo/new_logo/referral.PNG" %}"><br>
+      <span class="text-warning align-top" style="font-size:11px;">{% trans "Referral" %}</span>
+      </a>
+      </div>
+    </div>
+
+</nav>
